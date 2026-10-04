@@ -88,6 +88,7 @@ public final class ThreadClient {
         return value ^ (value >>> 16);
     }
 
+    /** Matches the central tease notices: outlined text over the world, no panel behind it. */
     private static void renderUnread(GuiGraphics graphics, int screenWidth, int screenHeight) {
         var pending = UnreadThreadList.select(cards, UnreadBadgeLayout.visibleRows(screenHeight));
         if (pending.empty()) return;
@@ -95,20 +96,34 @@ public final class ThreadClient {
         int keyWidth = Math.min(54, Math.max(14, Minecraft.getInstance().font.width(binding) + 8));
         int lines = pending.visible().size() + (pending.olderCount() > 0 ? 1 : 0);
         var layout = UnreadBadgeLayout.calculate(screenWidth, screenHeight, keyWidth, lines);
-        graphics.fill(layout.x()-1, layout.y()-1, layout.right()+1, layout.bottom()+1, 0xB0C6A15B);
-        graphics.fill(layout.x(), layout.y(), layout.right(), layout.bottom(), 0xE8121513);
         int textWidth = Math.max(1, layout.width() - 12);
-        graphics.drawString(Minecraft.getInstance().font, fit("Threads", Math.max(1, layout.keyX()-layout.x()-9)), layout.x()+6, layout.y()+5, 0xFFF0E5CE, false);
-        drawKeycap(graphics, binding, layout.keyX(), layout.y()+3, layout.keyWidth());
+        String key = fit(binding, layout.keyWidth());
+        drawOutlined(graphics, key, layout.right()-Minecraft.getInstance().font.width(key), layout.y()+3, 0xFFC6A15B);
+        drawTeaseLine(graphics, "Threads", layout.right()-Minecraft.getInstance().font.width(key)-5, layout.y()+3,
+            Math.max(1, layout.keyX()-layout.x()-9), 0xFFF0E5CE);
         for (int i = 0; i < pending.visible().size(); i++) {
             var card = pending.visible().get(i);
             var definition = ThreadArt.BY_ID.get(card.id());
             String shortName = definition == null ? card.title() : definition.shortTitle();
-            graphics.drawString(Minecraft.getInstance().font, fit(shortName, textWidth), layout.x()+6, layout.y()+21+i*12, 0xFFE0D4BB, false);
+            drawTeaseLine(graphics, shortName, layout.right(), layout.y()+21+i*12, textWidth, 0xFFE0D4BB);
         }
-        if (pending.olderCount() > 0) graphics.drawString(Minecraft.getInstance().font,
-            fit("+"+pending.olderCount()+" older", textWidth), layout.x()+6,
-            layout.y()+21+pending.visible().size()*12, 0xFFC6A15B, false);
+        if (pending.olderCount() > 0) drawTeaseLine(graphics,
+            "+"+pending.olderCount()+" older", layout.right(),
+            layout.y()+21+pending.visible().size()*12, textWidth, 0xFFC6A15B);
+    }
+
+    private static void drawTeaseLine(GuiGraphics graphics, String text, int right, int y, int maxWidth, int color) {
+        String fitted = fit(text, maxWidth);
+        drawOutlined(graphics, fitted, right - Minecraft.getInstance().font.width(fitted), y, color);
+    }
+
+    private static void drawOutlined(GuiGraphics graphics, String text, int x, int y, int color) {
+        var font = Minecraft.getInstance().font;
+        int outline = color & 0xFF000000;
+        for (int ox = -1; ox <= 1; ox++) for (int oy = -1; oy <= 1; oy++) {
+            if (ox != 0 || oy != 0) graphics.drawString(font, text, x+ox, y+oy, outline, false);
+        }
+        graphics.drawString(font, text, x, y, color, false);
     }
 
     private static String fit(String text, int maxWidth) {
@@ -117,14 +132,6 @@ public final class ThreadClient {
         if (font.width("…") > maxWidth) return "";
         while (!text.isEmpty() && font.width(text + "…") > maxWidth) text = text.substring(0, text.length()-1);
         return text + "…";
-    }
-
-    static void drawKeycap(GuiGraphics graphics,String binding,int x,int y,int width){
-        graphics.fill(x,y,x+width,y+13,0xE0C6A15B);
-        graphics.fill(x+1,y+1,x+width-1,y+12,0xF0121513);
-        String label=binding;
-        while(label.length()>1&&Minecraft.getInstance().font.width(label)>width-4)label=label.substring(0,label.length()-1);
-        graphics.drawCenteredString(Minecraft.getInstance().font,label,x+width/2,y+3,0xFFF0E5CE);
     }
 
     static void renderSealedPlate(GuiGraphics graphics,int x,int y,int width,int height,int suitColor,int aspectColor,int seed,boolean selected) {
