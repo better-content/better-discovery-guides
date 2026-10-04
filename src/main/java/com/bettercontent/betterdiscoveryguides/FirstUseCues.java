@@ -33,7 +33,7 @@ import java.util.UUID;
 
 /** One-time personal teaching cues; item and movement work follows relevant changes. */
 public final class FirstUseCues {
-    private static final String TIMER_KEY = "better_discovery_guides_onboarding_remaining";
+    private static final String TIMER_KEY = "better_discovery_guides_hand_axe_onboarding_remaining";
     private static final TagKey<net.minecraft.world.item.Item> FRUITS = TagKey.create(Registries.ITEM, new ResourceLocation("diet", "fruits"));
     private static final TagKey<net.minecraft.world.item.Item> VEGETABLES = TagKey.create(Registries.ITEM, new ResourceLocation("diet", "vegetables"));
     private static final Set<String> DRYABLE = Set.of("minecraft:beef", "minecraft:porkchop", "minecraft:chicken",

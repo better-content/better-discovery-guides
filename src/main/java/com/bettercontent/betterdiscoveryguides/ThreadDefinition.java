@@ -16,7 +16,7 @@ public record ThreadDefinition(String id,String conceptId,String owner,String ti
   if(topic==null||art==null||order<1||order>53)throw new IllegalArgumentException("invalid thread identity");
   bounded(event,MAX_TEXT,"event");bounded(cause,MAX_TEXT,"cause");bounded(action,MAX_TEXT,"action");
   recipeItems=List.copyOf(recipeItems);
-  if(recipeItems.size()>8||recipeItems.stream().distinct().count()!=recipeItems.size()||recipeItems.stream().anyMatch(i->ResourceLocation.tryParse(i)==null))throw new IllegalArgumentException("invalid recipe items");
+  if(recipeItems.size()>8||recipeItems.stream().distinct().count()!=recipeItems.size()||recipeItems.stream().anyMatch(i->i.length()>128||ResourceLocation.tryParse(i)==null))throw new IllegalArgumentException("invalid recipe items");
   discoveryRoutes=List.copyOf(discoveryRoutes);
   if(discoveryRoutes.isEmpty()||discoveryRoutes.stream().map(Route::id).distinct().count()!=discoveryRoutes.size())throw new IllegalArgumentException("invalid discovery routes");
  }
