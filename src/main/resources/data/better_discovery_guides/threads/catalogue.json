@@ -80,7 +80,7 @@
       "order": 5,
       "art": "better_discovery_guides:textures/gui/threads/make_backpack.png",
       "event": "You gathered straw by cutting grass with a knife.",
-      "cause": "Straw can become cloth and cord for a basic backpack.",
+      "cause": "A backpack gives you portable storage early in your journey.",
       "action": "Cut grass with a knife, then hover over the backpack below and use EMI to find its recipe.",
       "discovery_routes": [
         {
@@ -630,13 +630,13 @@
       "id": "machine_blocks_open_roots",
       "concept_id": "industry.machine_blocks_open_roots",
       "owner": "better-discovery-guides",
-      "title": "Millstone and Press Recipes Need Machine Blocks",
+      "title": "Begin with a Millstone or Press",
       "topic": "industry",
       "order": 30,
       "art": "better_discovery_guides:textures/gui/threads/machine_blocks_open_roots.png",
       "event": "You inspected a Millstone or Mechanical Press recipe.",
-      "cause": "These early Create machines depend on machine blocks and simple power. The recipe view shows the next materials to gather.",
-      "action": "Gather the machine block materials and make your first root machine.",
+      "cause": "These early Create machines turn hand work into repeatable processing when rotational power reaches them.",
+      "action": "Hover over either machine below and use EMI to inspect its recipe. Build one, then give it rotation.",
       "discovery_routes": [
         {
           "id": "machine_blocks_open_roots",

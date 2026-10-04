@@ -129,7 +129,7 @@ Trigger: You inspected a Millstone or Mechanical Press recipe.
 
 Composition: Millstone and Mechanical Press sketched as physical machines around a central sturdy machine block, with a material trail leading in.
 
-Teaching emphasis: These early Create machines depend on machine blocks and simple power. The recipe view shows the next materials to gather. Gather the machine block materials and make your first root machine.
+Teaching emphasis: These early Create machines turn hand work into repeatable processing when rotational power reaches them. Hover over either machine in the Thread and use EMI to inspect its recipe. Build one, then give it rotation.
 
 ### 30. Plan Sustained Rotation (`plan_sustained_rotation`)
 
