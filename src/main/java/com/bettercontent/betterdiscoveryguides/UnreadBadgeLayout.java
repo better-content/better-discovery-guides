@@ -1,20 +1,21 @@
 package com.bettercontent.betterdiscoveryguides;
 
-/** Geometry for the in-world unread Threads prompt. */
-record UnreadBadgeLayout(int plateX, int contentX, int contentWidth, boolean showLabel) {
-    private static final int PLATE_WIDTH = 18;
-    private static final int GAP = 5;
-    private static final int RIGHT_MARGIN = 6;
-
-    static UnreadBadgeLayout calculate(int screenWidth, int keyWidth, int labelWidth) {
-        int availableContent = Math.max(0, screenWidth - PLATE_WIDTH - GAP - RIGHT_MARGIN);
-        int contentWidth = Math.min(Math.max(keyWidth, labelWidth), availableContent);
-        int plateX = Math.max(0, screenWidth - PLATE_WIDTH - GAP - contentWidth - RIGHT_MARGIN);
-        return new UnreadBadgeLayout(plateX, plateX + PLATE_WIDTH + GAP, contentWidth,
-            labelWidth <= contentWidth);
+/** Geometry for the text-only in-world unread Threads prompt. */
+record UnreadBadgeLayout(int x, int y, int width, int height, int keyX, int keyWidth) {
+    static int visibleRows(int screenHeight) {
+        return Math.min(5, Math.max(1, (screenHeight - 38) / 12));
     }
 
-    int right() {
-        return contentX + contentWidth;
+    static UnreadBadgeLayout calculate(int screenWidth, int screenHeight, int keyWidth, int lines) {
+        int width = Math.min(180, Math.max(1, screenWidth - 12));
+        int height = 20 + Math.max(1, lines) * 12 + 4;
+        int x = Math.max(0, screenWidth - width - 6);
+        int y = Math.max(0, Math.min(screenHeight - height - 6, (screenHeight - height) / 2));
+        int actualKeyWidth = Math.min(keyWidth, Math.max(1, width - 12));
+        return new UnreadBadgeLayout(x, y, width, height, x + width - actualKeyWidth - 5, actualKeyWidth);
     }
+
+    int right() { return x + width; }
+
+    int bottom() { return y + height; }
 }

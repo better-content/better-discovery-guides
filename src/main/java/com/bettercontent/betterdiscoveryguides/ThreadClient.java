@@ -89,19 +89,34 @@ public final class ThreadClient {
     }
 
     private static void renderUnread(GuiGraphics graphics, int screenWidth, int screenHeight) {
-        long count = cards.stream().filter(card->card.known()&&card.unread()).count();
-        if (count == 0L) return;
-        var card = cards.stream().filter(c->c.known()&&c.unread()).findFirst().orElseThrow();
+        var pending = UnreadThreadList.select(cards, UnreadBadgeLayout.visibleRows(screenHeight));
+        if (pending.empty()) return;
         String binding = readerBinding().getString();
         int keyWidth = Math.min(54, Math.max(14, Minecraft.getInstance().font.width(binding) + 8));
-        int labelWidth = Minecraft.getInstance().font.width("Threads");
-        var layout = UnreadBadgeLayout.calculate(screenWidth, keyWidth, labelWidth);
-        int x = layout.plateX();
-        int y = Math.max(36, screenHeight / 2 - 14);
-        renderSealedPlate(graphics, x, y, 18, 27, ThreadTopic.parse(card.topic()).color(),card.aspect().isEmpty()?ARCHIVE_GOLD:ThreadAspect.parse(card.aspect()).color(), card.id().hashCode(), false);
-        graphics.drawString(Minecraft.getInstance().font, Long.toString(count), x + 13, y + 19, 0xFFF0E5CE, true);
-        drawKeycap(graphics, binding, layout.contentX(), y + 3, layout.contentWidth());
-        if (layout.showLabel()) graphics.drawString(Minecraft.getInstance().font, "Threads", layout.contentX(), y + 18, 0xFFE0D4BB, true);
+        int lines = pending.visible().size() + (pending.olderCount() > 0 ? 1 : 0);
+        var layout = UnreadBadgeLayout.calculate(screenWidth, screenHeight, keyWidth, lines);
+        graphics.fill(layout.x()-1, layout.y()-1, layout.right()+1, layout.bottom()+1, 0xB0C6A15B);
+        graphics.fill(layout.x(), layout.y(), layout.right(), layout.bottom(), 0xE8121513);
+        int textWidth = Math.max(1, layout.width() - 12);
+        graphics.drawString(Minecraft.getInstance().font, fit("Threads", Math.max(1, layout.keyX()-layout.x()-9)), layout.x()+6, layout.y()+5, 0xFFF0E5CE, false);
+        drawKeycap(graphics, binding, layout.keyX(), layout.y()+3, layout.keyWidth());
+        for (int i = 0; i < pending.visible().size(); i++) {
+            var card = pending.visible().get(i);
+            var definition = ThreadArt.BY_ID.get(card.id());
+            String shortName = definition == null ? card.title() : definition.shortTitle();
+            graphics.drawString(Minecraft.getInstance().font, fit(shortName, textWidth), layout.x()+6, layout.y()+21+i*12, 0xFFE0D4BB, false);
+        }
+        if (pending.olderCount() > 0) graphics.drawString(Minecraft.getInstance().font,
+            fit("+"+pending.olderCount()+" older", textWidth), layout.x()+6,
+            layout.y()+21+pending.visible().size()*12, 0xFFC6A15B, false);
+    }
+
+    private static String fit(String text, int maxWidth) {
+        var font = Minecraft.getInstance().font;
+        if (font.width(text) <= maxWidth) return text;
+        if (font.width("…") > maxWidth) return "";
+        while (!text.isEmpty() && font.width(text + "…") > maxWidth) text = text.substring(0, text.length()-1);
+        return text + "…";
     }
 
     static void drawKeycap(GuiGraphics graphics,String binding,int x,int y,int width){

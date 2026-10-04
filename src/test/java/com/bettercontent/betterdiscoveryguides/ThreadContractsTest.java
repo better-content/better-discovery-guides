@@ -11,7 +11,7 @@ final class ThreadContractsTest {
  private String id(){return ThreadArt.IDS.get(0);}
  @Test void catalogueDefines53CompleteExplanationsWithUniqueGlobalOrder(){
   assertEquals(53,ThreadArt.IDS.size());var orders=new HashSet<Integer>();var topics=new HashSet<ThreadTopic>();
-  for(var d:ThreadArt.BY_ID.values()){assertTrue(orders.add(d.order()));topics.add(d.topic());assertFalse(d.event().isBlank());assertFalse(d.cause().isBlank());assertFalse(d.action().isBlank());assertFalse(d.discoveryRoutes().isEmpty());assertTrue(d.discoveryRoutes().stream().allMatch(r->!r.producer().isBlank()));}
+  for(var d:ThreadArt.BY_ID.values()){assertTrue(orders.add(d.order()));topics.add(d.topic());assertFalse(d.shortTitle().isBlank());assertTrue(d.shortTitle().length()<=24);assertFalse(d.event().isBlank());assertFalse(d.cause().isBlank());assertFalse(d.action().isBlank());assertFalse(d.discoveryRoutes().isEmpty());assertTrue(d.discoveryRoutes().stream().allMatch(r->!r.producer().isBlank()));}
   assertEquals(java.util.stream.IntStream.rangeClosed(1,53).boxed().collect(java.util.stream.Collectors.toSet()),orders);assertEquals(Set.of(ThreadTopic.values()),topics);
  }
  @Test void definitionRejectsEmptyExplanationOrNoOutcomeRoutes()throws Exception{

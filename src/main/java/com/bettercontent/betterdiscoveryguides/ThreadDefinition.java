@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.Set;
 
 /** One committed outcome teaches one complete explanation. */
-public record ThreadDefinition(String id,String conceptId,String owner,String title,ThreadTopic topic,int order,
+public record ThreadDefinition(String id,String conceptId,String owner,String title,String shortTitle,ThreadTopic topic,int order,
  ThreadAspect aspect,ResourceLocation art,String event,String cause,String action,List<Route> discoveryRoutes,Doorway doorway){
  public static final int MAX_TEXT=512;
  public ThreadDefinition{
   if(id==null||!id.matches("[a-z0-9_]{1,48}"))throw new IllegalArgumentException("invalid thread id");
   bounded(title,64,"title");
+  bounded(shortTitle,24,"short title");
   if(!conceptId.matches("[a-z0-9_.]{3,80}")||!owner.matches("[a-z0-9_.-]{1,80}"))throw new IllegalArgumentException("invalid thread ownership");
   if(topic==null||art==null||order<1||order>53)throw new IllegalArgumentException("invalid thread identity");
   bounded(event,MAX_TEXT,"event");bounded(cause,MAX_TEXT,"cause");bounded(action,MAX_TEXT,"action");
@@ -31,7 +32,7 @@ public record ThreadDefinition(String id,String conceptId,String owner,String ti
   var routes=new java.util.ArrayList<Route>();
   json.getAsJsonArray("discovery_routes").forEach(e->{var r=e.getAsJsonObject();routes.add(new Route(string(r,"id"),string(r,"type"),string(r,"value"),string(r,"producer")));});
   String aspect=string(json,"aspect");
-  return new ThreadDefinition(string(json,"id"),string(json,"concept_id"),string(json,"owner"),string(json,"title"),ThreadTopic.parse(string(json,"topic")),json.get("order").getAsInt(),aspect.isEmpty()?null:ThreadAspect.parse(aspect),new ResourceLocation(string(json,"art")),string(json,"event"),string(json,"cause"),string(json,"action"),routes,doorway==null?null:new Doorway(string(doorway,"type"),string(doorway,"target")));
+  return new ThreadDefinition(string(json,"id"),string(json,"concept_id"),string(json,"owner"),string(json,"title"),string(json,"short_title"),ThreadTopic.parse(string(json,"topic")),json.get("order").getAsInt(),aspect.isEmpty()?null:ThreadAspect.parse(aspect),new ResourceLocation(string(json,"art")),string(json,"event"),string(json,"cause"),string(json,"action"),routes,doorway==null?null:new Doorway(string(doorway,"type"),string(doorway,"target")));
  }
  private static String string(JsonObject json,String key){return json.has(key)?json.get(key).getAsString():"";}
 }

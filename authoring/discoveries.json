@@ -28,7 +28,8 @@
         "positive": "You arrived at the starting world as a spectator.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Return Point"
     },
     {
       "id": "find_recipes_in_emi",
@@ -57,7 +58,8 @@
         "positive": "You have had a moment to get your bearings.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "EMI Recipes"
     },
     {
       "id": "first_hand_axe",
@@ -88,7 +90,8 @@
         "positive": "You inspected your first recipe in EMI.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "First Hand Axe"
     },
     {
       "id": "start_tinkers_tools",
@@ -117,7 +120,8 @@
         "positive": "You made a primitive hand axe.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Tinkers Tools"
     },
     {
       "id": "make_backpack",
@@ -146,13 +150,14 @@
         "positive": "The player acquired straw after cutting grass with a knife.",
         "negative": "An unrelated item or another player does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Backpack"
     },
     {
       "id": "returned_traces",
       "concept_id": "world.returned_traces",
       "owner": "better-player-traces",
-      "title": "Earlier Work Leaves Traces",
+      "title": "Your Earlier Work Left Recoverable Traces",
       "topic": "world",
       "order": 6,
       "art": "better_discovery_guides:textures/gui/threads/returned_traces.png",
@@ -175,13 +180,14 @@
         "positive": "You returned to traces of your earlier activity.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Work Traces"
     },
     {
       "id": "underground_pressure_builds",
       "concept_id": "world.underground_pressure_builds",
       "owner": "better-cave-encounters",
-      "title": "Underground Pressure Builds",
+      "title": "Cave Pressure Rose as You Spent Time Below",
       "topic": "world",
       "order": 7,
       "art": "better_discovery_guides:textures/gui/threads/underground_pressure_builds.png",
@@ -205,13 +211,14 @@
         "positive": "The underground pressure began to build.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Cave Pressure"
     },
     {
       "id": "cave_warning",
       "concept_id": "world.cave_warning",
       "owner": "better-cave-encounters",
-      "title": "An Underground Approach Was Announced",
+      "title": "An Approaching Cave Threat Was Announced",
       "topic": "world",
       "order": 8,
       "art": "better_discovery_guides:textures/gui/threads/cave_warning.png",
@@ -234,13 +241,14 @@
         "positive": "A cave encounter announced its approach toward you.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Cave Warning"
     },
     {
       "id": "hotstone_dangerous_ground",
       "concept_id": "world.hotstone_dangerous_ground",
       "owner": "better-discovery-guides",
-      "title": "Hotstone Is Dangerous Ground",
+      "title": "You Approached Hazardous Exposed Hotstone",
       "topic": "world",
       "order": 9,
       "art": "better_discovery_guides:textures/gui/threads/hotstone_dangerous_ground.png",
@@ -263,7 +271,8 @@
         "positive": "You approached exposed Hotstone.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Hotstone Hazard"
     },
     {
       "id": "transplanted_cultivar",
@@ -292,7 +301,8 @@
         "positive": "Your imported cultivar produced a harvest in the Overworld.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Foreign Cultivars"
     },
     {
       "id": "bring_planting_stock_home",
@@ -302,8 +312,8 @@
       "topic": "world",
       "order": 11,
       "art": "better_discovery_guides:textures/gui/threads/bring_planting_stock_home.png",
-      "event": "Wild Overworld vegetables left no planting seed.",
-      "cause": "Wild produce is food, not dependable planting stock. Bumblezone cultivars provide a seed line that can be replanted after mature uprooting.",
+      "event": "You found wild food without dependable planting stock.",
+      "cause": "Forage fruit and animal foods in the Overworld. Bumblezone cultivars provide dependable grain and vegetable seed lines for a farm.",
       "action": "Find Bumblezone planting stock and establish a farm at home.",
       "discovery_routes": [
         {
@@ -322,7 +332,8 @@
         "positive": "Wild Overworld vegetables left no planting seed.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Planting Stock"
     },
     {
       "id": "fruit_fuels_a_sprint",
@@ -333,7 +344,7 @@
       "order": 12,
       "art": "better_discovery_guides:textures/gui/threads/fruit_fuels_a_sprint.png",
       "event": "You ate your first fruit.",
-      "cause": "A varied diet matters: strong fruit nutrition supports sustained sprinting.",
+      "cause": "Orchard nutrition from fruit softens falls at 20%, improves movement, and unlocks a sprinting jump burst at 80%.",
       "action": "Pack fruit when you expect a long journey.",
       "discovery_routes": [
         {
@@ -351,7 +362,8 @@
         "positive": "You ate your first fruit.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Fruit Sprint"
     },
     {
       "id": "vegetables_buffer_exposure",
@@ -362,7 +374,7 @@
       "order": 13,
       "art": "better_discovery_guides:textures/gui/threads/vegetables_buffer_exposure.png",
       "event": "You ate your first vegetable.",
-      "cause": "Strong vegetable nutrition helps protect against temperature swings and knockback.",
+      "cause": "Garden nutrition from vegetables protects against temperature drift at 20% and knockback at 40%.",
       "action": "Keep vegetables in your travel food mix.",
       "discovery_routes": [
         {
@@ -380,7 +392,8 @@
         "positive": "You ate your first vegetable.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Vegetable Buffer"
     },
     {
       "id": "dry_food_for_journey",
@@ -409,7 +422,8 @@
         "positive": "You picked up food that can be dried.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Dry Rations"
     },
     {
       "id": "frozen_food",
@@ -438,19 +452,20 @@
         "positive": "The food you tried to eat was frozen.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Frozen Food"
     },
     {
       "id": "sugar_crash",
       "concept_id": "body.sugar_crash",
       "owner": "better-survival-physiology",
-      "title": "A Sugar Boost Became a Crash",
+      "title": "Sweetness Drained Your Nutrition",
       "topic": "body",
       "order": 16,
       "art": "better_discovery_guides:textures/gui/threads/sugar_crash.png",
-      "event": "Your sugar boost gave way to a metabolic crash.",
-      "cause": "Sugar provides a temporary boost, but its associated metabolic debt can outlast it. The crash is a resource state, not an injury.",
-      "action": "Let the debt recover and check your nutrition before adding more sugar.",
+      "event": "Sweetness drained one of your food groups below 20%.",
+      "cause": "Sweetness multiplies unlocked food benefits while hunger and nutrition drain rise exponentially. A group below 20% loses its first ability.",
+      "action": "Eat food for the depleted group before adding more sweetness.",
       "discovery_routes": [
         {
           "id": "sugar_crash",
@@ -473,7 +488,8 @@
         "positive": "Your sugar boost gave way to a metabolic crash.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Sugar Crash"
     },
     {
       "id": "heavy_blow",
@@ -484,7 +500,7 @@
       "order": 17,
       "art": "better_discovery_guides:textures/gui/threads/heavy_blow.png",
       "event": "Your prepared attack triggered Heavy Blow.",
-      "cause": "High protein nutrition can strengthen a rested, charged attack. Heavy Blow has a recovery interval before it can trigger again.",
+      "cause": "Sinew nutrition unlocks a heavy charged strike at 40%. It needs four seconds since the last attack and then a 12-second recovery.",
       "action": "Maintain protein nutrition and allow the attack to recover before relying on another heavy blow.",
       "discovery_routes": [
         {
@@ -506,18 +522,19 @@
         "positive": "Your prepared attack triggered Heavy Blow.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Nutrition Blow"
     },
     {
       "id": "work_rhythm",
       "concept_id": "body.work_rhythm",
       "owner": "better-survival-physiology",
-      "title": "Sustained Work Built a Rhythm",
+      "title": "Sustained Work Built a Stronger Rhythm",
       "topic": "body",
       "order": 18,
       "art": "better_discovery_guides:textures/gui/threads/work_rhythm.png",
       "event": "Your mining sequence reached full Work Rhythm.",
-      "cause": "High grain nutrition supports a mining rhythm that builds through successive valid breaks. A pause or unsuitable work interrupts the sequence.",
+      "cause": "Granary nutrition builds a mining rhythm through successive correct-tool breaks. At 60% the rhythm survives a five-second pause.",
       "action": "Keep suitable tools and provisions ready when planning a long mining session.",
       "discovery_routes": [
         {
@@ -539,13 +556,14 @@
         "positive": "Your mining sequence reached full Work Rhythm.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Work Rhythm"
     },
     {
       "id": "deep_reserve",
       "concept_id": "body.deep_reserve",
       "owner": "better-survival-physiology",
-      "title": "Deep Reserve Activated",
+      "title": "Nutrition Activated Your Deep Reserve",
       "topic": "body",
       "order": 19,
       "art": "better_discovery_guides:textures/gui/threads/deep_reserve.png",
@@ -572,7 +590,8 @@
         "positive": "Your nutritional reserve activated during resource depletion.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Deep Reserve"
     },
     {
       "id": "nutrition_cleanse",
@@ -605,7 +624,8 @@
         "positive": "Your nutrition removed a harmful status effect.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Nutrition Cleanse"
     },
     {
       "id": "deaths_door",
@@ -638,7 +658,8 @@
         "positive": "A hit exhausted your positive HP and left you injured.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Death's Door"
     },
     {
       "id": "ore_chunks_need_separation",
@@ -667,7 +688,8 @@
         "positive": "You extracted your first geological ore chunk.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Ore Separation"
     },
     {
       "id": "maintain_tinkers_tool",
@@ -696,7 +718,8 @@
         "positive": "Your assembled Tinkers tool is running low.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Tool Maintenance"
     },
     {
       "id": "alloy_in_smeltery",
@@ -725,7 +748,8 @@
         "positive": "You used a Melter or Smeltery.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Smeltery Alloy"
     },
     {
       "id": "alloy_created",
@@ -754,7 +778,8 @@
         "positive": "Your smeltery created alloy from component fluids.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Molten Alloy"
     },
     {
       "id": "lit_furnace_pollutes",
@@ -783,7 +808,8 @@
         "positive": "You opened a furnace before running it.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Furnace Pollution"
     },
     {
       "id": "gas_pollution",
@@ -812,7 +838,8 @@
         "positive": "Gas from your material escaped into the atmosphere.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Escaped Gas"
     },
     {
       "id": "radioactive_disturbance",
@@ -841,7 +868,8 @@
         "positive": "Your disturbance activated a radioactive material form.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Ore Emissions"
     },
     {
       "id": "radiogenic_heat",
@@ -870,13 +898,14 @@
         "positive": "Your thermal system accepted heat from radioactive material.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Radiogenic Heat"
     },
     {
       "id": "machine_blocks_open_roots",
       "concept_id": "industry.machine_blocks_open_roots",
       "owner": "better-discovery-guides",
-      "title": "Machine Blocks Open Root Machines",
+      "title": "Millstone and Press Recipes Need Machine Blocks",
       "topic": "industry",
       "order": 30,
       "art": "better_discovery_guides:textures/gui/threads/machine_blocks_open_roots.png",
@@ -901,7 +930,8 @@
         "positive": "You inspected a Millstone or Mechanical Press recipe.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Root Machines"
     },
     {
       "id": "plan_sustained_rotation",
@@ -930,13 +960,14 @@
         "positive": "You placed your first Millstone or Mechanical Press.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Plan Rotation"
     },
     {
       "id": "manual_work",
       "concept_id": "industry.manual_work",
       "owner": "compat.create",
-      "title": "Manual Rotation Completed Work",
+      "title": "Manual Rotation Powered a Machine",
       "topic": "industry",
       "order": 32,
       "art": "better_discovery_guides:textures/gui/threads/manual_work.png",
@@ -959,7 +990,8 @@
         "positive": "You ran your first Create machine by hand.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Manual Rotation"
     },
     {
       "id": "transmission_overload",
@@ -988,7 +1020,8 @@
         "positive": "Transmission overhead pushed your network beyond its capacity.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Transmission Load"
     },
     {
       "id": "coolant_recovery",
@@ -998,7 +1031,7 @@
       "topic": "industry",
       "order": 34,
       "art": "better_discovery_guides:textures/gui/threads/coolant_recovery.png",
-      "event": "Coolant exchange brought your exchanger’s heat buffer back into its safe range.",
+      "event": "Coolant exchange brought your exchanger\u2019s heat buffer back into its safe range.",
       "cause": "A working coolant exchanger converts fluid and transfers heat out of its buffer. Cooling that exchanger does not prove every connected machine is safe.",
       "action": "Keep coolant available and check the temperature of each connected machine.",
       "discovery_routes": [
@@ -1014,16 +1047,17 @@
         "adapter_sources": [
           "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/compat/bettercontent/HeatSyncThreads.java"
         ],
-        "positive": "Coolant exchange brought your exchanger’s heat buffer back into its safe range.",
+        "positive": "Coolant exchange brought your exchanger\u2019s heat buffer back into its safe range.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Coolant Recovery"
     },
     {
       "id": "electrical_work",
       "concept_id": "industry.electrical_work",
       "owner": "compat.powergrid",
-      "title": "Electricity Reached a Consumer",
+      "title": "Electricity Powered a Consumer",
       "topic": "industry",
       "order": 35,
       "art": "better_discovery_guides:textures/gui/threads/electrical_work.png",
@@ -1046,13 +1080,14 @@
         "positive": "You completed your first powered electrical operation.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Electric Work"
     },
     {
       "id": "precision_assembly",
       "concept_id": "industry.precision_assembly",
       "owner": "compat.create",
-      "title": "The Assembly Sequence Finished",
+      "title": "A Precision Assembly Sequence Finished",
       "topic": "industry",
       "order": 36,
       "art": "better_discovery_guides:textures/gui/threads/precision_assembly.png",
@@ -1075,13 +1110,14 @@
         "positive": "You completed a precision assembly.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Precision Assembly"
     },
     {
       "id": "anchored_work",
       "concept_id": "industry.anchored_work",
       "owner": "better-magic-chunk-anchors",
-      "title": "Your Work Continued While Away",
+      "title": "Your Anchored Machine Worked While You Were Away",
       "topic": "industry",
       "order": 37,
       "art": "better_discovery_guides:textures/gui/threads/anchored_work.png",
@@ -1104,7 +1140,8 @@
         "positive": "An anchored operation continued outside player loading range.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Anchored Work"
     },
     {
       "id": "ratlantis_starts_logistics",
@@ -1135,7 +1172,8 @@
         "positive": "You inspected the Courier Lattice or scalable pipe route.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Ratlantis Logistics"
     },
     {
       "id": "spirits_are_materials",
@@ -1164,7 +1202,8 @@
         "positive": "You acquired your first spirit.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Spirit Materials"
     },
     {
       "id": "trading_spirits",
@@ -1193,13 +1232,14 @@
         "positive": "You made first contact with a spirit trader.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Trading Spirits"
     },
     {
       "id": "authored_spell",
       "concept_id": "magic.authored_spell",
       "owner": "compat.ars_nouveau",
-      "title": "Your Spell Took Effect",
+      "title": "Your Authored Spell Took Effect",
       "topic": "magic",
       "order": 41,
       "art": "better_discovery_guides:textures/gui/threads/authored_spell.png",
@@ -1222,7 +1262,8 @@
         "positive": "You cast your first authored spell.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Spell Effect"
     },
     {
       "id": "relic_development",
@@ -1251,7 +1292,8 @@
         "positive": "A relic you used crossed a native development boundary.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Relic Growth"
     },
     {
       "id": "ruinous_mutation",
@@ -1280,7 +1322,8 @@
         "positive": "Your confirmed Ruinous Flux application resolved.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Ruinous Flux"
     },
     {
       "id": "find_dimensional_font",
@@ -1309,7 +1352,8 @@
         "positive": "Your first Tinkers tool is assembled.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Dimensional Font"
     },
     {
       "id": "font_trip_time_budget",
@@ -1338,13 +1382,14 @@
         "positive": "You approached a Dimensional Font.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Font Time Limit"
     },
     {
       "id": "font_travel",
       "concept_id": "travel.font_travel",
       "owner": "better-dimension-fonts",
-      "title": "A Font Transported You",
+      "title": "A Dimensional Font Transported You",
       "topic": "travel",
       "order": 46,
       "art": "better_discovery_guides:textures/gui/threads/font_travel.png",
@@ -1367,7 +1412,8 @@
         "positive": "A Font successfully transported you into its journey.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Font Travel"
     },
     {
       "id": "boats_break_into_parts",
@@ -1396,13 +1442,14 @@
         "positive": "You boarded a vanilla boat.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Boat Salvage"
     },
     {
       "id": "vessel_travel",
       "concept_id": "travel.vessel_travel",
       "owner": "compat.valkyrienskies",
-      "title": "Your Build Became a Vessel",
+      "title": "Your Build Became a Moving Vessel",
       "topic": "travel",
       "order": 48,
       "art": "better_discovery_guides:textures/gui/threads/vessel_travel.png",
@@ -1425,7 +1472,8 @@
         "positive": "You moved aboard your first vessel.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Vessel Travel"
     },
     {
       "id": "ratlantis_below_islands",
@@ -1454,7 +1502,8 @@
         "positive": "You arrived in Ratlantis.",
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Below Ratlantis"
     },
     {
       "id": "orbital_arrival",
@@ -1483,7 +1532,8 @@
         "positive": "Your tracked rocket journey arrived in Earth orbit.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Orbital Arrival"
     },
     {
       "id": "train_fuel_cost",
@@ -1512,13 +1562,14 @@
         "positive": "Your moving train consumed fuel above its ordinary-speed baseline.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Train Fuel Cost"
     },
     {
       "id": "beetle_route",
       "concept_id": "travel.beetle_route",
       "owner": "better-rail-beetle",
-      "title": "The Beetle Built Your Route",
+      "title": "A Rail Beetle Built Your Route",
       "topic": "travel",
       "order": 52,
       "art": "better_discovery_guides:textures/gui/threads/beetle_route.png",
@@ -1542,7 +1593,8 @@
         "positive": "Your Rail Beetle completed its first route.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
-      }
+      },
+      "short_title": "Beetle Route"
     },
     {
       "id": "lineage_successor",
@@ -1573,7 +1625,8 @@
         "positive": "You entered a verified successor of your existing lineage.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Dedicated-server lifecycle may be operated alone; integrated single-player lifecycle is future work."
-      }
+      },
+      "short_title": "Lineage Successor"
     }
   ]
 }

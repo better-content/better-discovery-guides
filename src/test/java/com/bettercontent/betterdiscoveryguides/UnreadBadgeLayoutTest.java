@@ -9,30 +9,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 final class UnreadBadgeLayoutTest {
     @Test
-    void reservesTheWiderThreadsLabelInsteadOfOnlyTheKeycap() {
-        var layout = UnreadBadgeLayout.calculate(427, 14, 42);
-        assertEquals(42, layout.contentWidth());
-        assertTrue(layout.showLabel());
-        assertTrue(layout.right() <= 421);
+    void showsFiveRowsOnSupportedHeights() {
+        assertEquals(5, UnreadBadgeLayout.visibleRows(160));
+        assertEquals(5, UnreadBadgeLayout.visibleRows(480));
+        assertEquals(2, UnreadBadgeLayout.visibleRows(64));
     }
 
     @Test
-    void staysInsideEachSupportedGuiWidthForShortAndLongBindings() {
-        for (int width : List.of(320, 427, 854, 1920)) {
+    void textPanelAndRemappedKeyStayInsideSupportedScreens() {
+        for (var size : List.of(new int[]{160, 160}, new int[]{320, 240}, new int[]{427, 240}, new int[]{854, 480})) {
             for (int keyWidth : List.of(14, 54)) {
-                var layout = UnreadBadgeLayout.calculate(width, keyWidth, 42);
-                assertTrue(layout.plateX() >= 0);
-                assertTrue(layout.right() <= width - 6);
-                assertTrue(layout.showLabel());
+                var layout = UnreadBadgeLayout.calculate(size[0], size[1], keyWidth, 6);
+                assertTrue(layout.x() >= 0);
+                assertTrue(layout.y() >= 0);
+                assertTrue(layout.right() <= size[0]);
+                assertTrue(layout.bottom() <= size[1]);
+                assertTrue(layout.keyX() >= layout.x());
+                assertTrue(layout.keyX() + layout.keyWidth() <= layout.right());
             }
         }
-    }
-
-    @Test
-    void suppressesTheLabelBeforeItCanOverflowAnUnsupportedNarrowViewport() {
-        var layout = UnreadBadgeLayout.calculate(64, 14, 42);
-        assertEquals(35, layout.contentWidth());
-        assertTrue(layout.right() <= 58);
-        assertTrue(!layout.showLabel());
     }
 }

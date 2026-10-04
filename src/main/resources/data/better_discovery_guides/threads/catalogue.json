@@ -1,5 +1,5 @@
 {
-  "schema": "bc.better_discovery_guides.cards.v1",
+  "schema": "bc.better_discovery_guides.cards.v2",
   "threads": [
     {
       "id": "choose_return_point",
@@ -19,7 +19,8 @@
           "value": "entered",
           "producer": "better-spawns"
         }
-      ]
+      ],
+      "short_title": "Return Point"
     },
     {
       "id": "find_recipes_in_emi",
@@ -39,7 +40,8 @@
           "value": "active_30_seconds",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "EMI Recipes"
     },
     {
       "id": "first_hand_axe",
@@ -59,7 +61,8 @@
           "value": "first_recipe",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "First Hand Axe"
     },
     {
       "id": "start_tinkers_tools",
@@ -79,7 +82,8 @@
           "value": "completed",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Tinkers Tools"
     },
     {
       "id": "make_backpack",
@@ -99,13 +103,14 @@
           "value": "first",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Backpack"
     },
     {
       "id": "returned_traces",
       "concept_id": "world.returned_traces",
       "owner": "better-player-traces",
-      "title": "Earlier Work Leaves Traces",
+      "title": "Your Earlier Work Left Recoverable Traces",
       "topic": "world",
       "order": 6,
       "art": "better_discovery_guides:textures/gui/threads/returned_traces.png",
@@ -119,13 +124,14 @@
           "value": "own_old_trace",
           "producer": "better-player-traces"
         }
-      ]
+      ],
+      "short_title": "Work Traces"
     },
     {
       "id": "underground_pressure_builds",
       "concept_id": "world.underground_pressure_builds",
       "owner": "better-cave-encounters",
-      "title": "Underground Pressure Builds",
+      "title": "Cave Pressure Rose as You Spent Time Below",
       "topic": "world",
       "order": 7,
       "art": "better_discovery_guides:textures/gui/threads/underground_pressure_builds.png",
@@ -139,13 +145,14 @@
           "value": "started",
           "producer": "better-cave-encounters"
         }
-      ]
+      ],
+      "short_title": "Cave Pressure"
     },
     {
       "id": "cave_warning",
       "concept_id": "world.cave_warning",
       "owner": "better-cave-encounters",
-      "title": "An Underground Approach Was Announced",
+      "title": "An Approaching Cave Threat Was Announced",
       "topic": "world",
       "order": 8,
       "art": "better_discovery_guides:textures/gui/threads/cave_warning.png",
@@ -159,13 +166,14 @@
           "value": "committed",
           "producer": "better-cave-encounters"
         }
-      ]
+      ],
+      "short_title": "Cave Warning"
     },
     {
       "id": "hotstone_dangerous_ground",
       "concept_id": "world.hotstone_dangerous_ground",
       "owner": "better-discovery-guides",
-      "title": "Hotstone Is Dangerous Ground",
+      "title": "You Approached Hazardous Exposed Hotstone",
       "topic": "world",
       "order": 9,
       "art": "better_discovery_guides:textures/gui/threads/hotstone_dangerous_ground.png",
@@ -179,7 +187,8 @@
           "value": "first",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Hotstone Hazard"
     },
     {
       "id": "transplanted_cultivar",
@@ -199,7 +208,8 @@
           "value": "overworld",
           "producer": "better-bumblezone-crops"
         }
-      ]
+      ],
+      "short_title": "Foreign Cultivars"
     },
     {
       "id": "bring_planting_stock_home",
@@ -219,7 +229,8 @@
           "value": "first",
           "producer": "better-bumblezone-crops"
         }
-      ]
+      ],
+      "short_title": "Planting Stock"
     },
     {
       "id": "fruit_fuels_a_sprint",
@@ -239,7 +250,8 @@
           "value": "fruit",
           "producer": "better-survival-physiology"
         }
-      ]
+      ],
+      "short_title": "Fruit Sprint"
     },
     {
       "id": "vegetables_buffer_exposure",
@@ -259,7 +271,8 @@
           "value": "vegetable",
           "producer": "better-survival-physiology"
         }
-      ]
+      ],
+      "short_title": "Vegetable Buffer"
     },
     {
       "id": "dry_food_for_journey",
@@ -279,7 +292,8 @@
           "value": "first",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Dry Rations"
     },
     {
       "id": "frozen_food",
@@ -299,7 +313,8 @@
           "value": "frozen_use_rejected",
           "producer": "better-industrial-heat"
         }
-      ]
+      ],
+      "short_title": "Frozen Food"
     },
     {
       "id": "sugar_crash",
@@ -323,7 +338,8 @@
       "doorway": {
         "type": "diet",
         "target": "nutrition"
-      }
+      },
+      "short_title": "Sugar Crash"
     },
     {
       "id": "heavy_blow",
@@ -347,13 +363,14 @@
       "doorway": {
         "type": "diet",
         "target": "nutrition"
-      }
+      },
+      "short_title": "Nutrition Blow"
     },
     {
       "id": "work_rhythm",
       "concept_id": "body.work_rhythm",
       "owner": "better-survival-physiology",
-      "title": "Sustained Work Built a Rhythm",
+      "title": "Sustained Work Built a Stronger Rhythm",
       "topic": "body",
       "order": 18,
       "art": "better_discovery_guides:textures/gui/threads/work_rhythm.png",
@@ -371,13 +388,14 @@
       "doorway": {
         "type": "diet",
         "target": "nutrition"
-      }
+      },
+      "short_title": "Work Rhythm"
     },
     {
       "id": "deep_reserve",
       "concept_id": "body.deep_reserve",
       "owner": "better-survival-physiology",
-      "title": "Deep Reserve Activated",
+      "title": "Nutrition Activated Your Deep Reserve",
       "topic": "body",
       "order": 19,
       "art": "better_discovery_guides:textures/gui/threads/deep_reserve.png",
@@ -395,7 +413,8 @@
       "doorway": {
         "type": "diet",
         "target": "nutrition"
-      }
+      },
+      "short_title": "Deep Reserve"
     },
     {
       "id": "nutrition_cleanse",
@@ -419,7 +438,8 @@
       "doorway": {
         "type": "diet",
         "target": "nutrition"
-      }
+      },
+      "short_title": "Nutrition Cleanse"
     },
     {
       "id": "deaths_door",
@@ -443,7 +463,8 @@
       "doorway": {
         "type": "body",
         "target": "self"
-      }
+      },
+      "short_title": "Death's Door"
     },
     {
       "id": "ore_chunks_need_separation",
@@ -463,7 +484,8 @@
           "value": "acquired",
           "producer": "better-ore-geology"
         }
-      ]
+      ],
+      "short_title": "Ore Separation"
     },
     {
       "id": "maintain_tinkers_tool",
@@ -483,7 +505,8 @@
           "value": "first",
           "producer": "tconstruct"
         }
-      ]
+      ],
+      "short_title": "Tool Maintenance"
     },
     {
       "id": "alloy_in_smeltery",
@@ -503,7 +526,8 @@
           "value": "first",
           "producer": "tconstruct"
         }
-      ]
+      ],
+      "short_title": "Smeltery Alloy"
     },
     {
       "id": "alloy_created",
@@ -523,7 +547,8 @@
           "value": "tconstruct",
           "producer": "compat.tconstruct"
         }
-      ]
+      ],
+      "short_title": "Molten Alloy"
     },
     {
       "id": "lit_furnace_pollutes",
@@ -543,7 +568,8 @@
           "value": "first",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Furnace Pollution"
     },
     {
       "id": "gas_pollution",
@@ -563,7 +589,8 @@
           "value": "released",
           "producer": "better-chemlib-hazards"
         }
-      ]
+      ],
+      "short_title": "Escaped Gas"
     },
     {
       "id": "radioactive_disturbance",
@@ -583,7 +610,8 @@
           "value": "activated",
           "producer": "better-chemlib-hazards"
         }
-      ]
+      ],
+      "short_title": "Ore Emissions"
     },
     {
       "id": "radiogenic_heat",
@@ -603,13 +631,14 @@
           "value": "accepted",
           "producer": "better-chemlib-hazards"
         }
-      ]
+      ],
+      "short_title": "Radiogenic Heat"
     },
     {
       "id": "machine_blocks_open_roots",
       "concept_id": "industry.machine_blocks_open_roots",
       "owner": "better-discovery-guides",
-      "title": "Machine Blocks Open Root Machines",
+      "title": "Millstone and Press Recipes Need Machine Blocks",
       "topic": "industry",
       "order": 30,
       "art": "better_discovery_guides:textures/gui/threads/machine_blocks_open_roots.png",
@@ -623,7 +652,8 @@
           "value": "root_machine",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Root Machines"
     },
     {
       "id": "plan_sustained_rotation",
@@ -643,13 +673,14 @@
           "value": "first",
           "producer": "create"
         }
-      ]
+      ],
+      "short_title": "Plan Rotation"
     },
     {
       "id": "manual_work",
       "concept_id": "industry.manual_work",
       "owner": "compat.create",
-      "title": "Manual Rotation Completed Work",
+      "title": "Manual Rotation Powered a Machine",
       "topic": "industry",
       "order": 32,
       "art": "better_discovery_guides:textures/gui/threads/manual_work.png",
@@ -663,7 +694,8 @@
           "value": "hand_crank",
           "producer": "compat.create"
         }
-      ]
+      ],
+      "short_title": "Manual Rotation"
     },
     {
       "id": "transmission_overload",
@@ -683,7 +715,8 @@
           "value": "overloaded",
           "producer": "better-create-kinetic-loss"
         }
-      ]
+      ],
+      "short_title": "Transmission Load"
     },
     {
       "id": "coolant_recovery",
@@ -703,13 +736,14 @@
           "value": "safe",
           "producer": "better-industrial-heat"
         }
-      ]
+      ],
+      "short_title": "Coolant Recovery"
     },
     {
       "id": "electrical_work",
       "concept_id": "industry.electrical_work",
       "owner": "compat.powergrid",
-      "title": "Electricity Reached a Consumer",
+      "title": "Electricity Powered a Consumer",
       "topic": "industry",
       "order": 35,
       "art": "better_discovery_guides:textures/gui/threads/electrical_work.png",
@@ -723,13 +757,14 @@
           "value": "generated_transmitted_consumed",
           "producer": "compat.powergrid"
         }
-      ]
+      ],
+      "short_title": "Electric Work"
     },
     {
       "id": "precision_assembly",
       "concept_id": "industry.precision_assembly",
       "owner": "compat.create",
-      "title": "The Assembly Sequence Finished",
+      "title": "A Precision Assembly Sequence Finished",
       "topic": "industry",
       "order": 36,
       "art": "better_discovery_guides:textures/gui/threads/precision_assembly.png",
@@ -743,13 +778,14 @@
           "value": "create:precision_mechanism",
           "producer": "compat.create"
         }
-      ]
+      ],
+      "short_title": "Precision Assembly"
     },
     {
       "id": "anchored_work",
       "concept_id": "industry.anchored_work",
       "owner": "better-magic-chunk-anchors",
-      "title": "Your Work Continued While Away",
+      "title": "Your Anchored Machine Worked While You Were Away",
       "topic": "industry",
       "order": 37,
       "art": "better_discovery_guides:textures/gui/threads/anchored_work.png",
@@ -763,7 +799,8 @@
           "value": "remote_progress",
           "producer": "better-magic-chunk-anchors"
         }
-      ]
+      ],
+      "short_title": "Anchored Work"
     },
     {
       "id": "ratlantis_starts_logistics",
@@ -783,7 +820,8 @@
           "value": "better_ratlantis_logistics",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Ratlantis Logistics"
     },
     {
       "id": "spirits_are_materials",
@@ -803,7 +841,8 @@
           "value": "first",
           "producer": "malum"
         }
-      ]
+      ],
+      "short_title": "Spirit Materials"
     },
     {
       "id": "trading_spirits",
@@ -823,13 +862,14 @@
           "value": "first",
           "producer": "better-spirit-commerce"
         }
-      ]
+      ],
+      "short_title": "Trading Spirits"
     },
     {
       "id": "authored_spell",
       "concept_id": "magic.authored_spell",
       "owner": "compat.ars_nouveau",
-      "title": "Your Spell Took Effect",
+      "title": "Your Authored Spell Took Effect",
       "topic": "magic",
       "order": 41,
       "art": "better_discovery_guides:textures/gui/threads/authored_spell.png",
@@ -843,7 +883,8 @@
           "value": "ars_nouveau",
           "producer": "compat.ars_nouveau"
         }
-      ]
+      ],
+      "short_title": "Spell Effect"
     },
     {
       "id": "relic_development",
@@ -863,7 +904,8 @@
           "value": "*",
           "producer": "compat.relics"
         }
-      ]
+      ],
+      "short_title": "Relic Growth"
     },
     {
       "id": "ruinous_mutation",
@@ -883,7 +925,8 @@
           "value": "resolved",
           "producer": "better-tinkers-loot-affixes"
         }
-      ]
+      ],
+      "short_title": "Ruinous Flux"
     },
     {
       "id": "find_dimensional_font",
@@ -903,7 +946,8 @@
           "value": "assembled",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Dimensional Font"
     },
     {
       "id": "font_trip_time_budget",
@@ -923,13 +967,14 @@
           "value": "first",
           "producer": "better-dimension-fonts"
         }
-      ]
+      ],
+      "short_title": "Font Time Limit"
     },
     {
       "id": "font_travel",
       "concept_id": "travel.font_travel",
       "owner": "better-dimension-fonts",
-      "title": "A Font Transported You",
+      "title": "A Dimensional Font Transported You",
       "topic": "travel",
       "order": 46,
       "art": "better_discovery_guides:textures/gui/threads/font_travel.png",
@@ -943,7 +988,8 @@
           "value": "depart",
           "producer": "better-dimension-fonts"
         }
-      ]
+      ],
+      "short_title": "Font Travel"
     },
     {
       "id": "boats_break_into_parts",
@@ -963,13 +1009,14 @@
           "value": "first",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Boat Salvage"
     },
     {
       "id": "vessel_travel",
       "concept_id": "travel.vessel_travel",
       "owner": "compat.valkyrienskies",
-      "title": "Your Build Became a Vessel",
+      "title": "Your Build Became a Moving Vessel",
       "topic": "travel",
       "order": 48,
       "art": "better_discovery_guides:textures/gui/threads/vessel_travel.png",
@@ -983,7 +1030,8 @@
           "value": "carried",
           "producer": "compat.valkyrienskies"
         }
-      ]
+      ],
+      "short_title": "Vessel Travel"
     },
     {
       "id": "ratlantis_below_islands",
@@ -1003,7 +1051,8 @@
           "value": "first",
           "producer": "better-discovery-guides"
         }
-      ]
+      ],
+      "short_title": "Below Ratlantis"
     },
     {
       "id": "orbital_arrival",
@@ -1023,7 +1072,8 @@
           "value": "creatingspace:earth_orbit",
           "producer": "compat.creatingspace"
         }
-      ]
+      ],
+      "short_title": "Orbital Arrival"
     },
     {
       "id": "train_fuel_cost",
@@ -1043,13 +1093,14 @@
           "value": "speed_scaled",
           "producer": "better-create-train-fuel"
         }
-      ]
+      ],
+      "short_title": "Train Fuel Cost"
     },
     {
       "id": "beetle_route",
       "concept_id": "travel.beetle_route",
       "owner": "better-rail-beetle",
-      "title": "The Beetle Built Your Route",
+      "title": "A Rail Beetle Built Your Route",
       "topic": "travel",
       "order": 52,
       "art": "better_discovery_guides:textures/gui/threads/beetle_route.png",
@@ -1063,7 +1114,8 @@
           "value": "route_complete",
           "producer": "better-rail-beetle"
         }
-      ]
+      ],
+      "short_title": "Beetle Route"
     },
     {
       "id": "lineage_successor",
@@ -1083,7 +1135,8 @@
           "value": "successor",
           "producer": "better-world-management"
         }
-      ]
+      ],
+      "short_title": "Lineage Successor"
     }
   ]
 }
