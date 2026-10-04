@@ -56,7 +56,7 @@ public final class FirstUseCues {
         if (player.isSpectator()) once(player, "choose_return_point", "first_spectator_spawn", "entered");
         inspectInventory(player);
         inspectProximity(player, true);
-        if (!ThreadPlayerState.get(player).known.contains("find_recipes_in_emi")) {
+        if (!ThreadPlayerState.get(player).known.contains("first_hand_axe")) {
             CompoundTag saved = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
             int remaining = saved.contains(TIMER_KEY) ? saved.getInt(TIMER_KEY) : 600;
             if (remaining > 0) schedule(player, remaining);
@@ -85,7 +85,7 @@ public final class FirstUseCues {
             ACTIVE_TIMERS.remove(timer.player());
             ServerPlayer player = event.getServer().getPlayerList().getPlayer(timer.player());
             if (player == null) continue;
-            once(player, "find_recipes_in_emi", "onboarding_elapsed", "active_30_seconds");
+            once(player, "first_hand_axe", "onboarding_elapsed", "active_30_seconds");
             saveRemaining(player, 0);
         }
     }

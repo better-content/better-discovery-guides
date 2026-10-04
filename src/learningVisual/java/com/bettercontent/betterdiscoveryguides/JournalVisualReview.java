@@ -33,7 +33,7 @@ public final class JournalVisualReview {
   var mc=Minecraft.getInstance();if(++frame>=frames.size()){System.out.println("JOURNAL_VISUAL complete frames="+frames.size());mc.stop();return;}
   var f=frames.get(frame);mc.options.guiScale().set(f.scale());mc.resizeDisplay();mc.setScreen(f.screen().get());ticks=0;capturing=false;
  }
- private static ThreadNetwork.Card card(ThreadDefinition d,boolean known,boolean unread,long order){var door=d.doorway();return new ThreadNetwork.Card(d.id(),d.conceptId(),d.title(),d.topic().id(),d.order(),d.aspect()==null?"":d.aspect().id(),d.art().toString(),known,known&&unread,known&&unread,known?d.event():"",known?d.cause():"",known?d.action():"",!known||door==null?"":door.type(),!known||door==null?"":door.target(),known?1:0,known?0:-1,known?0:-1,order,"");}
+ private static ThreadNetwork.Card card(ThreadDefinition d,boolean known,boolean unread,long order){var door=d.doorway();return new ThreadNetwork.Card(d.id(),d.conceptId(),d.title(),d.topic().id(),d.order(),d.aspect()==null?"":d.aspect().id(),d.art().toString(),known,known&&unread,known&&unread,known?d.event():"",known?d.cause():"",known?d.action():"",known?d.recipeItems():List.of(),!known||door==null?"":door.type(),!known||door==null?"":door.target(),known?1:0,known?0:-1,known?0:-1,order,"");}
  private static void prepare(){
   var definitions=ThreadArt.BY_ID.values().stream().sorted(Comparator.comparingInt(ThreadDefinition::order)).toList();
   String body=definitions.stream().filter(d->d.topic()==ThreadTopic.BODY&&d.id().contains("frozen")).findFirst().orElseThrow().id();
@@ -56,7 +56,7 @@ public final class JournalVisualReview {
    add("04-last-returns-journal"+suffix,scale,()->reader,JournalVisualReview::continueButton);
    add("05-partial-journal-four-known"+suffix,scale,()->new ThreadDeckScreen(history),s->{});
    add("06-empty-journal"+suffix,scale,()->new ThreadDeckScreen(List.of()),s->{});
-   add("07-skip-animation-stays-"+body+suffix,scale,()->new ThreadDeckScreen(cards),s->s.keyPressed(GLFW.GLFW_KEY_SPACE,0,0));
+   add("07-immediate-next-card-"+industry+suffix,scale,()->new ThreadDeckScreen(cards),s->s.keyPressed(GLFW.GLFW_KEY_SPACE,0,0));
    add("08-explanation-bottom"+suffix,scale,()->new ThreadDeckScreen(history,body),s->{for(int i=0;i<30;i++)s.keyPressed(GLFW.GLFW_KEY_PAGE_DOWN,0,0);});
    add("09-lessons"+suffix,scale,()->new LearningLibraryScreen(history),s->{});
    add("10-lesson-detail"+suffix,scale,()->new LearningLibraryScreen(history,"movement"),s->{});

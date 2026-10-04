@@ -32,36 +32,6 @@
       "short_title": "Return Point"
     },
     {
-      "id": "find_recipes_in_emi",
-      "concept_id": "world.find_recipes_in_emi",
-      "owner": "better-discovery-guides",
-      "title": "Find Recipes in EMI",
-      "topic": "world",
-      "order": 2,
-      "art": "better_discovery_guides:textures/gui/threads/find_recipes_in_emi.png",
-      "event": "You have had a moment to get your bearings.",
-      "cause": "EMI shows recipes and uses for the items around you. It is the quickest way to investigate a new material.",
-      "action": "Open your inventory, focus an item, and inspect its recipe and uses in EMI.",
-      "discovery_routes": [
-        {
-          "id": "find_recipes_in_emi",
-          "type": "onboarding_elapsed",
-          "value": "active_30_seconds",
-          "producer": "better-discovery-guides"
-        }
-      ],
-      "scene": "An empty inventory worktable with three unlabelled material fragments connected by fine copper lines to a ghostly finished tool; no letters, numbers, or interface.",
-      "evidence": {
-        "adapter_sources": [
-          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/FirstUseCues.java"
-        ],
-        "positive": "You have had a moment to get your bearings.",
-        "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
-        "solo": "Requires no second player."
-      },
-      "short_title": "EMI Recipes"
-    },
-    {
       "id": "first_hand_axe",
       "concept_id": "world.first_hand_axe",
       "owner": "better-discovery-guides",
@@ -69,29 +39,30 @@
       "topic": "world",
       "order": 3,
       "art": "better_discovery_guides:textures/gui/threads/first_hand_axe.png",
-      "event": "You inspected your first recipe in EMI.",
-      "cause": "A primitive hand axe gets the first wood before a full tool station exists. Rock, flint, or bone can form the head; hanging roots offer an underground handle route.",
-      "action": "Use EMI to assemble a hand axe, then gather the wood for Tinkers stations.",
+      "event": "You have had a moment to get your bearings.",
+      "cause": "A primitive hand axe gets the first wood before a full tool station exists. EMI shows how to make it and what its materials are used for.",
+      "action": "Hover over the hand axe below and use your EMI recipe control. Craft one, then gather wood for Tinkers stations.",
       "discovery_routes": [
         {
           "id": "first_hand_axe",
-          "type": "emi_recipe_closed",
-          "value": "first_recipe",
+          "type": "onboarding_elapsed",
+          "value": "active_30_seconds",
           "producer": "better-discovery-guides"
         }
       ],
       "scene": "Loose rock, flint, bone, a slender handle and hanging roots arranged around an unfinished hand axe on a rough timber stump; no hands or UI.",
       "evidence": {
         "adapter_sources": [
-          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/EmiInspectionClient.java",
-          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/ThreadNetwork.java",
-          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/EmiRecipeClient.java"
+          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/FirstUseCues.java"
         ],
-        "positive": "You inspected your first recipe in EMI.",
-        "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
+        "positive": "You spent 30 active seconds in the world.",
+        "negative": "Time outside active play and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "First Hand Axe"
+      "short_title": "First Hand Axe",
+      "recipe_items": [
+        "tconstruct:hand_axe"
+      ]
     },
     {
       "id": "start_tinkers_tools",
@@ -121,7 +92,11 @@
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "Tinkers Tools"
+      "short_title": "Tinkers Tools",
+      "recipe_items": [
+        "tconstruct:part_builder",
+        "tconstruct:tinker_station"
+      ]
     },
     {
       "id": "make_backpack",
@@ -132,8 +107,8 @@
       "order": 5,
       "art": "better_discovery_guides:textures/gui/threads/make_backpack.png",
       "event": "You gathered straw by cutting grass with a knife.",
-      "cause": "Four straw make canvas, and three straw make string. Eight canvas and one string make a basic backpack.",
-      "action": "Cut grass with a knife, craft canvas and string, then make a backpack in your crafting grid.",
+      "cause": "Straw can become cloth and cord for a basic backpack.",
+      "action": "Cut grass with a knife, then hover over the backpack below and use EMI to find its recipe.",
       "discovery_routes": [
         {
           "id": "make_backpack",
@@ -151,7 +126,10 @@
         "negative": "An unrelated item or another player does not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "Backpack"
+      "short_title": "Backpack",
+      "recipe_items": [
+        "sophisticatedbackpacks:backpack"
+      ]
     },
     {
       "id": "returned_traces",
@@ -689,7 +667,10 @@
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "Ore Separation"
+      "short_title": "Ore Separation",
+      "recipe_items": [
+        "createsifter:string_mesh"
+      ]
     },
     {
       "id": "maintain_tinkers_tool",
@@ -931,7 +912,11 @@
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "Root Machines"
+      "short_title": "Root Machines",
+      "recipe_items": [
+        "create:millstone",
+        "create:mechanical_press"
+      ]
     },
     {
       "id": "plan_sustained_rotation",
@@ -961,7 +946,10 @@
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "Plan Rotation"
+      "short_title": "Plan Rotation",
+      "recipe_items": [
+        "create:hand_crank"
+      ]
     },
     {
       "id": "manual_work",
@@ -991,7 +979,10 @@
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "Manual Rotation"
+      "short_title": "Manual Rotation",
+      "recipe_items": [
+        "create:hand_crank"
+      ]
     },
     {
       "id": "transmission_overload",
@@ -1031,7 +1022,7 @@
       "topic": "industry",
       "order": 34,
       "art": "better_discovery_guides:textures/gui/threads/coolant_recovery.png",
-      "event": "Coolant exchange brought your exchanger\u2019s heat buffer back into its safe range.",
+      "event": "Coolant exchange brought your exchanger’s heat buffer back into its safe range.",
       "cause": "A working coolant exchanger converts fluid and transfers heat out of its buffer. Cooling that exchanger does not prove every connected machine is safe.",
       "action": "Keep coolant available and check the temperature of each connected machine.",
       "discovery_routes": [
@@ -1047,7 +1038,7 @@
         "adapter_sources": [
           "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/compat/bettercontent/HeatSyncThreads.java"
         ],
-        "positive": "Coolant exchange brought your exchanger\u2019s heat buffer back into its safe range.",
+        "positive": "Coolant exchange brought your exchanger’s heat buffer back into its safe range.",
         "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
         "solo": "Requires no second player."
       },
@@ -1173,7 +1164,10 @@
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "Ratlantis Logistics"
+      "short_title": "Ratlantis Logistics",
+      "recipe_items": [
+        "better_ratlantis_logistics:courier_lattice"
+      ]
     },
     {
       "id": "spirits_are_materials",

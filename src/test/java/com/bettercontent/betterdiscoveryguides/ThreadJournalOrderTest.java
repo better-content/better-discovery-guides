@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 final class ThreadJournalOrderTest {
- private ThreadNetwork.Card card(ThreadDefinition d,long order,boolean unread){return new ThreadNetwork.Card(d.id(),d.conceptId(),d.title(),d.topic().id(),d.order(),"",d.art().toString(),true,unread,true,d.event(),d.cause(),d.action(),"","",1,0,0,order,"");}
+ private ThreadNetwork.Card card(ThreadDefinition d,long order,boolean unread){return new ThreadNetwork.Card(d.id(),d.conceptId(),d.title(),d.topic().id(),d.order(),"",d.art().toString(),true,unread,true,d.event(),d.cause(),d.action(),d.recipeItems(),"","",1,0,0,order,"");}
  @Test void continueCrossesFiltersAndReturnsNoCardAfterLastUnread(){
   var world=ThreadArt.BY_ID.values().stream().filter(d->d.topic()==ThreadTopic.WORLD).findFirst().orElseThrow();
   var body=ThreadArt.BY_ID.values().stream().filter(d->d.topic()==ThreadTopic.BODY).findFirst().orElseThrow();

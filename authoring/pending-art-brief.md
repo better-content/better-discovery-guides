@@ -19,7 +19,7 @@ Composition: A quiet high view over three possible camp sites, one marked by a s
 
 Teaching emphasis: Your first chosen personal return point matters before permanent play begins. Beds later will not move it. Scout a safe place, choose your return point, then finalize your class.
 
-### 2. Find Recipes in EMI (`find_recipes_in_emi`)
+### 2. Retired: Find Recipes in EMI (`find_recipes_in_emi`)
 
 Trigger: You have had a moment to get your bearings.
 
@@ -29,7 +29,7 @@ Teaching emphasis: EMI shows recipes and uses for the items around you. It is th
 
 ### 3. Make a First Hand Axe (`first_hand_axe`)
 
-Trigger: You inspected your first recipe in EMI.
+Trigger: You spent 30 active seconds in the world.
 
 Composition: Loose rock, flint, bone, a slender handle and hanging roots arranged around an unfinished hand axe on a rough timber stump; no hands or UI.
 

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 final class UnreadThreadListTest {
     private ThreadNetwork.Card card(ThreadDefinition d, long order, boolean unread) {
         return new ThreadNetwork.Card(d.id(), d.conceptId(), d.title(), d.topic().id(), d.order(), "",
-            d.art().toString(), true, unread, true, d.event(), d.cause(), d.action(), "", "",
+            d.art().toString(), true, unread, true, d.event(), d.cause(), d.action(), d.recipeItems(), "", "",
             1, 0, 0, order, "");
     }
 

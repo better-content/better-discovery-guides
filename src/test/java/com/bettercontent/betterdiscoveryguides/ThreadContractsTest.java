@@ -9,10 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class ThreadContractsTest {
  private String id(){return ThreadArt.IDS.get(0);}
- @Test void catalogueDefines53CompleteExplanationsWithUniqueGlobalOrder(){
-  assertEquals(53,ThreadArt.IDS.size());var orders=new HashSet<Integer>();var topics=new HashSet<ThreadTopic>();
+ @Test void catalogueDefines52CompleteExplanationsWithUniqueGlobalOrder(){
+  assertEquals(52,ThreadArt.IDS.size());var orders=new HashSet<Integer>();var topics=new HashSet<ThreadTopic>();
+  assertFalse(ThreadArt.BY_ID.containsKey("find_recipes_in_emi"));
+  var axe=ThreadArt.BY_ID.get("first_hand_axe");assertEquals("onboarding_elapsed",axe.discoveryRoutes().get(0).type());assertEquals(List.of("tconstruct:hand_axe"),axe.recipeItems());
+  assertFalse(ThreadArt.BY_ID.get("make_backpack").cause().matches(".*\\b[0-9]+\\b.*"));
   for(var d:ThreadArt.BY_ID.values()){assertTrue(orders.add(d.order()));topics.add(d.topic());assertFalse(d.shortTitle().isBlank());assertTrue(d.shortTitle().length()<=24);assertFalse(d.event().isBlank());assertFalse(d.cause().isBlank());assertFalse(d.action().isBlank());assertFalse(d.discoveryRoutes().isEmpty());assertTrue(d.discoveryRoutes().stream().allMatch(r->!r.producer().isBlank()));}
-  assertEquals(java.util.stream.IntStream.rangeClosed(1,53).boxed().collect(java.util.stream.Collectors.toSet()),orders);assertEquals(Set.of(ThreadTopic.values()),topics);
+  var expected=java.util.stream.IntStream.rangeClosed(1,53).boxed().collect(java.util.stream.Collectors.toSet());expected.remove(2);assertEquals(expected,orders);assertEquals(Set.of(ThreadTopic.values()),topics);
  }
  @Test void definitionRejectsEmptyExplanationOrNoOutcomeRoutes()throws Exception{
   var root=JsonParser.parseString(Files.readString(Path.of("src/main/resources/data/better_discovery_guides/threads/catalogue.json"))).getAsJsonObject();
@@ -41,9 +44,6 @@ final class ThreadContractsTest {
  }
  @Test void oldestDiscoveryOrderSurvivesLaterGenerationRepeat(){
   var s=new ThreadPlayerState();String first=ThreadArt.IDS.get(3),second=ThreadArt.IDS.get(0);s.discover(first,"native","job:1","",0);s.discover(second,"native","job:2","",0);s.enterGeneration(1);s.discover(first,"native","job:3","",1);assertEquals(1L,s.discoveryOrder.get(first));assertEquals(2L,s.discoveryOrder.get(second));
- }
- @Test void revealNeedsNoReadingDeadlineAndOneSkipOnlyCompletesAnimation(){
-  var r=new ThreadRevealState();r.select(true);assertEquals(ThreadRevealState.Activation.STARTED,r.activate());assertFalse(r.advance(100));assertEquals(ThreadRevealState.Activation.COMPLETED,r.activate());assertEquals(ThreadRevealState.Phase.COMPLETE,r.phase());assertFalse(r.advance(999999));assertEquals(ThreadRevealState.Activation.IGNORED,r.activate());
  }
  @Test void detailLayoutRemainsInsideCompactAndWideScreens(){for(var size:List.of(new int[]{160,160},new int[]{320,240},new int[]{854,480})){var l=ThreadDeckScreen.detailLayout(size[0],size[1]);assertTrue(l.cardX()>=0);assertTrue(l.detailsX()>=0);assertTrue(l.detailsX()+l.panelWidth()<=size[0]);assertTrue(l.cardY()+l.cardHeight()<=size[1]-34);assertTrue(l.panelWidth()>=Math.min(128,Math.max(80,(size[0]-24)/2)));assertTrue(Math.abs(l.cardWidth()*3-l.cardHeight()*2)<=2);}}
 }
