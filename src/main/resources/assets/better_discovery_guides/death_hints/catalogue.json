@@ -607,7 +607,7 @@
       "id": "food_thaw_check",
       "concept_id": "survival.food_thermal_state",
       "pool": "survival",
-      "text": "Merging stacks can change a food's temperature, and warming isn't thawing. Check the tooltip before the first bite.",
+      "text": "Merging stacks can change a food's age and storage state, and warming isn't thawing. Check the tooltip before the first bite.",
       "contexts": [
         "hunger",
         "cold"
@@ -629,7 +629,7 @@
       "id": "food_spoilage",
       "concept_id": "survival.food_thermal_state",
       "pool": "survival",
-      "text": "Tooltips show spoilage and temperature as well as nutrition. Check stored provisions before you pack for a trip.",
+      "text": "Tooltips show spoilage and whether food is frozen as well as nutrition. Check stored provisions before you pack for a trip.",
       "contexts": [
         "hunger"
       ],
@@ -2543,7 +2543,7 @@
       "id": "context_frozen",
       "concept_id": "survival.context_frozen",
       "pool": "survival",
-      "text": "The food in your hand is frozen - thaw it first, because its temperature travels with it.",
+      "text": "The food in your hand is frozen - thaw it first, because the cold travels with it.",
       "contexts": [
         "frozen_food"
       ],

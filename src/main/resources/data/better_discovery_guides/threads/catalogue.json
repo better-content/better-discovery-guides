@@ -293,7 +293,7 @@
       "order": 15,
       "art": "better_discovery_guides:textures/gui/threads/frozen_food.png",
       "event": "The food you tried to eat was frozen.",
-      "cause": "Frozen food has to thaw first, and its temperature sticks with it - in storage and when matching stacks merge.",
+      "cause": "Frozen food has to thaw first, and its frozen state sticks with it - in storage and when matching stacks merge.",
       "action": "Warm it up and check the tooltip before trying again.",
       "discovery_routes": [
         {
