@@ -1,6 +1,6 @@
 # Better Discovery Guides
 
-Learning Surfaces is Better Content's Forge 1.20.1 player education mod. It owns a 52-card discovery reader, 18 loading lessons, and 199 contextual tips for the main menu, Esc menu, and death screen. Other mods own their gameplay rules and publish events; this mod turns those events and personal points of need into explanations. It grants no gameplay rewards.
+Learning Surfaces is Better Content's Forge 1.20.1 player education mod. It owns a 52-card discovery reader, 18 loading lessons, and 135 contextual tips for the main menu, Esc menu, and death screen. Other mods own their gameplay rules and publish events; this mod turns those events and personal points of need into explanations. It grants no gameplay rewards.
 
 ## Authoring
 

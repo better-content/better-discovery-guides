@@ -10,8 +10,8 @@
       "order": 1,
       "art": "better_discovery_guides:textures/gui/threads/choose_return_point.png",
       "event": "You arrived at the starting world as a spectator.",
-      "cause": "Your first chosen personal return point matters before permanent play begins. Beds later will not move it.",
-      "action": "Scout a safe place, choose your return point, then finalize your class.",
+      "cause": "Spectator is your preview. The first return point you choose is the one that sticks - later beds will not move it.",
+      "action": "Scout the area, settle on a return point you would want to wake up in, then finalize your class.",
       "discovery_routes": [
         {
           "id": "choose_return_point",
@@ -31,8 +31,8 @@
       "order": 3,
       "art": "better_discovery_guides:textures/gui/threads/first_hand_axe.png",
       "event": "You have had a moment to get your bearings.",
-      "cause": "A primitive hand axe gets the first wood before a full tool station exists. EMI shows how to make it and what its materials are used for.",
-      "action": "Hover over the hand axe below and use your EMI recipe control. Craft one, then gather wood for Tinkers stations.",
+      "cause": "The hand axe is what gets you your first wood; the full tool station does not exist yet. EMI shows what it takes to make one.",
+      "action": "Hover over the hand axe below and use your EMI recipe control. Craft one, then gather wood for the Tinkers stations.",
       "discovery_routes": [
         {
           "id": "first_hand_axe",
@@ -55,8 +55,8 @@
       "order": 4,
       "art": "better_discovery_guides:textures/gui/threads/start_tinkers_tools.png",
       "event": "You made a primitive hand axe.",
-      "cause": "The hand axe starts wood gathering, while a Part Builder and Tinker Station assemble your first durable mining tool.",
-      "action": "Use the wood to make those stations, build tool parts, and assemble a pickaxe.",
+      "cause": "The axe starts the wood supply. A Part Builder and a Tinker Station turn that wood into your first durable mining tool.",
+      "action": "Make those two stations, build tool parts, and assemble a pickaxe.",
       "discovery_routes": [
         {
           "id": "start_tinkers_tools",
@@ -80,7 +80,7 @@
       "order": 5,
       "art": "better_discovery_guides:textures/gui/threads/make_backpack.png",
       "event": "You gathered straw by cutting grass with a knife.",
-      "cause": "A backpack gives you portable storage early in your journey.",
+      "cause": "Straw is one of the first backpack ingredients, and portable storage keeps a trip from ending at your first full inventory.",
       "action": "Cut grass with a knife, then hover over the backpack below and use EMI to find its recipe.",
       "discovery_routes": [
         {
@@ -103,9 +103,9 @@
       "topic": "world",
       "order": 6,
       "art": "better_discovery_guides:textures/gui/threads/returned_traces.png",
-      "event": "You returned to traces of your earlier activity.",
-      "cause": "Player Traces preserves evidence of movement and work. Returning to a recorded place lets you recognize its history.",
-      "action": "Open Trace Sight to inspect the traces around you.",
+      "event": "You came back to a place you had worked before.",
+      "cause": "Player Traces records movement and work, so ground you have already touched keeps a record of it. Revisiting lets you read that history back.",
+      "action": "Open Trace Sight and look at what is around you.",
       "discovery_routes": [
         {
           "id": "returned_traces",
@@ -124,9 +124,9 @@
       "topic": "world",
       "order": 7,
       "art": "better_discovery_guides:textures/gui/threads/underground_pressure_builds.png",
-      "event": "The underground pressure began to build.",
-      "cause": "Time spent in caves increases pressure before any encounter warning sounds. Returning to the surface lets it ease.",
-      "action": "Keep an exit route in mind and retreat to daylight when the pressure rises.",
+      "event": "The underground pressure started to build.",
+      "cause": "Time spent below raises cave pressure, and it does that before any warning sounds. Surface time lets it ease off.",
+      "action": "Keep an exit in mind and head for daylight when the pressure climbs.",
       "discovery_routes": [
         {
           "id": "underground_pressure_builds",
@@ -145,9 +145,9 @@
       "topic": "world",
       "order": 8,
       "art": "better_discovery_guides:textures/gui/threads/cave_warning.png",
-      "event": "A cave encounter announced its approach toward you.",
-      "cause": "Directional sounds, rumbles, and falling debris warn of an approaching underground encounter. The warning comes from its approach direction.",
-      "action": "Look toward the sound, find an escape route, and prepare before the attackers arrive.",
+      "event": "A cave encounter announced it was coming for you.",
+      "cause": "Rumbles, distant sounds, and falling debris are the warning, and they arrive from the direction of the approach.",
+      "action": "Face the sound, find your exit, and get ready before it arrives.",
       "discovery_routes": [
         {
           "id": "cave_warning",
@@ -167,8 +167,8 @@
       "order": 9,
       "art": "better_discovery_guides:textures/gui/threads/hotstone_dangerous_ground.png",
       "event": "You approached exposed Hotstone.",
-      "cause": "Hotstone is hazardous underfoot, even when it looks like ordinary terrain from a distance.",
-      "action": "Mark a safe path around it before stepping closer.",
+      "cause": "Hotstone burns underfoot. From a distance it passes for ordinary ground, which is how people walk onto it.",
+      "action": "Mark a path around it before you get closer.",
       "discovery_routes": [
         {
           "id": "hotstone_dangerous_ground",
@@ -188,8 +188,8 @@
       "order": 10,
       "art": "better_discovery_guides:textures/gui/threads/transplanted_cultivar.png",
       "event": "Your imported cultivar produced a harvest in the Overworld.",
-      "cause": "Bumblezone is the source of cultivatable food flora, but compatible plants can grow in the Overworld after you bring their seeds home.",
-      "action": "Keep seeds for replanting and check the plant's growing conditions.",
+      "cause": "Bumblezone is where these food plants come from, but a seed you carry home grows under Overworld conditions like anything else.",
+      "action": "Keep seeds for replanting and check what the plant needs to grow.",
       "discovery_routes": [
         {
           "id": "transplanted_cultivar",
@@ -208,9 +208,9 @@
       "topic": "world",
       "order": 11,
       "art": "better_discovery_guides:textures/gui/threads/bring_planting_stock_home.png",
-      "event": "You found wild food without dependable planting stock.",
-      "cause": "Forage fruit and animal foods in the Overworld. Bumblezone cultivars provide dependable grain and vegetable seed lines for a farm.",
-      "action": "Find Bumblezone planting stock and establish a farm at home.",
+      "event": "You found wild food with no dependable way to replant it.",
+      "cause": "Forage feeds you once. Bumblezone cultivars give you dependable grain and vegetable seed lines - the difference between eating and farming.",
+      "action": "Bring planting stock back from Bumblezone and start a farm at home.",
       "discovery_routes": [
         {
           "id": "bring_planting_stock_home",
@@ -230,8 +230,8 @@
       "order": 12,
       "art": "better_discovery_guides:textures/gui/threads/fruit_fuels_a_sprint.png",
       "event": "You ate your first fruit.",
-      "cause": "Orchard nutrition from fruit softens falls at 20%, improves movement, and unlocks a sprinting jump burst at 80%.",
-      "action": "Pack fruit when you expect a long journey.",
+      "cause": "Fruit builds orchard nutrition: softened falls at 20%, better movement, and a sprinting jump burst at 80%.",
+      "action": "Pack fruit when a long journey is coming.",
       "discovery_routes": [
         {
           "id": "fruit_fuels_a_sprint",
@@ -251,7 +251,7 @@
       "order": 13,
       "art": "better_discovery_guides:textures/gui/threads/vegetables_buffer_exposure.png",
       "event": "You ate your first vegetable.",
-      "cause": "Garden nutrition from vegetables protects against temperature drift at 20% and knockback at 40%.",
+      "cause": "Vegetables build garden nutrition: protection from temperature drift at 20% and from knockback at 40%.",
       "action": "Keep vegetables in your travel food mix.",
       "discovery_routes": [
         {
@@ -272,8 +272,8 @@
       "order": 14,
       "art": "better_discovery_guides:textures/gui/threads/dry_food_for_journey.png",
       "event": "You picked up food that can be dried.",
-      "cause": "Dryable food can be prepared for travel before spoilage or cold makes it awkward to use.",
-      "action": "Check its drying recipe in EMI and prepare a reserve.",
+      "cause": "Drying prepares food for travel before spoilage or cold can ruin it on the way.",
+      "action": "Check its drying recipe in EMI and put a reserve away.",
       "discovery_routes": [
         {
           "id": "dry_food_for_journey",
@@ -293,8 +293,8 @@
       "order": 15,
       "art": "better_discovery_guides:textures/gui/threads/frozen_food.png",
       "event": "The food you tried to eat was frozen.",
-      "cause": "Frozen food must thaw before it can be eaten. Food retains its thermal state in storage and when matching stacks merge.",
-      "action": "Warm the food and check its tooltip before trying again.",
+      "cause": "Frozen food has to thaw first, and its temperature sticks with it - in storage and when matching stacks merge.",
+      "action": "Warm it up and check the tooltip before trying again.",
       "discovery_routes": [
         {
           "id": "frozen_food",
@@ -314,8 +314,8 @@
       "order": 16,
       "art": "better_discovery_guides:textures/gui/threads/sugar_crash.png",
       "event": "Sweetness drained one of your food groups below 20%.",
-      "cause": "Sweetness multiplies unlocked food benefits while hunger and nutrition drain rise exponentially. A group below 20% loses its first ability.",
-      "action": "Eat food for the depleted group before adding more sweetness.",
+      "cause": "Sugar multiplies your unlocked food benefits while hunger and nutrition drain faster. Below 20% a group loses its first ability, and that is the crash.",
+      "action": "Eat food for the depleted group before you add more sweetness.",
       "discovery_routes": [
         {
           "id": "sugar_crash",
@@ -339,8 +339,8 @@
       "order": 17,
       "art": "better_discovery_guides:textures/gui/threads/heavy_blow.png",
       "event": "Your prepared attack triggered Heavy Blow.",
-      "cause": "Sinew nutrition unlocks a heavy charged strike at 40%. It needs four seconds since the last attack and then a 12-second recovery.",
-      "action": "Maintain protein nutrition and allow the attack to recover before relying on another heavy blow.",
+      "cause": "Sinew nutrition unlocks the heavy charged strike at 40%. It needs four seconds since your last attack, then a 12-second recovery.",
+      "action": "Keep protein nutrition up, and do not count on two heavy blows in a row.",
       "discovery_routes": [
         {
           "id": "heavy_blow",
@@ -364,8 +364,8 @@
       "order": 18,
       "art": "better_discovery_guides:textures/gui/threads/work_rhythm.png",
       "event": "Your mining sequence reached full Work Rhythm.",
-      "cause": "Granary nutrition builds a mining rhythm through successive correct-tool breaks. At 60% the rhythm survives a five-second pause.",
-      "action": "Keep suitable tools and provisions ready when planning a long mining session.",
+      "cause": "Granary nutrition builds a mining rhythm out of successive correct-tool breaks. At 60% the rhythm survives a five-second pause.",
+      "action": "Take suitable tools and provisions when you plan a long mining session.",
       "discovery_routes": [
         {
           "id": "work_rhythm",
@@ -389,8 +389,8 @@
       "order": 19,
       "art": "better_discovery_guides:textures/gui/threads/deep_reserve.png",
       "event": "Your nutritional reserve activated during resource depletion.",
-      "cause": "High fat nutrition can provide a brief reserve when hunger, thirst, or stamina becomes critically low. The reserve is temporary and needs recovery.",
-      "action": "Restore the depleted resource and seek a safe place to recover.",
+      "cause": "High fat nutrition covers you briefly when hunger, thirst, or stamina hits bottom. It is a loan, not a fix.",
+      "action": "Restore what ran out and get somewhere safe to recover.",
       "discovery_routes": [
         {
           "id": "deep_reserve",
@@ -414,8 +414,8 @@
       "order": 20,
       "art": "better_discovery_guides:textures/gui/threads/nutrition_cleanse.png",
       "event": "Your nutrition removed a harmful status effect.",
-      "cause": "High dairy nutrition can cleanse a finite harmful effect. Status-effect cleansing does not treat Death's Door injuries.",
-      "action": "Inspect remaining effects and use the Body screen for injuries that need medicine.",
+      "cause": "High dairy nutrition can cleanse a finite harmful effect. It does nothing for Death's Door injuries.",
+      "action": "Check what is left on you, and use the Body screen for injuries that need medicine.",
       "discovery_routes": [
         {
           "id": "nutrition_cleanse",
@@ -438,9 +438,9 @@
       "topic": "body",
       "order": 21,
       "art": "better_discovery_guides:textures/gui/threads/deaths_door.png",
-      "event": "A hit exhausted your positive HP and left you injured.",
-      "cause": "Positive HP protects the crossing hit from the injury death roll. At zero HP, further accepted damaging hits can kill. Movement and ordinary controls remain available.",
-      "action": "Get out of danger, let the healing lock expire, and open your Body screen.",
+      "event": "A hit emptied your positive HP and left you injured.",
+      "cause": "Positive HP takes the crossing hit instead of you. At zero, the next accepted hit can kill - but movement and ordinary controls still work.",
+      "action": "Get out of danger, wait out the healing lock, and open your Body screen.",
       "discovery_routes": [
         {
           "id": "deaths_door",
@@ -464,7 +464,7 @@
       "order": 22,
       "art": "better_discovery_guides:textures/gui/threads/ore_chunks_need_separation.png",
       "event": "You extracted your first geological ore chunk.",
-      "cause": "A chunk is raw deposit material; a String Mesh separates the useful ore before later machines become worthwhile.",
+      "cause": "A chunk is raw deposit material. A String Mesh pulls the useful ore out of it before the bigger machines are worth building.",
       "action": "Build a String Mesh and process the chunk.",
       "discovery_routes": [
         {
@@ -488,7 +488,7 @@
       "order": 23,
       "art": "better_discovery_guides:textures/gui/threads/maintain_tinkers_tool.png",
       "event": "Your assembled Tinkers tool is running low.",
-      "cause": "A worn tool can be repaired and kept in service instead of rebuilt from scratch.",
+      "cause": "A worn Tinkers tool is repaired, not replaced - it keeps its parts and its history.",
       "action": "Inspect its repair material and restore it before the next expedition.",
       "discovery_routes": [
         {
@@ -509,8 +509,8 @@
       "order": 24,
       "art": "better_discovery_guides:textures/gui/threads/alloy_in_smeltery.png",
       "event": "You used a Melter or Smeltery.",
-      "cause": "Tinkers molten metals can combine into alloys in this equipment; Create mixing serves other recipes.",
-      "action": "Check the available alloy recipe and pour a useful casting.",
+      "cause": "Tinkers molten metals combine into alloys here. Create mixing handles a different set of recipes.",
+      "action": "Check which alloy is available and pour a useful casting.",
       "discovery_routes": [
         {
           "id": "alloy_in_smeltery",
@@ -529,9 +529,9 @@
       "topic": "materials",
       "order": 25,
       "art": "better_discovery_guides:textures/gui/threads/alloy_created.png",
-      "event": "Your smeltery created alloy from component fluids.",
-      "cause": "Alloying consumes compatible fluids in specific proportions at a suitable temperature. A tank containing ingredients has not necessarily completed that reaction.",
-      "action": "Check the alloy recipe and cast the resulting fluid into the form you need.",
+      "event": "Your smeltery created an alloy from component fluids.",
+      "cause": "Alloying consumes compatible fluids in specific proportions at a suitable temperature. Fluids sitting in a tank have not reacted yet.",
+      "action": "Check the alloy recipe and cast the result into the form you need.",
       "discovery_routes": [
         {
           "id": "alloy_created",
@@ -550,9 +550,9 @@
       "topic": "materials",
       "order": 26,
       "art": "better_discovery_guides:textures/gui/threads/lit_furnace_pollutes.png",
-      "event": "You opened a furnace that will pollute the air while burning.",
-      "cause": "A burning furnace releases pollution. A chimney routes the exhaust; it does not erase the emission.",
-      "action": "Place and route a chimney before running a larger furnace bank.",
+      "event": "You opened a furnace that will pollute the air while it burns.",
+      "cause": "A burning furnace releases pollution. A chimney routes the exhaust away; it does not make the emission disappear.",
+      "action": "Place and route a chimney before you run a larger furnace bank.",
       "discovery_routes": [
         {
           "id": "lit_furnace_pollutes",
@@ -572,8 +572,8 @@
       "order": 27,
       "art": "better_discovery_guides:textures/gui/threads/gas_pollution.png",
       "event": "Gas from your material escaped into the atmosphere.",
-      "cause": "Uncontained gas can become native world pollution. Suitable airtight storage prevents escape while its sealed state remains active.",
-      "action": "Contain gas before storing or moving it, and use native pollution controls for released material.",
+      "cause": "Uncontained gas becomes native world pollution once it is out. Airtight storage keeps it sealed as long as the sealed state lasts.",
+      "action": "Contain gas before storing or moving it, and use native pollution controls for what is already released.",
       "discovery_routes": [
         {
           "id": "gas_pollution",
@@ -593,8 +593,8 @@
       "order": 28,
       "art": "better_discovery_guides:textures/gui/threads/radioactive_disturbance.png",
       "event": "Your disturbance activated a radioactive material form.",
-      "cause": "Natural hosted radioactive ore can be inert until disturbed. Mined, carried, contained, and replaced forms can continue emitting radiation and heat.",
-      "action": "Check the material's emission information and plan handling and containment before moving more.",
+      "cause": "Natural hosted radioactive ore can sit inert until you disturb it. Mined, carried, contained, and replaced forms keep emitting radiation and heat.",
+      "action": "Check the material's emission information and plan handling before you move more.",
       "discovery_routes": [
         {
           "id": "radioactive_disturbance",
@@ -614,8 +614,8 @@
       "order": 29,
       "art": "better_discovery_guides:textures/gui/threads/radiogenic_heat.png",
       "event": "Your thermal system accepted heat from radioactive material.",
-      "cause": "Radioactive material can release heat into Heat Sync. Heat transfer does not remove the material's other radioactive consequences.",
-      "action": "Provide a controlled thermal path and manage emissions independently.",
+      "cause": "Radioactive material releases heat into Heat Sync. That is heat transfer; the radiation itself does not go away.",
+      "action": "Provide a controlled thermal path and manage emissions separately.",
       "discovery_routes": [
         {
           "id": "radiogenic_heat",
@@ -635,8 +635,8 @@
       "order": 30,
       "art": "better_discovery_guides:textures/gui/threads/machine_blocks_open_roots.png",
       "event": "You inspected a Millstone or Mechanical Press recipe.",
-      "cause": "These early Create machines turn hand work into repeatable processing when rotational power reaches them.",
-      "action": "Hover over either machine below and use EMI to inspect its recipe. Build one, then give it rotation.",
+      "cause": "These early Create machines turn hand work into repeatable processing once rotational power reaches them.",
+      "action": "Hover over either machine below and use EMI to inspect its recipe, then build one and give it rotation.",
       "discovery_routes": [
         {
           "id": "machine_blocks_open_roots",
@@ -660,8 +660,8 @@
       "order": 31,
       "art": "better_discovery_guides:textures/gui/threads/plan_sustained_rotation.png",
       "event": "You placed your first Millstone or Mechanical Press.",
-      "cause": "A Hand Crank can run the machine now. Sustained water or wind power becomes available after Nether access.",
-      "action": "Crank the first operation, then plan a later continuous drive.",
+      "cause": "A Hand Crank runs it for now. Sustained water or wind power opens up after Nether access.",
+      "action": "Crank the first operation, then plan a continuous drive for later.",
       "discovery_routes": [
         {
           "id": "plan_sustained_rotation",
@@ -684,8 +684,8 @@
       "order": 32,
       "art": "better_discovery_guides:textures/gui/threads/manual_work.png",
       "event": "You ran your first Create machine by hand.",
-      "cause": "The Hand Crank supplies rotational power to connected Create machinery. In this pack it provides the initial rotational source before the Nether.",
-      "action": "Use the crank to perform the next process shown in EMI or Ponder.",
+      "cause": "The Hand Crank is this pack's first rotational source - before the Nether, this is where power comes from.",
+      "action": "Use the crank for the next process EMI or Ponder shows you.",
       "discovery_routes": [
         {
           "id": "manual_work",
@@ -707,9 +707,9 @@
       "topic": "industry",
       "order": 33,
       "art": "better_discovery_guides:textures/gui/threads/transmission_overload.png",
-      "event": "Transmission overhead pushed your network beyond its capacity.",
-      "cause": "Shafts, gears, gearboxes, and belts consume stress capacity. A network that supports the working machines alone can still overload after transmission costs.",
-      "action": "Shorten or simplify the transmission, reduce speed where useful, or increase available capacity.",
+      "event": "Transmission overhead pushed your network past its capacity.",
+      "cause": "Shafts, gears, gearboxes, and belts all spend stress. A network sized for its machines alone can still overload once transmission is counted.",
+      "action": "Shorten or simplify the transmission, slow it where that helps, or add capacity.",
       "discovery_routes": [
         {
           "id": "transmission_overload",
@@ -728,9 +728,9 @@
       "topic": "industry",
       "order": 34,
       "art": "better_discovery_guides:textures/gui/threads/coolant_recovery.png",
-      "event": "Coolant exchange brought your exchanger\u2019s heat buffer back into its safe range.",
-      "cause": "A working coolant exchanger converts fluid and transfers heat out of its buffer. Cooling that exchanger does not prove every connected machine is safe.",
-      "action": "Keep coolant available and check the temperature of each connected machine.",
+      "event": "Coolant exchange brought your exchanger's heat buffer back into its safe range.",
+      "cause": "A working coolant exchanger converts fluid and moves heat out of its buffer. Cooling the exchanger does not prove the machines attached to it are safe.",
+      "action": "Keep coolant available and check each connected machine's temperature.",
       "discovery_routes": [
         {
           "id": "coolant_recovery",
@@ -750,8 +750,8 @@
       "order": 35,
       "art": "better_discovery_guides:textures/gui/threads/electrical_work.png",
       "event": "You completed your first powered electrical operation.",
-      "cause": "A working electrical system needs generation, transmission, and a consuming machine. A wire or charged terminal alone does not prove useful delivery.",
-      "action": "Check the consumer and the connected network when output stops.",
+      "cause": "A useful electrical system needs generation, transmission, and something consuming the power. A charged terminal alone is not delivery.",
+      "action": "When output stops, check the consumer and the network feeding it.",
       "discovery_routes": [
         {
           "id": "electrical_work",
@@ -771,8 +771,8 @@
       "order": 36,
       "art": "better_discovery_guides:textures/gui/threads/precision_assembly.png",
       "event": "You completed a precision assembly.",
-      "cause": "Sequenced assembly applies ordered operations to an intermediate and may repeat the sequence. The finished mechanism is produced only at the final result boundary.",
-      "action": "Follow EMI's sequence and repeat count when automating the next batch.",
+      "cause": "Sequenced assembly runs ordered operations over an intermediate, sometimes repeatedly. The finished mechanism only exists at the final result.",
+      "action": "Follow EMI's sequence and repeat count when you automate the next batch.",
       "discovery_routes": [
         {
           "id": "precision_assembly",
@@ -791,9 +791,9 @@
       "topic": "industry",
       "order": 37,
       "art": "better_discovery_guides:textures/gui/threads/anchored_work.png",
-      "event": "An anchored operation continued outside player loading range.",
-      "cause": "A supplied chunk anchor can keep its area running without a nearby player. Its ticket kept this operation active while you were away.",
-      "action": "Maintain the anchor's resource supply and inspect the area it actually keeps loaded.",
+      "event": "An anchored operation continued while you were out of range.",
+      "cause": "A supplied chunk anchor keeps its area running with no player nearby. Its ticket is what held this operation open.",
+      "action": "Keep the anchor supplied and check which area it actually holds.",
       "discovery_routes": [
         {
           "id": "anchored_work",
@@ -812,9 +812,9 @@
       "topic": "industry",
       "order": 38,
       "art": "better_discovery_guides:textures/gui/threads/ratlantis_starts_logistics.png",
-      "event": "You inspected the Courier Lattice or scalable pipe route.",
-      "cause": "Ratlantis is the next source for logistics equipment as automation outgrows hand delivery.",
-      "action": "Plan a Ratlantis trip and gather what the route requires.",
+      "event": "You inspected the Courier Lattice or a scalable pipe route.",
+      "cause": "Ratlantis is where the logistics equipment comes from once automation outgrows hand delivery.",
+      "action": "Plan a Ratlantis trip around what the route requires.",
       "discovery_routes": [
         {
           "id": "ratlantis_starts_logistics",
@@ -837,8 +837,8 @@
       "order": 39,
       "art": "better_discovery_guides:textures/gui/threads/spirits_are_materials.png",
       "event": "You acquired your first spirit.",
-      "cause": "Spirits are both Malum crafting materials and a currency accepted by some traders.",
-      "action": "Keep a reserve and inspect both its crafting uses and trade offers.",
+      "cause": "Spirits are Malum crafting materials and trade currency at the same time. Spending one there means giving up the other use.",
+      "action": "Keep a reserve, and check both its crafting uses and its trade offers.",
       "discovery_routes": [
         {
           "id": "spirits_are_materials",
@@ -858,8 +858,8 @@
       "order": 40,
       "art": "better_discovery_guides:textures/gui/threads/trading_spirits.png",
       "event": "You made first contact with a spirit trader.",
-      "cause": "Some traders accept spirits as currency. Compare their offers before spending the reserve you need for Malum crafting.",
-      "action": "Check the spirit prices and decide what to keep for crafting.",
+      "cause": "Some traders take spirits as currency, and the reserve you spend there is the reserve Malum crafting no longer has.",
+      "action": "Compare the offers before you decide what to keep for crafting.",
       "discovery_routes": [
         {
           "id": "trading_spirits",
@@ -879,8 +879,8 @@
       "order": 41,
       "art": "better_discovery_guides:textures/gui/threads/authored_spell.png",
       "event": "You cast your first authored spell.",
-      "cause": "Ars Nouveau spell components determine how the spell reaches its target and what it does there. A saved design must still execute successfully.",
-      "action": "Inspect the spell's components and test the next change on a suitable target.",
+      "cause": "Spell components decide how the spell travels and what it does on arrival. A design that saves cleanly can still fail in the field.",
+      "action": "Inspect the components and test the next change on a suitable target.",
       "discovery_routes": [
         {
           "id": "authored_spell",
@@ -899,9 +899,9 @@
       "topic": "magic",
       "order": 42,
       "art": "better_discovery_guides:textures/gui/threads/relic_development.png",
-      "event": "A relic you used crossed a native development boundary.",
-      "cause": "Relics gain experience through their own working abilities. Development belongs to the same physical relic rather than any item with the same name.",
-      "action": "Inspect the relic's updated abilities and keep using it where they apply.",
+      "event": "A relic you used crossed a development boundary.",
+      "cause": "Relics gain experience through their own working abilities. Growth sticks to the physical relic - a copy with the same name is a different item.",
+      "action": "Inspect its updated abilities and keep using it where they apply.",
       "discovery_routes": [
         {
           "id": "relic_development",
@@ -921,8 +921,8 @@
       "order": 43,
       "art": "better_discovery_guides:textures/gui/threads/ruinous_mutation.png",
       "event": "Your confirmed Ruinous Flux application resolved.",
-      "cause": "Ruinous Flux can permanently mutate a part or destroy it. A surviving mutation locks that part against further mutation.",
-      "action": "Inspect the actual outcome before deciding how to use the surviving part.",
+      "cause": "Ruinous Flux either mutates a part permanently or destroys it. A surviving mutation locks that part against any further mutation.",
+      "action": "Look at what actually happened before deciding how to use the surviving part.",
       "discovery_routes": [
         {
           "id": "ruinous_mutation",
@@ -942,7 +942,7 @@
       "order": 44,
       "art": "better_discovery_guides:textures/gui/threads/find_dimensional_font.png",
       "event": "Your first Tinkers tool is assembled.",
-      "cause": "Dimensional Fonts provide the route out of the Overworld. Traders can sell maps that lead to them.",
+      "cause": "Dimensional Fonts are the way out of the Overworld, and traders sell maps that lead to them.",
       "action": "Ask traders about Font maps and prepare for your first departure.",
       "discovery_routes": [
         {
@@ -963,7 +963,7 @@
       "order": 45,
       "art": "better_discovery_guides:textures/gui/threads/font_trip_time_budget.png",
       "event": "You approached a Dimensional Font.",
-      "cause": "A Font journey spends charge and has a return window. It helps to prepare supplies and a destination before entering.",
+      "cause": "A Font journey spends charge and runs against a return window. Both are easier to plan for before you enter.",
       "action": "Check the available charge, pack essentials, and plan your return.",
       "discovery_routes": [
         {
@@ -983,8 +983,8 @@
       "topic": "travel",
       "order": 46,
       "art": "better_discovery_guides:textures/gui/threads/font_travel.png",
-      "event": "A Font successfully transported you into its journey.",
-      "cause": "The radial Dimensional Font takes you between worlds and anchors the route home while the run remains active.",
+      "event": "A Font transported you into its journey.",
+      "cause": "The radial Dimensional Font carries you between worlds and holds the route home while the run lasts.",
       "action": "Orient yourself at the destination and keep the return window in mind.",
       "discovery_routes": [
         {
@@ -1005,7 +1005,7 @@
       "order": 47,
       "art": "better_discovery_guides:textures/gui/threads/boats_break_into_parts.png",
       "event": "You boarded a vanilla boat.",
-      "cause": "Boats in this pack have limited durability; when one breaks, some construction material comes back.",
+      "cause": "Boats here have limited durability, and a broken one gives some of its construction material back.",
       "action": "Keep replacement material handy before a long crossing.",
       "discovery_routes": [
         {
@@ -1026,8 +1026,8 @@
       "order": 48,
       "art": "better_discovery_guides:textures/gui/threads/vessel_travel.png",
       "event": "You moved aboard your first vessel.",
-      "cause": "A physical ship moves its assembled structure through the world. Boarding an unmoving structure alone does not demonstrate transport.",
-      "action": "Inspect the vessel's controls and plan a safe stopping or landing place.",
+      "cause": "A physical ship carries its assembled structure through the world. Standing on a floating structure proves nothing about transport.",
+      "action": "Inspect the vessel's controls and plan where to stop or land.",
       "discovery_routes": [
         {
           "id": "vessel_travel",
@@ -1047,7 +1047,7 @@
       "order": 49,
       "art": "better_discovery_guides:textures/gui/threads/ratlantis_below_islands.png",
       "event": "You arrived in Ratlantis.",
-      "cause": "The dry islands are a foothold. More of the dimension lies below the water, beyond the first landing.",
+      "cause": "The dry islands are only the landing. Most of the dimension lies below the water.",
       "action": "Establish supplies on land, then prepare for a deep dive.",
       "discovery_routes": [
         {
@@ -1068,8 +1068,8 @@
       "order": 50,
       "art": "better_discovery_guides:textures/gui/threads/orbital_arrival.png",
       "event": "Your tracked rocket journey arrived in Earth orbit.",
-      "cause": "A successful launch requires an assembled rocket with suitable propulsion and destination. Reaching orbit is a real journey result, not a readiness estimate.",
-      "action": "Secure air and a return route, then inspect the nearby orbital resources.",
+      "cause": "Reaching orbit is a journey result, not a readiness estimate. It takes an assembled rocket with the propulsion and destination to match.",
+      "action": "Secure air and a return route, then see what is nearby.",
       "discovery_routes": [
         {
           "id": "orbital_arrival",
@@ -1088,9 +1088,9 @@
       "topic": "travel",
       "order": 51,
       "art": "better_discovery_guides:textures/gui/threads/train_fuel_cost.png",
-      "event": "Your moving train consumed fuel above its ordinary-speed baseline.",
-      "cause": "Powered train fuel consumption rises with speed according to the configured scaling curve. Faster travel can consume fuel disproportionately quickly.",
-      "action": "Reduce speed or provision more fuel for the planned route.",
+      "event": "Your moving train burned fuel above its ordinary-speed baseline.",
+      "cause": "Fuel use climbs with speed along a scaling curve, so the fastest travel can cost disproportionately more.",
+      "action": "Slow down, or provision fuel for the speed you intend to keep.",
       "discovery_routes": [
         {
           "id": "train_fuel_cost",
@@ -1110,8 +1110,8 @@
       "order": 52,
       "art": "better_discovery_guides:textures/gui/threads/beetle_route.png",
       "event": "Your Rail Beetle completed its first route.",
-      "cause": "The Beetle builds through loaded terrain using its supplied rails, supports, and engine work. The finished railway follows the route it actually constructed.",
-      "action": "Inspect the completed route and reload supplies before selecting the next section.",
+      "cause": "The Beetle builds through loaded terrain from the rails, supports, and engine work you supplied. The finished railway is what it actually constructed.",
+      "action": "Inspect the finished route, reload supplies, then pick the next section.",
       "discovery_routes": [
         {
           "id": "beetle_route",
@@ -1131,8 +1131,8 @@
       "order": 53,
       "art": "better_discovery_guides:textures/gui/threads/lineage_successor.png",
       "event": "You entered a verified successor of your existing lineage.",
-      "cause": "The World Condenser replaces a world while designated lineage records continue. Your archive persists and the successor earns a new discovery score. The Condenser currently needs a dedicated server; integrated single-player support is planned.",
-      "action": "Review the successor conditions and the records that carried forward.",
+      "cause": "The World Condenser replaces the world while designated lineage records carry on: the archive persists and the successor starts a fresh discovery score. The Condenser currently needs a dedicated server; integrated single-player support is planned.",
+      "action": "Review the successor conditions and which records carried forward.",
       "discovery_routes": [
         {
           "id": "lineage_successor",

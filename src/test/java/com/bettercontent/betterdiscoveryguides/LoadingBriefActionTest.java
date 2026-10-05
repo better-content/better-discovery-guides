@@ -19,8 +19,8 @@ class LoadingBriefActionTest {
                 var object = value.getAsJsonObject();
                 if ("threads".equals(object.get("id").getAsString())) {
                     foundThreads = true;
-                    assertTrue(object.get("body").getAsString().contains("hunger"));
-                    assertTrue(object.get("action").getAsString().contains("food"));
+                    assertTrue(object.get("body").getAsString().contains("Threads"));
+                    assertTrue(object.get("action").getAsString().toLowerCase().contains("threads"));
                 }
                 var action = object.get("action").getAsString().toLowerCase();
                 assertFalse(action.contains("open lessons") || action.contains("read the"), action);

@@ -14,8 +14,8 @@ import java.util.function.Predicate;
 final class LoadingBriefs {
     static final LoadingBrief FALLBACK = new LoadingBrief("threads", "learning.threads", "better-discovery-guides", "", "",
         "Orientation", "Using Threads",
-        "Threads records the rules you discover through play. Press the shown key, M by default, to read them. Select Lessons for survival instructions available from the start.",
-        "Open Lessons for survival instructions.",
+        "Threads is your journal of the rules you uncover through play, and it opens with the shown key - M by default. The Lessons tab carries survival instruction from your first minute, long before any discovery.",
+        "Press your Threads key, then select Lessons.",
         new ResourceLocation(LearningSurfaces.MOD_ID, "textures/gui/loading_briefs/threads.png"));
     static final LoadingBriefs INSTANCE = new LoadingBriefs();
     private final List<LoadingBrief> all;

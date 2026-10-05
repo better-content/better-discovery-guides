@@ -7,8 +7,8 @@
       "owner": "better-discovery-guides",
       "category": "Discovery",
       "headline": "Using Threads",
-      "body": "Keep a spare food item on your hotbar before leaving shelter. Eat before hunger reaches zero so a long trip does not leave you unable to sprint.",
-      "action": "Carry food and eat before hunger is empty.",
+      "body": "Threads is your journal of the rules you uncover through play, and it opens with the shown key - M by default. The Lessons tab carries survival instruction from your first minute, long before any discovery.",
+      "action": "Press your Threads key, then select Lessons.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/threads.png"
     },
     {
@@ -17,8 +17,8 @@
       "owner": "better-content-dynamic-survival-hud",
       "category": "Awareness",
       "headline": "Checking Survival Meters",
-      "body": "Survival meters fade when their values are stable. Hold Sneak to show all managed meters and check your condition.",
-      "action": "Hold Sneak to check your meters.",
+      "body": "Your survival meters fade when they are stable and surface when they need you. Hold Sneak to bring all of them back and see where you stand.",
+      "action": "Hold Sneak and read your meters.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/hud.png"
     },
     {
@@ -27,8 +27,8 @@
       "owner": "better-content-water-survival",
       "category": "Hydration",
       "headline": "Drinking Safe Water",
-      "body": "Water at purity level 3 is safe to drink. Collect rain, melt snow near a campfire, and carry drinking water in bottles. Bottles can go in Curios slots.",
-      "action": "Prepare safe drinking water before traveling.",
+      "body": "Water at purity 3 is safe to drink. Collect rain, melt snow by a campfire, and carry it in bottles - bottles fit Curios slots, so keep some on hand.",
+      "action": "Prepare safe drinking water before you travel.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/water.png"
     },
     {
@@ -37,8 +37,8 @@
       "owner": "better-survival-physiology",
       "category": "Nutrition",
       "headline": "Balancing Nutrition",
-      "body": "Hunger and nutrition are separate. Six lasting food groups unlock abilities at 20, 40, 60, and 80%. Meat, eggs, fruit, and dairy help early; imported seeds open grain and garden foods.",
-      "action": "Open nutrition and check your lowest groups.",
+      "body": "Hunger and nutrition are separate. Six food groups unlock abilities at 20, 40, 60, and 80%. Meat, eggs, fruit, and dairy cover the early ground; imported seeds open grain and garden foods.",
+      "action": "Open nutrition and look at your lowest group.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/nutrition.png"
     },
     {
@@ -47,7 +47,7 @@
       "owner": "slice-of-life-carrot",
       "category": "Health",
       "headline": "Increasing Maximum Health",
-      "body": "Eating enough different foods permanently increases your maximum health. Try foods you have not eaten before as well as foods that replenish your nutrition.",
+      "body": "Every new food you eat permanently raises your maximum health. Try things you have not eaten before, not just the ones that refill you.",
       "action": "Try a food you have never eaten.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/variety.png"
     },
@@ -57,8 +57,8 @@
       "owner": "better-survival-physiology",
       "category": "Metabolism",
       "headline": "Sugar and Alcohol",
-      "body": "Sweetness multiplies unlocked food benefits, but raises hunger and nutrition drain sharply. Draught reduces damage and steadily impairs movement and work; too much causes a blackout.",
-      "action": "Check your nutrition before eating sweets or drinking alcohol.",
+      "body": "Sweetness multiplies your unlocked food benefits and sharply raises hunger and nutrition drain. Alcohol dulls movement and work the longer it lasts; too much ends in a blackout.",
+      "action": "Check your nutrition before sweets or a drink.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/metabolism.png"
     },
     {
@@ -67,8 +67,8 @@
       "owner": "better-content-heat-sync",
       "category": "Climate",
       "headline": "Managing Body Temperature",
-      "body": "Your body temperature differs from the temperature around you. Clothing, shelter, biome, season, and food temperature affect it. Prepare for hot or cold areas before traveling.",
-      "action": "Bring clothing suited to your destination.",
+      "body": "Your body temperature is not the air temperature. Clothing, shelter, biome, season, and the temperature of your food all move it. Prepare before you travel into hot or cold ground.",
+      "action": "Bring clothing suited to where you are going.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/temperature.png"
     },
     {
@@ -77,8 +77,8 @@
       "owner": "better-compat-fixes",
       "category": "Movement",
       "headline": "Movement Controls",
-      "body": "Advanced movement uses stamina. Fast run uses Shift, vault uses Mouse 5, and direct dodge uses R; directional double-tap dodging is disabled.",
-      "action": "Practice these movements on safe ground.",
+      "body": "Advanced movement runs on stamina. Fast run is Shift, vault is Mouse 5, dodge is R - directional double-tap dodging is off. Each has its own key and its own cost.",
+      "action": "Practice the movements on safe ground.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/movement.png"
     },
     {
@@ -87,8 +87,8 @@
       "owner": "better-compat-fixes",
       "category": "Rest",
       "headline": "Sleeping Safely",
-      "body": "Sleep speeds up the passing hours. Weather, temperature, ecology, and active threats continue during sleep. Check the area before using a bed.",
-      "action": "Secure the area before sleeping.",
+      "body": "Sleep moves the hours along; the world does not pause for it. Weather, temperature, ecology, and active threats all continue. Check the area before you use a bed.",
+      "action": "Secure the area before you sleep.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/sleep.png"
     },
     {
@@ -96,8 +96,8 @@
       "concept_id": "survival.deaths_door",
       "owner": "better-deaths-door",
       "category": "Recovery",
-      "headline": "Death’s Door Is Survivable",
-      "body": "The hit that takes positive HP to zero leaves you at Death’s Door and adds an injury. You can still move and act. Healing is briefly locked; further hits can kill. Once healing becomes available, restore HP to regain its buffer.",
+      "headline": "Death\u2019s Door Is Survivable",
+      "body": "The hit that drops your positive HP to zero leaves you at Death's Door with an injury. You can still move and act. Healing is briefly locked and further hits can kill, so reach safety first; when healing returns, restore HP to regain its buffer.",
       "action": "Find safety, then open Body from your inventory.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/deaths_door.png"
     },
@@ -107,7 +107,7 @@
       "owner": "better-deaths-door",
       "category": "Recovery",
       "headline": "Healing and Treatment Are Separate",
-      "body": "Restoring HP leaves injuries in place. Open Body to match medicine to the injury type; each finished treatment removes one injury. Repeated hits add trauma and amplify existing movement, arm, and torso penalties. Trauma expires; injuries need treatment.",
+      "body": "Restoring HP does not remove injuries. Open Body, match medicine to the injury type, and each finished treatment removes one. Repeated hits add trauma that amplifies movement, arm, and torso penalties; trauma expires, injuries do not.",
       "action": "Open Body and select an injury to treat.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/injury_treatment.png"
     },
@@ -117,7 +117,7 @@
       "owner": "better-content-rpg-stats",
       "category": "Growth",
       "headline": "Spending Life Points",
-      "body": "Life stat choices are permanent for your current life and reset on death. Constitution reduces hunger, thirst, and stamina use. Review each stat before spending points.",
+      "body": "Life stat choices are permanent for this life and reset on death. Constitution, for example, reduces hunger, thirst, and stamina use. Read each stat before you spend.",
       "action": "Review the effects before applying your points.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/life.png"
     },
@@ -127,7 +127,7 @@
       "owner": "compat.sereneseasons",
       "category": "Seasons",
       "headline": "Seasonal Farming",
-      "body": "Seasons affect which crops and trees grow well. Check seasonal feedback before planting, and store surplus food for less productive seasons.",
+      "body": "Seasons decide which crops and trees do well. Check the seasonal feedback before you plant, and store surplus for the leaner seasons.",
       "action": "Plant crops suited to the current season.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/seasons.png"
     },
@@ -137,7 +137,7 @@
       "owner": "compat.weather2",
       "category": "Weather",
       "headline": "Preparing for Storms",
-      "body": "Storms move through the world and can damage exposed areas. Watch for worsening weather and keep a route to shelter.",
+      "body": "Storms travel the world and batter exposed ground. Watch the weather turn, and keep a route to shelter you could walk in a hurry.",
       "action": "Reach shelter before a severe storm arrives.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/weather.png"
     },
@@ -147,7 +147,7 @@
       "owner": "compat.pollution-of-the-realms",
       "category": "Industry",
       "headline": "Managing Pollution",
-      "body": "Pollution spreads and can harm living things. Use detectors and protective equipment, route emissions through chimneys and filters, and clean contaminated areas.",
+      "body": "Pollution spreads and harms living things, including you. Detect it, wear protection, route emissions through chimneys and filters, and clean up what has already settled.",
       "action": "Check emissions and install filters.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/pollution.png"
     },
@@ -157,8 +157,8 @@
       "owner": "compat.realistic-block-physics",
       "category": "Building",
       "headline": "Supporting Buildings",
-      "body": "Buildings need support through foundations, walls, and columns. Add supports as you extend a span or platform.",
-      "action": "Add supports before extending a platform.",
+      "body": "Buildings stand on support - foundations, walls, columns. Spans and platforms need it added as they grow, not after.",
+      "action": "Add supports before you extend a platform.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/physics.png"
     },
     {
@@ -168,7 +168,7 @@
       "requires_mod": "plonk",
       "category": "Building",
       "headline": "Placing Item Displays",
-      "body": "Look at a block face and press the shown key to place a held item as a display. Sneak and press the shown key with empty hands to rotate the whole display. Sneak and use an individual item to rotate it.",
+      "body": "Look at a block face and press the shown key to set a held item out as a display. Sneak-press with empty hands to rotate the whole display; sneak-use an item to rotate just that.",
       "action": "Place a display with the shown key.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/plonk.png"
     },
@@ -178,7 +178,7 @@
       "owner": "better-content-pillager-campaigns",
       "category": "Threats",
       "headline": "Pillager Assault Warnings",
-      "body": "Pillager scouts appear more often than full assaults. Assaults are announced in advance. Use the warning to gather allies, fortify approaches, and reach shelter.",
+      "body": "Pillager scouts show up far more often than full assaults. When an assault is coming you hear about it in advance - time to gather allies, fortify the approaches, and reach shelter.",
       "action": "Prepare defenses when an assault is announced.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/campaigns.png"
     }

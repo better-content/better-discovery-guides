@@ -12,7 +12,7 @@ import java.util.Set;
 /** Fixed advice catalogue shared by menu, pause, and death surfaces. */
 final class DeathHints {
     static final DeathHint FALLBACK = new DeathHint("review_controls", "controls.pack_specific_actions", "discovery",
-        "Check Options > Controls for your current bindings. Practice unfamiliar actions somewhere safe.",
+        "Options > Controls lists your current bindings. Practice the unfamiliar ones somewhere safe.",
         Set.of(), Set.of(), List.of("minecraft: OptionsScreen / KeyBindsScreen"));
     static final DeathHints INSTANCE = new DeathHints();
     private final List<DeathHint> all;
@@ -39,7 +39,7 @@ final class DeathHints {
             if (!ids.add(hint.id())) throw new IllegalArgumentException("Duplicate advice: " + hint.id());
             hints.add(hint);
         }
-        if (hints.size() != 199) throw new IllegalArgumentException("Expected 199 packaged tips");
+        if (hints.size() != 135) throw new IllegalArgumentException("Expected 135 packaged tips");
         return List.copyOf(hints);
     }
 }
