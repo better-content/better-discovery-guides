@@ -1,5 +1,5 @@
 {
-  "schema": "bc.better_discovery_guides.cards.v3",
+  "schema": "bc.better_discovery_guides.cards.v4",
   "threads": [
     {
       "id": "choose_return_point",
@@ -31,8 +31,8 @@
       "order": 3,
       "art": "better_discovery_guides:textures/gui/threads/first_hand_axe.png",
       "event": "You have had a moment to get your bearings.",
-      "cause": "The hand axe is what gets you your first wood; the full tool station does not exist yet. EMI shows what it takes to make one.",
-      "action": "Hover over the hand axe below and use your EMI recipe control. Craft one, then gather wood for the Tinkers stations.",
+      "cause": "A primitive hand axe starts your wood supply. Hanging roots can become its canvas binding without a knife; a primitive knife opens the alternative route from grass to straw to canvas.",
+      "action": "Compare the rock, flint, and bone axes and knives below in EMI. Choose a route, make an axe, then gather wood for the Tinkers stations.",
       "discovery_routes": [
         {
           "id": "first_hand_axe",
@@ -43,7 +43,24 @@
       ],
       "short_title": "First Hand Axe",
       "recipe_items": [
-        "tconstruct:hand_axe"
+        {
+          "recipe": "kubejs:primitive/rock_hand_axe"
+        },
+        {
+          "recipe": "kubejs:primitive/flint_hand_axe"
+        },
+        {
+          "recipe": "kubejs:primitive/bone_hand_axe"
+        },
+        {
+          "recipe": "kubejs:primitive/rock_butcher_knife"
+        },
+        {
+          "recipe": "kubejs:primitive/flint_butcher_knife"
+        },
+        {
+          "recipe": "kubejs:primitive/bone_butcher_knife"
+        }
       ]
     },
     {
@@ -79,13 +96,13 @@
       "topic": "world",
       "order": 5,
       "art": "better_discovery_guides:textures/gui/threads/make_backpack.png",
-      "event": "You gathered straw by cutting grass with a knife.",
-      "cause": "Straw is one of the first backpack ingredients, and portable storage keeps a trip from ending at your first full inventory.",
-      "action": "Cut grass with a knife, then hover over the backpack below and use EMI to find its recipe.",
+      "event": "You made a crafting table.",
+      "cause": "The table gives you room to craft a backpack. Portable storage keeps a trip from ending at your first full inventory.",
+      "action": "Gather straw by cutting grass with a primitive knife, then inspect the backpack below in EMI.",
       "discovery_routes": [
         {
           "id": "make_backpack",
-          "type": "straw_acquired",
+          "type": "crafting_table_crafted",
           "value": "first",
           "producer": "better-discovery-guides"
         }
@@ -94,48 +111,6 @@
       "recipe_items": [
         "sophisticatedbackpacks:backpack"
       ]
-    },
-    {
-      "id": "returned_traces",
-      "concept_id": "world.returned_traces",
-      "owner": "better-player-traces",
-      "title": "Your Earlier Work Left Recoverable Traces",
-      "topic": "world",
-      "order": 6,
-      "art": "better_discovery_guides:textures/gui/threads/returned_traces.png",
-      "event": "You came back to a place you had worked before.",
-      "cause": "Player Traces records movement and work, so ground you have already touched keeps a record of it. Revisiting lets you read that history back.",
-      "action": "Open Trace Sight and look at what is around you.",
-      "discovery_routes": [
-        {
-          "id": "returned_traces",
-          "type": "trace_return",
-          "value": "own_old_trace",
-          "producer": "better-player-traces"
-        }
-      ],
-      "short_title": "Work Traces"
-    },
-    {
-      "id": "underground_pressure_builds",
-      "concept_id": "world.underground_pressure_builds",
-      "owner": "better-cave-encounters",
-      "title": "Cave Pressure Rose as You Spent Time Below",
-      "topic": "world",
-      "order": 7,
-      "art": "better_discovery_guides:textures/gui/threads/underground_pressure_builds.png",
-      "event": "The underground pressure started to build.",
-      "cause": "Time spent below raises cave pressure, and it does that before any warning sounds. Surface time lets it ease off.",
-      "action": "Keep an exit in mind and head for daylight when the pressure climbs.",
-      "discovery_routes": [
-        {
-          "id": "underground_pressure_builds",
-          "type": "depth_pressure",
-          "value": "started",
-          "producer": "better-cave-encounters"
-        }
-      ],
-      "short_title": "Cave Pressure"
     },
     {
       "id": "cave_warning",
@@ -293,7 +268,7 @@
       "order": 15,
       "art": "better_discovery_guides:textures/gui/threads/frozen_food.png",
       "event": "The food you tried to eat was frozen.",
-      "cause": "Frozen food has to thaw first, and its frozen state sticks with it - in storage and when matching stacks merge.",
+      "cause": "Frozen food has to thaw first, and its temperature sticks with it - in storage and when matching stacks merge.",
       "action": "Warm it up and check the tooltip before trying again.",
       "discovery_routes": [
         {
@@ -429,31 +404,6 @@
         "target": "nutrition"
       },
       "short_title": "Nutrition Cleanse"
-    },
-    {
-      "id": "deaths_door",
-      "concept_id": "body.deaths_door",
-      "owner": "better-deaths-door",
-      "title": "You Reached Death's Door",
-      "topic": "body",
-      "order": 21,
-      "art": "better_discovery_guides:textures/gui/threads/deaths_door.png",
-      "event": "A hit emptied your positive HP and left you injured.",
-      "cause": "Positive HP takes the crossing hit instead of you. At zero, the next accepted hit can kill - but movement and ordinary controls still work.",
-      "action": "Get out of danger, wait out the healing lock, and open your Body screen.",
-      "discovery_routes": [
-        {
-          "id": "deaths_door",
-          "type": "deaths_door",
-          "value": "entered",
-          "producer": "better-deaths-door"
-        }
-      ],
-      "doorway": {
-        "type": "body",
-        "target": "self"
-      },
-      "short_title": "Death's Door"
     },
     {
       "id": "ore_chunks_need_separation",
@@ -829,27 +779,6 @@
       ]
     },
     {
-      "id": "spirits_are_materials",
-      "concept_id": "magic.spirits_are_materials",
-      "owner": "malum",
-      "title": "Spirits Are Materials Too",
-      "topic": "magic",
-      "order": 39,
-      "art": "better_discovery_guides:textures/gui/threads/spirits_are_materials.png",
-      "event": "You acquired your first spirit.",
-      "cause": "Spirits are Malum crafting materials and trade currency at the same time. Spending one there means giving up the other use.",
-      "action": "Keep a reserve, and check both its crafting uses and its trade offers.",
-      "discovery_routes": [
-        {
-          "id": "spirits_are_materials",
-          "type": "spirit_acquired",
-          "value": "first",
-          "producer": "malum"
-        }
-      ],
-      "short_title": "Spirit Materials"
-    },
-    {
       "id": "trading_spirits",
       "concept_id": "world.trading_spirits",
       "owner": "better-spirit-commerce",
@@ -958,7 +887,7 @@
       "id": "font_trip_time_budget",
       "concept_id": "travel.font_trip_time_budget",
       "owner": "better-dimension-fonts",
-      "title": "A Font Trip Has a Time Budget",
+      "title": "Race the Font\u2019s Clock",
       "topic": "travel",
       "order": 45,
       "art": "better_discovery_guides:textures/gui/threads/font_trip_time_budget.png",
@@ -973,7 +902,7 @@
           "producer": "better-dimension-fonts"
         }
       ],
-      "short_title": "Font Time Limit"
+      "short_title": "Font Clock"
     },
     {
       "id": "font_travel",

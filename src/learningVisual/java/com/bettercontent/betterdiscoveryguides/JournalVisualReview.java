@@ -33,7 +33,7 @@ public final class JournalVisualReview {
   var mc=Minecraft.getInstance();if(++frame>=frames.size()){System.out.println("JOURNAL_VISUAL complete frames="+frames.size());mc.stop();return;}
   var f=frames.get(frame);mc.options.guiScale().set(f.scale());mc.resizeDisplay();mc.setScreen(f.screen().get());ticks=0;capturing=false;
  }
- private static ThreadNetwork.Card card(ThreadDefinition d,boolean known,boolean unread,long order){var door=d.doorway();return new ThreadNetwork.Card(d.id(),d.conceptId(),d.title(),d.topic().id(),d.order(),d.aspect()==null?"":d.aspect().id(),d.art().toString(),known,known&&unread,known&&unread,known?d.event():"",known?d.cause():"",known?d.action():"",known?d.recipeItems():List.of(),!known||door==null?"":door.type(),!known||door==null?"":door.target(),known?1:0,known?0:-1,known?0:-1,order,"");}
+ private static ThreadNetwork.Card card(ThreadDefinition d,boolean known,boolean unread,long order){var door=d.doorway();return new ThreadNetwork.Card(d.id(),d.conceptId(),d.title(),d.topic().id(),d.order(),d.aspect()==null?"":d.aspect().id(),d.art().toString(),known,known&&unread,known&&unread,known?d.event():"",known?d.cause():"",known?d.action():"",known?ThreadRecipeReference.resolve(d.recipeItems(), id -> net.minecraft.world.item.ItemStack.EMPTY):List.of(),!known||door==null?"":door.type(),!known||door==null?"":door.target(),known?1:0,known?0:-1,known?0:-1,order,"");}
  private static void prepare(){
   var definitions=ThreadArt.BY_ID.values().stream().sorted(Comparator.comparingInt(ThreadDefinition::order)).toList();
   String body=definitions.stream().filter(d->d.topic()==ThreadTopic.BODY&&d.id().contains("frozen")).findFirst().orElseThrow().id();

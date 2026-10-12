@@ -24,10 +24,8 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.UUID;
 
@@ -38,9 +36,7 @@ public final class FirstUseCues {
     private static final TagKey<net.minecraft.world.item.Item> VEGETABLES = TagKey.create(Registries.ITEM, new ResourceLocation("diet", "vegetables"));
     private static final Set<String> DRYABLE = Set.of("minecraft:beef", "minecraft:porkchop", "minecraft:chicken",
         "minecraft:mutton", "minecraft:rabbit", "minecraft:cod", "minecraft:salmon");
-    private record Timer(UUID player, long dueTick) {}
-    private static final Map<UUID, Timer> ACTIVE_TIMERS = new HashMap<>();
-    private static final PriorityQueue<Timer> DUE_TIMERS = new PriorityQueue<>(Comparator.comparingLong(Timer::dueTick));
+    private static final Map<UUID, OnboardingTimer> ACTIVE_TIMERS = new HashMap<>();
     private static final Map<UUID, BlockPos> LAST_PROXIMITY_CHECK = new HashMap<>();
 
     private FirstUseCues() {}
@@ -59,15 +55,8 @@ public final class FirstUseCues {
         if (!ThreadPlayerState.get(player).known.contains("first_hand_axe")) {
             CompoundTag saved = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
             int remaining = saved.contains(TIMER_KEY) ? saved.getInt(TIMER_KEY) : 600;
-            if (remaining > 0) schedule(player, remaining);
+            ACTIVE_TIMERS.put(player.getUUID(), new OnboardingTimer(remaining));
         }
-    }
-
-    private static void schedule(ServerPlayer player, int remaining) {
-        Timer timer = new Timer(player.getUUID(), player.server.getTickCount() + remaining);
-        Timer previous = ACTIVE_TIMERS.put(player.getUUID(), timer);
-        if (previous != null) DUE_TIMERS.remove(previous);
-        DUE_TIMERS.add(timer);
     }
 
     private static void saveRemaining(ServerPlayer player, int remaining) {
@@ -76,15 +65,16 @@ public final class FirstUseCues {
         player.getPersistentData().put(Player.PERSISTED_NBT_TAG, persisted);
     }
 
-    @SubscribeEvent public static void serverTick(TickEvent.ServerTickEvent event) {
-        if (event.phase != TickEvent.Phase.END) return;
-        long now = event.getServer().getTickCount();
-        while (!DUE_TIMERS.isEmpty() && DUE_TIMERS.peek().dueTick() <= now) {
-            Timer timer = DUE_TIMERS.remove();
-            if (ACTIVE_TIMERS.get(timer.player()) != timer) continue;
-            ACTIVE_TIMERS.remove(timer.player());
-            ServerPlayer player = event.getServer().getPlayerList().getPlayer(timer.player());
-            if (player == null) continue;
+    @SubscribeEvent public static void playerTick(TickEvent.PlayerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END || !(event.player instanceof ServerPlayer player)) return;
+        OnboardingTimer timer = ACTIVE_TIMERS.get(player.getUUID());
+        if (timer == null) return;
+        if (ThreadPlayerState.get(player).known.contains("first_hand_axe")) {
+            ACTIVE_TIMERS.remove(player.getUUID());
+            return;
+        }
+        if (timer.tick(player.isSpectator())) {
+            ACTIVE_TIMERS.remove(player.getUUID());
             once(player, "first_hand_axe", "onboarding_elapsed", "active_30_seconds");
             saveRemaining(player, 0);
         }
@@ -92,17 +82,13 @@ public final class FirstUseCues {
 
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
-        Timer timer = ACTIVE_TIMERS.remove(player.getUUID());
-        if (timer != null) {
-            DUE_TIMERS.remove(timer);
-            saveRemaining(player, (int) Math.max(1, timer.dueTick() - player.server.getTickCount()));
-        }
+        OnboardingTimer timer = ACTIVE_TIMERS.remove(player.getUUID());
+        if (timer != null) saveRemaining(player, timer.remaining());
         LAST_PROXIMITY_CHECK.remove(player.getUUID());
     }
 
     @SubscribeEvent public static void stopped(ServerStoppedEvent event) {
         ACTIVE_TIMERS.clear();
-        DUE_TIMERS.clear();
         LAST_PROXIMITY_CHECK.clear();
     }
 
@@ -155,7 +141,6 @@ public final class FirstUseCues {
         ResourceLocation key = ForgeRegistries.ITEMS.getKey(stack.getItem());
         if (key == null) return;
         String item = key.toString();
-        if (item.equals("farmersdelight:straw")) once(player, "make_backpack", "straw_acquired", "first");
         if (DRYABLE.contains(item)) once(player, "dry_food_for_journey", "dryable_food_acquired", "first");
         if (item.equals("tconstruct:pickaxe")) once(player, "find_dimensional_font", "first_tinkers_tool", "assembled");
         if (item.startsWith("tconstruct:") && stack.isDamageableItem() && stack.getDamageValue() * 5 >= stack.getMaxDamage() * 4)
@@ -180,9 +165,13 @@ public final class FirstUseCues {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         inspectItem(player, event.getCrafting());
         ResourceLocation item = ForgeRegistries.ITEMS.getKey(event.getCrafting().getItem());
+        if (item != null && isBackpackCraft(item.toString()))
+            once(player, "make_backpack", "crafting_table_crafted", "first");
         if (item != null && item.toString().equals("tconstruct:hand_axe"))
             once(player, "start_tinkers_tools", "first_hand_axe_crafted", "completed");
     }
+    static boolean isBackpackCraft(String item) { return item.equals("minecraft:crafting_table"); }
+
     @SubscribeEvent public static void ate(LivingEntityUseItemEvent.Finish event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         ItemStack food = event.getItem();

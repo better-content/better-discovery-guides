@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class ThreadContractsTest {
  private String id(){return ThreadArt.IDS.get(0);}
- @Test void catalogueDefines52CompleteExplanationsWithUniqueGlobalOrder(){
-  assertEquals(52,ThreadArt.IDS.size());var orders=new HashSet<Integer>();var topics=new HashSet<ThreadTopic>();
+ @Test void catalogueDefines48CompleteExplanationsWithUniqueGlobalOrder(){
+  assertEquals(48,ThreadArt.IDS.size());var orders=new HashSet<Integer>();var topics=new HashSet<ThreadTopic>();
   assertFalse(ThreadArt.BY_ID.containsKey("find_recipes_in_emi"));
-  var axe=ThreadArt.BY_ID.get("first_hand_axe");assertEquals("onboarding_elapsed",axe.discoveryRoutes().get(0).type());assertEquals(List.of("tconstruct:hand_axe"),axe.recipeItems());
+  var axe=ThreadArt.BY_ID.get("first_hand_axe");assertEquals("onboarding_elapsed",axe.discoveryRoutes().get(0).type());assertEquals(6,axe.recipeItems().size());assertTrue(axe.recipeItems().stream().allMatch(ThreadRecipeReference::recipe));
   assertFalse(ThreadArt.BY_ID.get("make_backpack").cause().matches(".*\\b[0-9]+\\b.*"));
   for(var d:ThreadArt.BY_ID.values()){assertTrue(orders.add(d.order()));topics.add(d.topic());assertFalse(d.shortTitle().isBlank());assertTrue(d.shortTitle().length()<=24);assertFalse(d.event().isBlank());assertFalse(d.cause().isBlank());assertFalse(d.action().isBlank());assertFalse(d.discoveryRoutes().isEmpty());assertTrue(d.discoveryRoutes().stream().allMatch(r->!r.producer().isBlank()));}
-  var expected=java.util.stream.IntStream.rangeClosed(1,53).boxed().collect(java.util.stream.Collectors.toSet());expected.remove(2);assertEquals(expected,orders);assertEquals(Set.of(ThreadTopic.values()),topics);
+  var expected=java.util.stream.IntStream.rangeClosed(1,53).boxed().collect(java.util.stream.Collectors.toSet());expected.removeAll(Set.of(2,6,7,21,39));assertEquals(expected,orders);assertEquals(Set.of(ThreadTopic.values()),topics);
  }
  @Test void definitionRejectsEmptyExplanationOrNoOutcomeRoutes()throws Exception{
   var root=JsonParser.parseString(Files.readString(Path.of("src/main/resources/data/better_discovery_guides/threads/catalogue.json"))).getAsJsonObject();

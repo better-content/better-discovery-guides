@@ -4,10 +4,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import org.lwjgl.glfw.GLFW;
 import java.util.*;
 
@@ -22,6 +19,7 @@ public class ThreadDeckScreen extends Screen {
     private boolean detail;
     private int scrollRow,textScroll,textMaximumScroll;
     private ItemStack hoveredItem=ItemStack.EMPTY;
+    private String hoveredRecipe="";
     private Button doorwayButton,continueButton;
 
     ThreadDeckScreen(List<ThreadNetwork.Card> cards){this(cards,"");}
@@ -59,6 +57,7 @@ public class ThreadDeckScreen extends Screen {
 
     @Override public void render(GuiGraphics g,int mx,int my,float partial){
         hoveredItem=ItemStack.EMPTY;
+        hoveredRecipe="";
         renderBackground(g);g.fill(0,0,width,height,0xEF101412);
         g.drawCenteredString(font,"THREADS",width/2,10,0xFFF0E5CE);
         doorwayButton.visible=continueButton.visible=false;
@@ -107,13 +106,13 @@ public class ThreadDeckScreen extends Screen {
         text.gap();text.add("WHY",0xFFC6A15B);text.add(c.cause(),0xFFF0E5CE);
         text.gap();text.add("WHAT YOU CAN DO",0xFFC6A15B);text.add(c.action(),0xFFF0E5CE);
         text.gap();text.add("Discovered in "+c.generationCount()+" generation"+(c.generationCount()==1?"":"s")+(c.discovered()?" · This generation":""),0xFFBAB8AB);
-        var items=recipeItems(c);
+        var items=c.recipeItems();
         if(!items.isEmpty()){text.gap();text.add("ITEMS · EMI RECIPE / USES",0xFFC6A15B);text.gap();}
         doorwayButton.visible=ThreadDoorways.available(c);doorwayButton.setMessage(ThreadDoorways.label(c));
         int footer=doorwayButton.visible?24:0;
         doorwayButton.setX(l.detailsX());doorwayButton.setY(l.cardY()+l.cardHeight()-20);doorwayButton.setWidth(l.panelWidth());
         int viewport=Math.max(12,l.cardHeight()-footer);
-        int columns=Math.max(1,l.panelWidth()/20),rows=(items.size()+columns-1)/columns;
+        int columns=ThreadPreviewLayout.columns(l.panelWidth()),rows=(items.size()+columns-1)/columns;
         int extraHeight=rows*20;
         textMaximumScroll=text.maximumScroll(viewport,extraHeight);textScroll=Math.max(0,Math.min(textScroll,textMaximumScroll));
         text.render(g,l.detailsX(),l.cardY(),l.panelWidth(),viewport,textScroll,extraHeight);
@@ -124,8 +123,8 @@ public class ThreadDeckScreen extends Screen {
                 int row=i/columns,column=i%columns,used=Math.min(columns,items.size()-row*columns);
                 int x=l.detailsX()+l.panelWidth()-4-used*20+column*20,y=firstY+row*20;
                 if(y>=l.cardY()&&y+16<=l.cardY()+viewport){
-                    g.renderItem(items.get(i),x,y);
-                    if(mx>=x&&mx<x+16&&my>=y&&my<y+16)hoveredItem=items.get(i);
+                    g.renderItem(items.get(i).stack(),x,y);
+                    if(mx>=x&&mx<x+16&&my>=y&&my<y+16){hoveredItem=items.get(i).stack();hoveredRecipe=items.get(i).recipeId();}
                 }
             }
             g.disableScissor();
@@ -136,7 +135,7 @@ public class ThreadDeckScreen extends Screen {
         if(super.mouseClicked(x,y,button))return true;
         int total=Math.min(width-16,560),cell=total/4,start=(width-cell*4)/2;
         if(y>=24&&y<64&&x>=start&&x<start+cell*4){int i=(int)((y-24)/20)*4+(int)((x-start)/cell);selectTopic(i==0?null:ThreadTopic.values()[i-1]);return true;}
-        if(detail){if(x<100&&y>=64&&y<82){detail=false;return true;}if(!hoveredItem.isEmpty()&&ThreadRecipeItems.click(hoveredItem,button))return true;return true;}
+        if(detail){if(x<100&&y>=64&&y<82){detail=false;return true;}if(!hoveredItem.isEmpty()&&ThreadRecipeItems.click(hoveredItem,hoveredRecipe,button))return true;return true;}
         int cardCell=(width-24)/columns(),left=(width-cardCell*columns())/2;
         if(y>=TOP&&y<TOP+visibleRows()*ROW_HEIGHT&&x>=left&&x<left+cardCell*columns()){
             int index=((int)((y-TOP)/ROW_HEIGHT)+scrollRow)*columns()+(int)((x-left)/cardCell);var list=visible();
@@ -145,7 +144,7 @@ public class ThreadDeckScreen extends Screen {
         return false;
     }
     @Override public boolean keyPressed(int key,int scan,int mods){
-        if(detail&&!hoveredItem.isEmpty()&&ThreadRecipeItems.key(hoveredItem,key,scan))return true;
+        if(detail&&!hoveredItem.isEmpty()&&ThreadRecipeItems.key(hoveredItem,hoveredRecipe,key,scan))return true;
         if(detail&&key==GLFW.GLFW_KEY_SPACE){advanceReader();return true;}
         if(detail&&key==GLFW.GLFW_KEY_ESCAPE){detail=false;return true;}
         if(detail&&(key==GLFW.GLFW_KEY_UP||key==GLFW.GLFW_KEY_DOWN||key==GLFW.GLFW_KEY_PAGE_UP||key==GLFW.GLFW_KEY_PAGE_DOWN)){
@@ -163,7 +162,6 @@ public class ThreadDeckScreen extends Screen {
     private void scrollText(int delta){textScroll=Math.max(0,Math.min(textMaximumScroll,textScroll+delta));}
     @Override public boolean mouseScrolled(double x,double y,double delta){if(detail)scrollText(delta<0?24:-24);else scrollRow=Math.max(0,Math.min(Math.max(0,totalRows()-visibleRows()),scrollRow+(delta<0?1:-1)));return true;}
     private String fit(String text,int max){max=Math.max(1,max);if(font.width(text)<=max)return text;while(text.length()>1&&font.width(text+"…")>max)text=text.substring(0,text.length()-1);return text+"…";}
-    private List<ItemStack> recipeItems(ThreadNetwork.Card card){var items=new ArrayList<ItemStack>();for(var id:card.recipeItems()){var item=BuiltInRegistries.ITEM.get(ResourceLocation.tryParse(id));if(item!=Items.AIR)items.add(new ItemStack(item));}return items;}
     private static String capital(String s){return s.isEmpty()?s:Character.toUpperCase(s.charAt(0))+s.substring(1);}
     static DetailLayout detailLayout(int screenWidth, int screenHeight) {
         // Reserve the four pixel panel border on both sides as well as the

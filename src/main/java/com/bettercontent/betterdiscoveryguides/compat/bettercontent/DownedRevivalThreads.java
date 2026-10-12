@@ -6,7 +6,7 @@ import com.bettercontent.betterdiscoveryguides.DeathHintEvents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-/** Only committed bodily outcomes become discoveries. */
+/** Committed injury outcomes and final-death advice; no entry-state discovery. */
 public final class DownedRevivalThreads {
     private DownedRevivalThreads() {}
     private static void emit(InjuryEvent event, String type, String value) {
@@ -20,7 +20,6 @@ public final class DownedRevivalThreads {
         }
         return "Active injuries: "+event.snapshot().activeMaims().size()+"; trauma: "+event.snapshot().traumaCount();
     }
-    @SubscribeEvent public static void entered(InjuryEvent.EnteredDoor event) { emit(event,"deaths_door","entered"); }
     @SubscribeEvent public static void healed(InjuryEvent.Healed event) {
         if (event.snapshot().health()>0 && !event.snapshot().activeMaims().isEmpty()) emit(event,"injury_healing","persistent");
     }

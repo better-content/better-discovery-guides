@@ -15,7 +15,7 @@ Injury care follows native snapshots and treatment tags: healing lock; available
 
 ## Death's Door and Body
 
-The active roster retains one Death's Door discovery, triggered by committed `EnteredDoor`. The native Body UI and contextual advice explain persistent injuries, trauma, and treatment without spending three more card slots on those mechanics. The Body doorway requests the native authoritative interface.
+Death's Door has no active discovery card. The native Body UI, loading/Lessons and contextual advice explain the state, persistent injuries, trauma, and treatment without spending discovery slots. Final-death advice still follows the committed native event.
 
 `DeathRecapOverlay` owns death-button placement. Learning Surfaces reserves its measured tip area through that provider; the recap uses the remaining area. Compact layouts show all six regions and paired active/treated counts in the shared Cracked/Burnt/Opened order. If copy cannot fit while preserving the native recap and controls, it is omitted and not recorded as seen. Notices pause while Death's Door is urgent or Body is open, preserving their remaining reading lifetime.
 

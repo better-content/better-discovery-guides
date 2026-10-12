@@ -53,7 +53,7 @@ public final class ThreadPlayerState {
  private static CompoundTag read(MinecraftServer server,UUID player){if(ModList.get().isLoaded("better_world_management")){try{return WorldLifecycleThreads.readPlayerData(server,LINEAGE_KEY,player);}catch(IOException e){throw new IllegalStateException("Cannot read lineage discoveries",e);}}return worldData(server).players.getCompound(player.toString());}
  private static WorldData worldData(MinecraftServer server){return server.overworld().getDataStorage().computeIfAbsent(WorldData::new,WorldData::new,"better_discovery_guides_discoveries");}
  private static final class WorldData extends SavedData {private final CompoundTag players;WorldData(){players=new CompoundTag();}WorldData(CompoundTag tag){players=tag.getCompound("players");}@Override public CompoundTag save(CompoundTag tag){tag.put("players",players);return tag;}}
- private static void readSet(CompoundTag tag,String key,Set<String> out){tag.getList(key,Tag.TAG_STRING).stream().map(Tag::getAsString).filter(ThreadArt.BY_ID::containsKey).limit(53).forEach(out::add);}
+ private static void readSet(CompoundTag tag,String key,Set<String> out){tag.getList(key,Tag.TAG_STRING).stream().map(Tag::getAsString).filter(id->id.matches("[a-z0-9_]{1,48}")).limit(53).forEach(out::add);}
  private static ListTag strings(Collection<String> values){var list=new ListTag();values.forEach(v->list.add(StringTag.valueOf(v)));return list;}
  private static CompoundTag longs(Map<String,Long> values){var out=new CompoundTag();values.forEach(out::putLong);return out;}
  public static boolean validCorrelation(String value){return value!=null&&!value.isBlank()&&value.length()<=128&&value.chars().allMatch(c->c>=0x21&&c<=0x7e);}

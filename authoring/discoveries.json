@@ -40,8 +40,8 @@
       "order": 3,
       "art": "better_discovery_guides:textures/gui/threads/first_hand_axe.png",
       "event": "You have had a moment to get your bearings.",
-      "cause": "The hand axe is what gets you your first wood; the full tool station does not exist yet. EMI shows what it takes to make one.",
-      "action": "Hover over the hand axe below and use your EMI recipe control. Craft one, then gather wood for the Tinkers stations.",
+      "cause": "A primitive hand axe starts your wood supply. Hanging roots can become its canvas binding without a knife; a primitive knife opens the alternative route from grass to straw to canvas.",
+      "action": "Compare the rock, flint, and bone axes and knives below in EMI. Choose a route, make an axe, then gather wood for the Tinkers stations.",
       "discovery_routes": [
         {
           "id": "first_hand_axe",
@@ -55,13 +55,18 @@
         "adapter_sources": [
           "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/FirstUseCues.java"
         ],
-        "positive": "You spent 30 active seconds in the world.",
+        "positive": "You spent 600 connected, non-spectator player ticks in the world.",
         "negative": "Time outside active play and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
       },
       "short_title": "First Hand Axe",
       "recipe_items": [
-        "tconstruct:hand_axe"
+        {"recipe": "kubejs:primitive/rock_hand_axe"},
+        {"recipe": "kubejs:primitive/flint_hand_axe"},
+        {"recipe": "kubejs:primitive/bone_hand_axe"},
+        {"recipe": "kubejs:primitive/rock_butcher_knife"},
+        {"recipe": "kubejs:primitive/flint_butcher_knife"},
+        {"recipe": "kubejs:primitive/bone_butcher_knife"}
       ]
     },
     {
@@ -106,13 +111,13 @@
       "topic": "world",
       "order": 5,
       "art": "better_discovery_guides:textures/gui/threads/make_backpack.png",
-      "event": "You gathered straw by cutting grass with a knife.",
-      "cause": "Straw is one of the first backpack ingredients, and portable storage keeps a trip from ending at your first full inventory.",
-      "action": "Cut grass with a knife, then hover over the backpack below and use EMI to find its recipe.",
+      "event": "You made a crafting table.",
+      "cause": "The table gives you room to craft a backpack. Portable storage keeps a trip from ending at your first full inventory.",
+      "action": "Gather straw by cutting grass with a primitive knife, then inspect the backpack below in EMI.",
       "discovery_routes": [
         {
           "id": "make_backpack",
-          "type": "straw_acquired",
+          "type": "crafting_table_crafted",
           "value": "first",
           "producer": "better-discovery-guides"
         }
@@ -122,75 +127,14 @@
         "adapter_sources": [
           "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/FirstUseCues.java"
         ],
-        "positive": "The player acquired straw after cutting grass with a knife.",
-        "negative": "An unrelated item or another player does not qualify.",
+        "positive": "The player successfully crafted a minecraft:crafting_table.",
+        "negative": "Straw acquisition, table possession, pickup, placement, opening, and another player's craft do not qualify.",
         "solo": "Requires no second player."
       },
       "short_title": "Backpack",
       "recipe_items": [
         "sophisticatedbackpacks:backpack"
       ]
-    },
-    {
-      "id": "returned_traces",
-      "concept_id": "world.returned_traces",
-      "owner": "better-player-traces",
-      "title": "Your Earlier Work Left Recoverable Traces",
-      "topic": "world",
-      "order": 6,
-      "art": "better_discovery_guides:textures/gui/threads/returned_traces.png",
-      "event": "You came back to a place you had worked before.",
-      "cause": "Player Traces records movement and work, so ground you have already touched keeps a record of it. Revisiting lets you read that history back.",
-      "action": "Open Trace Sight and look at what is around you.",
-      "discovery_routes": [
-        {
-          "id": "returned_traces",
-          "type": "trace_return",
-          "value": "own_old_trace",
-          "producer": "better-player-traces"
-        }
-      ],
-      "scene": "An old worked stone path with scattered quarry chips and an abandoned note marker, newer weathering overlaying precise earlier tool marks, no footprints shaped as feet.",
-      "evidence": {
-        "adapter_sources": [
-          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/compat/bettercontent/PlayerTraceThreads.java"
-        ],
-        "positive": "You returned to traces of your earlier activity.",
-        "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
-        "solo": "Requires no second player."
-      },
-      "short_title": "Work Traces"
-    },
-    {
-      "id": "underground_pressure_builds",
-      "concept_id": "world.underground_pressure_builds",
-      "owner": "better-cave-encounters",
-      "title": "Cave Pressure Rose as You Spent Time Below",
-      "topic": "world",
-      "order": 7,
-      "art": "better_discovery_guides:textures/gui/threads/underground_pressure_builds.png",
-      "event": "The underground pressure started to build.",
-      "cause": "Time spent below raises cave pressure, and it does that before any warning sounds. Surface time lets it ease off.",
-      "action": "Keep an exit in mind and head for daylight when the pressure climbs.",
-      "discovery_routes": [
-        {
-          "id": "underground_pressure_builds",
-          "type": "depth_pressure",
-          "value": "started",
-          "producer": "better-cave-encounters"
-        }
-      ],
-      "scene": "Cave cross-section with subtle dust and fissures gathering below a clear sunlit surface path, the earliest hint of danger.",
-      "evidence": {
-        "adapter_sources": [
-          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/compat/bettercontent/DepthDirectorThreads.java",
-          "mod_source/better-cave-encounters/src/main/java/com/bettercontent/bettercaveencounters/DirectorRuntime.java"
-        ],
-        "positive": "The underground pressure began to build.",
-        "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
-        "solo": "Requires no second player."
-      },
-      "short_title": "Cave Pressure"
     },
     {
       "id": "cave_warning",
@@ -604,40 +548,6 @@
         "solo": "Requires no second player."
       },
       "short_title": "Nutrition Cleanse"
-    },
-    {
-      "id": "deaths_door",
-      "concept_id": "body.deaths_door",
-      "owner": "better-deaths-door",
-      "title": "You Reached Death's Door",
-      "topic": "body",
-      "order": 21,
-      "art": "better_discovery_guides:textures/gui/threads/deaths_door.png",
-      "event": "A hit emptied your positive HP and left you injured.",
-      "cause": "Positive HP takes the crossing hit instead of you. At zero, the next accepted hit can kill - but movement and ordinary controls still work.",
-      "action": "Get out of danger, wait out the healing lock, and open your Body screen.",
-      "discovery_routes": [
-        {
-          "id": "deaths_door",
-          "type": "deaths_door",
-          "value": "entered",
-          "producer": "better-deaths-door"
-        }
-      ],
-      "scene": "An opened emergency medical kit beside a shattered glass vessel and an intact healing potion on a perilous cave ledge, no body or skull.",
-      "doorway": {
-        "type": "body",
-        "target": "self"
-      },
-      "evidence": {
-        "adapter_sources": [
-          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/compat/bettercontent/DownedRevivalThreads.java"
-        ],
-        "positive": "A hit exhausted your positive HP and left you injured.",
-        "negative": "A recipe preview, setup, nearby observer, unrelated output, or duplicate same-generation event does not qualify.",
-        "solo": "Requires no second player."
-      },
-      "short_title": "Death's Door"
     },
     {
       "id": "ore_chunks_need_separation",
@@ -1170,36 +1080,6 @@
       ]
     },
     {
-      "id": "spirits_are_materials",
-      "concept_id": "magic.spirits_are_materials",
-      "owner": "malum",
-      "title": "Spirits Are Materials Too",
-      "topic": "magic",
-      "order": 39,
-      "art": "better_discovery_guides:textures/gui/threads/spirits_are_materials.png",
-      "event": "You acquired your first spirit.",
-      "cause": "Spirits are Malum crafting materials and trade currency at the same time. Spending one there means giving up the other use.",
-      "action": "Keep a reserve, and check both its crafting uses and its trade offers.",
-      "discovery_routes": [
-        {
-          "id": "spirits_are_materials",
-          "type": "spirit_acquired",
-          "value": "first",
-          "producer": "malum"
-        }
-      ],
-      "scene": "Small luminous spirit wisps beside a Malum reagent vessel and a trader-scale set of copper trade weights; no figure or text.",
-      "evidence": {
-        "adapter_sources": [
-          "mod_source/better-discovery-guides/src/main/java/com/bettercontent/betterdiscoveryguides/compat/bettercontent/EconomyThreads.java"
-        ],
-        "positive": "You acquired your first spirit.",
-        "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
-        "solo": "Requires no second player."
-      },
-      "short_title": "Spirit Materials"
-    },
-    {
       "id": "trading_spirits",
       "concept_id": "world.trading_spirits",
       "owner": "better-spirit-commerce",
@@ -1353,7 +1233,7 @@
       "id": "font_trip_time_budget",
       "concept_id": "travel.font_trip_time_budget",
       "owner": "better-dimension-fonts",
-      "title": "A Font Trip Has a Time Budget",
+      "title": "Race the Font’s Clock",
       "topic": "travel",
       "order": 45,
       "art": "better_discovery_guides:textures/gui/threads/font_trip_time_budget.png",
@@ -1377,7 +1257,7 @@
         "negative": "A bystander, unrelated item or location, and duplicate same-generation delivery do not qualify.",
         "solo": "Requires no second player."
       },
-      "short_title": "Font Time Limit"
+      "short_title": "Font Clock"
     },
     {
       "id": "font_travel",

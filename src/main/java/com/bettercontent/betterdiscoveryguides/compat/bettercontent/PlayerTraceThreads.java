@@ -4,20 +4,11 @@ import com.bettercontent.betterplayertraces.api.event.TraceEpisodeEvent;
 import com.bettercontent.betterdiscoveryguides.ThreadSignals;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-/** Maps Player Traces' journey episodes into correlated Thread evidence. */
+/** Committed trace work remains independent of the retired return discovery. */
 public final class PlayerTraceThreads {
     private PlayerTraceThreads() {}
-
-    @SubscribeEvent
-    public static void traceProgressed(TraceEpisodeEvent event) {
-        ThreadEvidence evidence = evidence(event.getKind());
-        ThreadSignals.emit(event.getPlayer(), evidence.type(), evidence.value(), event.getEpisodeId());
-    }
-
-    static ThreadEvidence evidence(TraceEpisodeEvent.Kind kind) {
-        return switch (kind) {
-            case COMMITTED -> new ThreadEvidence("trace_commit", "footprint");
-            case RETURNED -> new ThreadEvidence("trace_return", "own_old_trace");
-        };
+    @SubscribeEvent public static void traceProgressed(TraceEpisodeEvent event) {
+        if (event.getKind() == TraceEpisodeEvent.Kind.COMMITTED)
+            ThreadSignals.emit(event.getPlayer(), "trace_commit", "footprint", event.getEpisodeId());
     }
 }

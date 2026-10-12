@@ -5,7 +5,6 @@ import com.bettercontent.bettercompatfixes.api.event.CustomControlEpisodeEvent;
 import com.bettercontent.bettercompatfixes.api.event.SleepTimelapseEvent;
 import com.bettercontent.betterindustrialheat.api.event.BodyTemperatureEpisodeEvent;
 import com.bettercontent.betterindustrialheat.api.event.FoodThermalEpisodeEvent;
-import com.bettercontent.betterplayertraces.api.event.TraceEpisodeEvent;
 import com.bettercontent.betterrpgprogression.api.event.LifeAllocationEvent;
 import com.bettercontent.betteroregeology.api.event.DepositSurveyEvent;
 import com.bettercontent.bettersettlementroads.api.event.RoadJourneyEvent;
@@ -36,10 +35,6 @@ final class BetterContentEventMappingTest {
             SettlementRoadThreads.evidence(RoadJourneyEvent.Stage.ENTERED_WILDERNESS));
         assertEquals(evidence("road_arrival", "settlement"),
             SettlementRoadThreads.evidence(RoadJourneyEvent.Stage.ARRIVED_SETTLEMENT));
-        assertEquals(evidence("trace_commit", "footprint"),
-            PlayerTraceThreads.evidence(TraceEpisodeEvent.Kind.COMMITTED));
-        assertEquals(evidence("trace_return", "own_old_trace"),
-            PlayerTraceThreads.evidence(TraceEpisodeEvent.Kind.RETURNED));
         assertEquals(evidence("life_allocation", "available"),
             RpgStatsThreads.evidence(LifeAllocationEvent.State.AVAILABLE));
         assertEquals(evidence("life_allocation", "spent"),
