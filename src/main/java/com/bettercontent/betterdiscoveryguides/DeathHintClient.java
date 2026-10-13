@@ -78,7 +78,7 @@ public final class DeathHintClient {
     @SubscribeEvent public static void beforeRender(ScreenEvent.Render.Pre event) {
         if(event.getScreen() instanceof DeathScreen screen && ModList.get().isLoaded("better_deaths_door")) {
             var selected=lifecycle().deathTip(DeathHints.INSTANCE.all(), id->ModList.get().isLoaded(id),RANDOM,Util.getMillis());
-            if(selected!=null)InjuryLayout.reserve(screen,Minecraft.getInstance().font.split(text(selected.hint()),Math.min(544,screen.width-32)).size(),Minecraft.getInstance().font.lineHeight);
+            if(selected!=null)InjuryLayout.reserve(screen,Minecraft.getInstance().font.split(text(selected.hint()),InjuryLayout.textWidth(screen)).size(),Minecraft.getInstance().font.lineHeight);
         }
         if (normalPause(event.getScreen())) {
             var selected = lifecycle().pauseTip(DeathHints.INSTANCE.all(), id -> ModList.get().isLoaded(id), RANDOM);
@@ -101,11 +101,14 @@ public final class DeathHintClient {
     }
 
     private static final class InjuryLayout {
+        static int textWidth(Screen screen) {
+            return Math.max(1,com.bettercontent.betterdeathsdoor.client.DeathRecapOverlay.contentViewport(screen).width()-16);
+        }
         static DeathHintLayout reserve(Screen screen,int lines,int lineHeight) {
             int height=8+lineHeight*lines;
-            boolean fits=screen.height-108-height>=80;
-            var box=com.bettercontent.betterdeathsdoor.client.DeathRecapOverlay.reserveHint(screen,fits?height:0);
-            return new DeathHintLayout(box.x(),box.y(),box.width(),height,fits);
+            var box=com.bettercontent.betterdeathsdoor.client.DeathRecapOverlay.reserveHint(screen,height);
+            boolean visible=com.bettercontent.betterdeathsdoor.client.DeathRecapOverlay.hintVisible(screen);
+            return new DeathHintLayout(box.x(),box.y(),box.width(),height,visible);
         }
     }
     static Component text(DeathHint hint) {
@@ -142,7 +145,7 @@ public final class DeathHintClient {
         if (screen instanceof TitleScreen) return renderMenuEntry(graphics, screen, hint);
         var font = Minecraft.getInstance().font;
         boolean injuryDeath=screen instanceof DeathScreen && ModList.get().isLoaded("better_deaths_door");
-        var lines = font.split(text(hint), injuryDeath?Math.min(544,screen.width-32):DeathHintLayout.textWidth(screen.width));
+        var lines = font.split(text(hint), injuryDeath?InjuryLayout.textWidth(screen):DeathHintLayout.textWidth(screen.width));
         int bottom = screen.children().stream().filter(c -> screen instanceof TitleScreen ? c instanceof AbstractButton b && b.getHeight()>=20 : c instanceof AbstractWidget)
             .map(c -> (AbstractWidget) c).filter(w -> w.visible).mapToInt(w -> w.getY() + w.getHeight())
             .max().orElse(screen.height / 4 + 116);
@@ -153,6 +156,8 @@ public final class DeathHintClient {
         if (injuryDeath) {
             graphics.pose().pushPose();
             graphics.pose().translate(0, 0, 600);
+            var viewport=com.bettercontent.betterdeathsdoor.client.DeathRecapOverlay.contentViewport(screen);
+            graphics.enableScissor(viewport.x(),viewport.y(),viewport.x()+viewport.width(),viewport.y()+viewport.height());
         }
         graphics.fill(layout.x(),layout.y(),layout.x()+layout.width(),layout.y()+layout.height(),injuryDeath?BetterUiTheme.color(0xFFEDE0C1,0xFF263A30):0xCE151310);
         if(injuryDeath){
@@ -166,8 +171,9 @@ public final class DeathHintClient {
             graphics.drawString(font, line, layout.x() + 8, y, injuryDeath?BetterUiTheme.color(0xFF254637,0xFFF4E6C7):0xEEE8DB, false);
             y += font.lineHeight;
         }
-        if (injuryDeath) graphics.pose().popPose();
-        return true;
+        if (injuryDeath) { graphics.disableScissor(); graphics.pose().popPose(); }
+        // A clipped fragment is drawable, but is not a completed teaching exposure.
+        return !injuryDeath || com.bettercontent.betterdeathsdoor.client.DeathRecapOverlay.hintFullyVisible(screen);
     }
 
     private static boolean renderMenuEntry(GuiGraphics graphics, Screen screen, DeathHint hint) {

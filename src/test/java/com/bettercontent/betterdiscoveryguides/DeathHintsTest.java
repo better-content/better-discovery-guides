@@ -44,5 +44,13 @@ final class DeathHintsTest {
     @Test void malformedBindingsAreRejected(){
         assertThrows(IllegalArgumentException.class,()->new DeathHint("bad","test.tip","survival","Press {unknown}.",Set.of(),Set.of(),List.of("source")));
     }
+    @Test void injuryHintWrapUsesTheSharedViewportBudget() throws Exception {
+        var source=Files.readString(Path.of("src/main/java/com/bettercontent/betterdiscoveryguides/DeathHintClient.java"));
+        assertTrue(source.contains("font.split(text(selected.hint()),InjuryLayout.textWidth(screen))"));
+        assertTrue(source.contains("injuryDeath?InjuryLayout.textWidth(screen)"));
+        assertTrue(source.contains("DeathRecapOverlay.contentViewport(screen).width()-16"));
+        assertEquals(280,com.bettercontent.betterdeathsdoor.client.DeathRecapLayout.fit(320,240,1,3,0,false).width()-16);
+        assertEquals(544,com.bettercontent.betterdeathsdoor.client.DeathRecapLayout.fit(640,480,1,3,0,false).width()-16);
+    }
     @Test void staleDeathContextsFallBack(){var session=new DeathHintSession();session.receive("fire",100);assertEquals("general",session.freeze(6000));}
 }
