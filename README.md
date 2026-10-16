@@ -20,6 +20,9 @@ Cards, lessons, and tips load from packaged resources once per process. Resource
 ## Evidence and persistence
 
 Owned gameplay outcomes are credited from provider events at success, including when the owner is offline. First-use and inspection cards use bounded personal cues such as item acquisition, closing an EMI recipe, a completed food use, or approaching a feature. The EMI report is client supplied and may award only non-reward personal teaching cards. The server owns outcome credit and persisted lineage history. Repeated signals count once per card per generation. There is no quota or quiet period. Backpack credits a successful crafting-table craft only.
+Tool Maintenance also checks the held Tinkers item on non-cancelled block-break events,
+using the existing 20%-durability-remaining threshold. The event precedes the current
+block's durability cost, so a threshold crossed by that cost is noticed on the next break.
 Axe onboarding counts 600 connected non-spectator player ticks and persists the remainder
 across logout; spectator scouting pauses it. Removed cards remain in saved history but
 no longer appear in reader sync or notices.

@@ -147,6 +147,15 @@ public final class FirstUseCues {
             once(player, "maintain_tinkers_tool", "tinkers_tool_low", "first");
     }
 
+    // BreakEvent precedes this block's durability cost; inspect the current wear on each break.
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void brokeBlock(BlockEvent.BreakEvent event) {
+        if (event.isCanceled() || !(event.getPlayer() instanceof ServerPlayer player)) return;
+        ItemStack held = player.getMainHandItem();
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey(held.getItem());
+        if (key != null && key.getNamespace().equals("tconstruct")) inspectItem(player, held);
+    }
+
     @SubscribeEvent public static void pickedUp(PlayerEvent.ItemPickupEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) inspectItem(player, event.getStack());
     }

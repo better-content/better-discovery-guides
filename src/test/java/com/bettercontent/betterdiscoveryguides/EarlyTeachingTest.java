@@ -33,6 +33,18 @@ final class EarlyTeachingTest {
         var route = ThreadArt.BY_ID.get("make_backpack").discoveryRoutes().get(0);
         assertEquals("crafting_table_crafted",route.type()); assertEquals("first",route.value());
     }
+    @Test void blockBreakChecksHeldTinkersToolWithoutPollingOrCountingTools() throws Exception {
+        var source = Files.readString(Path.of("src/main/java/com/bettercontent/betterdiscoveryguides/FirstUseCues.java"));
+        var handler = source.substring(source.indexOf("@SubscribeEvent(priority = EventPriority.LOWEST)\n    public static void brokeBlock"),
+            source.indexOf("@SubscribeEvent public static void pickedUp"));
+        assertTrue(handler.contains("BlockEvent.BreakEvent event"));
+        assertTrue(handler.contains("event.isCanceled() || !(event.getPlayer() instanceof ServerPlayer player)"));
+        assertTrue(handler.contains("ItemStack held = player.getMainHandItem()"));
+        assertTrue(handler.contains("key.getNamespace().equals(\"tconstruct\")"));
+        assertTrue(handler.contains("inspectItem(player, held)"));
+        assertTrue(source.contains("stack.getDamageValue() * 5 >= stack.getMaxDamage() * 4"));
+        assertTrue(source.contains("once(player, \"maintain_tinkers_tool\", \"tinkers_tool_low\", \"first\")"));
+    }
     @Test void authoredAndPackagedIdsMatchAndCutsHaveNoRoutes() throws Exception {
         var authored=JsonParser.parseString(Files.readString(Path.of("authoring/discoveries.json")))
             .getAsJsonObject().getAsJsonArray("cards");
