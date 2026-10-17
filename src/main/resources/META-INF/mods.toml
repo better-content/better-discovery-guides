@@ -86,7 +86,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="better_ore_geology"
 mandatory=false
-versionRange="[0.2.0]"
+versionRange="[0.3.0,)"
 ordering="AFTER"
 side="BOTH"
 [[dependencies.${mod_id}]]
