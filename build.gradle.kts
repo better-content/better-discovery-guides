@@ -112,7 +112,7 @@ val betterContentApiJars = files(
     betterContentJar("better-compat-fixes", "better-compat-fixes-0.1.9.jar"),
     betterContentJar("better-player-traces", "better-player-traces-0.1.0.jar"),
     betterContentJar("better-survival-physiology", "better-survival-physiology-0.1.1.jar"),
-    betterContentJar("better-ore-geology", "better-ore-geology-0.2.0.jar"),
+    betterContentJar("better-ore-geology", "better-ore-geology-0.3.0.jar"),
     betterContentJar("better-chemlib-hazards", "better-chemlib-hazards-0.2.0.jar"),
     betterContentJar("better-cave-encounters", "better-cave-encounters-0.2.1.jar"),
     betterContentJar("better-bumblezone-crops", "better-bumblezone-crops-0.1.0.jar"),
