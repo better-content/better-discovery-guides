@@ -77,7 +77,7 @@
       "owner": "better-compat-fixes",
       "category": "Movement",
       "headline": "Movement Controls",
-      "body": "Advanced movement runs on stamina. Fast run is Shift, vault is Mouse 5, dodge is R - directional double-tap dodging is off. Each has its own key and its own cost.",
+      "body": "Advanced movement runs on stamina. Fast run is Shift, vault is Mouse 5, dodge is R or, while holding Left Shift and not crouching, a double tap of an arrow key. Each has its own key and its own cost.",
       "action": "Practice the movements on safe ground.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/movement.png"
     },
