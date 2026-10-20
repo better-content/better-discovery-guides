@@ -234,8 +234,8 @@
       "topic": "world",
       "order": 11,
       "art": "better_discovery_guides:textures/gui/threads/bring_planting_stock_home.png",
-      "event": "You found wild food with no dependable way to replant it.",
-      "cause": "Forage feeds you once. Bumblezone cultivars give you dependable grain and vegetable seed lines - the difference between eating and farming.",
+      "event": "You harvested a wild crop without planting stock.",
+      "cause": "Wild vegetables and rice are finite food, not planting stock. Bumblezone cultivars supply the seeds for a renewable farm.",
       "action": "Bring planting stock back from Bumblezone and start a farm at home.",
       "discovery_routes": [
         {
@@ -422,7 +422,7 @@
       "order": 17,
       "art": "better_discovery_guides:textures/gui/threads/heavy_blow.png",
       "event": "Your prepared attack triggered Heavy Blow.",
-      "cause": "Sinew nutrition unlocks the heavy charged strike at 40%. It needs four seconds since your last attack, then a 12-second recovery.",
+      "cause": "Flesh nutrition unlocks the heavy charged strike at 40%. It needs four seconds since your last attack, then a 12-second recovery.",
       "action": "Keep protein nutrition up, and do not count on two heavy blows in a row.",
       "discovery_routes": [
         {
