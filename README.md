@@ -9,6 +9,30 @@ Shared teaching policy belongs to [Discovery guides](../../better-content-modpac
 
 Learning Surfaces is Better Content's Forge 1.20.1 player education mod. It owns a 48-card discovery reader, 18 loading lessons, and 135 contextual tips for the main menu, Esc menu, and death screen. Other mods own their gameplay rules and publish events; this mod turns those events and personal points of need into explanations. It grants no gameplay rewards.
 
+## Cold source native fixture
+
+The existing UUID RunConfig/report-token profile now provisions only absent server properties
+with CREATE_NEW and verifies exact path agreement. It preserves existing bytes and leaves all
+ordinary/visual instances untouched. Existing registered/executed ID inventory and report guards
+stay authoritative; completed/passed counts derive from `gametest/profiles/full.txt`, never a new
+invented count. Actual latest/debug ERROR/FATAL/mixin failures reject. Pure create/preserve and
+missing/count-mismatch/duplicate/severity controls are included. These source changes still await
+qualified broad-provider closure and an admitted full/stage gate; no native pass is claimed.
+
+## Bounded playtest diagnostics
+
+Loader SLF4J `bc.playtest.better_discovery_guides.*` reports INFO startup/providers/own source
+(UNKNOWN when unavailable). DEBUG distinguishes invalid ingress, server dispatch submission,
+unmatched/repeated-or-ineligible signals, actual credit saved to the existing backend and
+notice/sync submission. Saved means the backend call returned, not proof of disk flush or client
+presentation. Validated signal type, generation and pending counts are allowed; arbitrary values,
+provider correlation/context strings, personal history and localized notice text are omitted.
+No diagnostic definition/history traversal, native mutation or packet changes are introduced.
+One shared 120/minute burst20 budget, 256 aggregate keys, 2048-character record bound and
+30-second summaries limit output. Disconnect/server stop clears keys without allowance refill.
+Standalone stays INFO; the pack selects scoped DEBUG. Logging does not change teaching credit
+semantics or prove rendered/audible notice delivery.
+
 ## Authoring
 
 [Card definitions](authoring/discoveries.json) are the editable source for the packaged `bc.better_discovery_guides.cards.v4` catalogue. Each card has a full title, an authored short title for the unread prompt, an event, cause, next action, and bounded trigger routes. [Teaching guidance](authoring/teaching-surfaces.md) describes timing, selection, and authority. The modpack's `docs/better_discovery_guides.md` is the cross-surface policy for cards, lessons, tips, hover text, EMI, Ponder, native guides, and HUD feedback.
