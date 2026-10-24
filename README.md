@@ -1,9 +1,8 @@
 # Better Discovery Guides
 
-## Scope and authority
+## Scope
 
-This repository owns discovery implementation and authored card/lesson masters. Read
-[local instructions](AGENTS.md) and the [shared policy index](../../better-content-modpack/docs/README.md).
+This repository owns discovery implementation and authored card/lesson masters.
 Shared teaching policy belongs to [Discovery guides](../../better-content-modpack/docs/better_discovery_guides.md).
 
 
@@ -62,4 +61,4 @@ serialization; EMI recipes focus the exact reference and uses operate on the rea
 
 ## Verification
 
-`./gradlew verifyFast` runs local contracts without launching GameTests. Before committing or pushing, run `./gradlew verifyFull stageRuntimeJar` as required by [AGENTS.md](AGENTS.md). The isolated GameTest profile exercises core discovery behavior. Provider-route scenarios compile under `src/packIntegration` and need the installed providers in a full-pack runtime.
+`./gradlew verifyFast` runs local contracts without launching GameTests. The isolated GameTest profile exercises core discovery behavior. Provider-route scenarios compile under `src/packIntegration` and need the installed providers in a full-pack runtime.
