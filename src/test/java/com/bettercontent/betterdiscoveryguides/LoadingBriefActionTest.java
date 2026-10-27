@@ -9,6 +9,18 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoadingBriefActionTest {
+    // Future-authoring protection: the current bundled lessons declare no related threads.
+    // This does not claim nonvacuous linked-lesson or gameplay coverage.
+    @Test void declaredRelatedThreadsPreserveTheLessonsConcept() {
+        for (var brief : LoadingBriefs.INSTANCE.all()) {
+            if (brief.relatedThread().isEmpty()) continue;
+            var thread = ThreadArt.BY_ID.get(brief.relatedThread());
+            assertNotNull(thread, () -> "Lesson " + brief.id() + " references unknown thread " + brief.relatedThread());
+            assertEquals(brief.conceptId(), thread.conceptId(),
+                    () -> "Related thread " + thread.id() + " must teach lesson " + brief.id() + "'s concept");
+        }
+    }
+
     @Test void everyLoadingBriefProvidesAnActionableMechanic() {
         try (var stream = getClass().getResourceAsStream("/assets/better_discovery_guides/loading_briefs/catalogue.json")) {
             assertNotNull(stream);
