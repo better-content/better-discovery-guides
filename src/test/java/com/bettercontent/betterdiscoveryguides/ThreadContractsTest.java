@@ -17,6 +17,18 @@ final class ThreadContractsTest {
   for(var d:ThreadArt.BY_ID.values()){assertTrue(orders.add(d.order()));topics.add(d.topic());assertFalse(d.shortTitle().isBlank());assertTrue(d.shortTitle().length()<=24);assertFalse(d.event().isBlank());assertFalse(d.cause().isBlank());assertFalse(d.action().isBlank());assertFalse(d.discoveryRoutes().isEmpty());assertTrue(d.discoveryRoutes().stream().allMatch(r->!r.producer().isBlank()));}
   var expected=java.util.stream.IntStream.rangeClosed(1,53).boxed().collect(java.util.stream.Collectors.toSet());expected.removeAll(Set.of(2,6,7,21,39));assertEquals(expected,orders);assertEquals(Set.of(ThreadTopic.values()),topics);
  }
+ @Test void retiredRatlantisThreadsAreReplacedByReachableEvents()throws Exception{
+  assertFalse(ThreadArt.BY_ID.containsKey("ratlantis_starts_logistics"));
+  assertFalse(ThreadArt.BY_ID.containsKey("ratlantis_below_islands"));
+  var meteor=ThreadArt.BY_ID.get("meteor_starts_logistics");
+  assertNotNull(meteor);assertEquals("emi_recipe_closed",meteor.discoveryRoutes().get(0).type());
+  assertEquals("meteor_logistics",meteor.discoveryRoutes().get(0).value());
+  assertEquals("prettypipes:pipe",meteor.recipeItems().get(0).id());
+  var ecology=ThreadArt.BY_ID.get("overworld_rat_ecology");
+  assertNotNull(ecology);assertEquals("overworld_rat_encounter",ecology.discoveryRoutes().get(0).type());
+  assertFalse(Files.readString(Path.of("src/main/resources/data/better_discovery_guides/threads/catalogue.json"))
+      .contains("better_ratlantis_logistics"));
+ }
  @Test void definitionRejectsEmptyExplanationOrNoOutcomeRoutes()throws Exception{
   var root=JsonParser.parseString(Files.readString(Path.of("src/main/resources/data/better_discovery_guides/threads/catalogue.json"))).getAsJsonObject();
   var row=root.getAsJsonArray("threads").get(0).getAsJsonObject().deepCopy();row.addProperty("cause","");assertThrows(IllegalArgumentException.class,()->ThreadDefinition.parse(row));

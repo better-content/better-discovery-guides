@@ -1452,7 +1452,7 @@
       "requirements": [],
       "sources": [
         "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/nether.json",
-        "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/ratlantis.json",
+        "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/bumblezone.json",
         "mod_source/better-dimension-fonts/src/main/kotlin/com/bettercontent/betterdimensionfonts/runtime/player/PlayerReturnHandler.kt",
         "better-content-modpack/kubejs/server_scripts/policy/dimension_access.js"
       ],
@@ -1472,7 +1472,7 @@
       "requirements": [],
       "sources": [
         "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/nether.json",
-        "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/ratlantis.json",
+        "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/bumblezone.json",
         "mod_source/better-dimension-fonts/src/main/kotlin/com/bettercontent/betterdimensionfonts/runtime/player/PlayerReturnHandler.kt",
         "better-content-modpack/kubejs/server_scripts/policy/dimension_access.js"
       ],
@@ -1820,7 +1820,7 @@
       "id": "other_skies",
       "concept_id": "powers.doors_borrow_worlds",
       "pool": "teaser",
-      "text": "Dimensional Fonts reach more than the Overworld - Ratlantis ruins and Bumblezone hives are out there, each worth a prepared expedition.",
+      "text": "The Nether, Aether and Bumblezone remain Font destinations. Pack for the trip and plan a return.",
       "contexts": [],
       "required_mods": [
         "better_dimension_fonts"
@@ -1828,7 +1828,7 @@
       "requirements": [],
       "sources": [
         "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/nether.json",
-        "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/ratlantis.json",
+        "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/aether.json",
         "mod_source/better-dimension-fonts/src/main/kotlin/com/bettercontent/betterdimensionfonts/runtime/player/PlayerReturnHandler.kt",
         "better-content-modpack/kubejs/server_scripts/policy/dimension_access.js",
         "mod_source/better-dimension-fonts/src/main/resources/defaults/fonts/bumblezone.json"
@@ -2201,18 +2201,18 @@
       ]
     },
     {
-      "id": "ratlantis_components",
-      "concept_id": "works.better_ratlantis_logistics",
+      "id": "meteor_logistics_components",
+      "concept_id": "works.meteor_logistics",
       "pool": "discovery",
-      "text": "Ratlantis carries the parts for scalable logistics. Check which component your next setup needs. Plan the trip around that, not around the loot.",
+      "text": "A meteor's Certus Quartz opens scalable logistics before an ME network. Check the crystals required for your next module.",
       "contexts": [],
       "required_mods": [
-        "better_ratlantis_logistics"
+        "ae2",
+        "prettypipes"
       ],
       "requirements": [],
       "sources": [
-        "mod_source/better-ratlantis-logistics/src/main/java/com/bettercontent/betterratlantislogistics/ReplantingInputs.java",
-        "better-content-modpack/kubejs/server_scripts/progression/20_ratlantis_logistics.js"
+        "better-content-modpack/kubejs/server_scripts/progression/20_meteor_logistics.js"
       ],
       "surfaces": [
         "menu"
@@ -2220,35 +2220,34 @@
     },
     {
       "id": "rat_replant_inputs",
-      "concept_id": "works.better_ratlantis_logistics",
+      "concept_id": "world.overworld_rat_ecology",
       "pool": "discovery",
-      "text": "An automated replanting rat needs the right planting input. An edible harvest isn't always it. Check what the crop or tree actually replants from.",
+      "text": "Rats forage and replant with native Rats behavior. Supply an appropriate seed or sapling before assigning farm work.",
       "contexts": [],
       "required_mods": [
-        "better_ratlantis_logistics"
+        "rats"
       ],
       "requirements": [],
       "sources": [
-        "mod_source/better-ratlantis-logistics/src/main/java/com/bettercontent/betterratlantislogistics/ReplantingInputs.java",
-        "better-content-modpack/kubejs/server_scripts/progression/20_ratlantis_logistics.js"
+        "better-content-modpack/kubejs/server_scripts/progression/21_rat_archeology.js"
       ],
       "surfaces": [
         "menu"
       ]
     },
     {
-      "id": "better_ratlantis_logistics_future",
-      "concept_id": "works.better_ratlantis_logistics",
+      "id": "overworld_rats_future",
+      "concept_id": "world.overworld_rat_ecology",
       "pool": "teaser",
-      "text": "Ratlantis can supply a transport network you haven't built yet, and its rats can replant what they harvest. Hand-carrying everything has an end date.",
+      "text": "Coastal pirats and deep-cave ores are part of Overworld Rats ecology. Explore its resources before planning specialized rat work.",
       "contexts": [],
       "required_mods": [
-        "better_ratlantis_logistics"
+        "rats"
       ],
       "requirements": [],
       "sources": [
-        "mod_source/better-ratlantis-logistics/src/main/java/com/bettercontent/betterratlantislogistics/ReplantingInputs.java",
-        "better-content-modpack/kubejs/server_scripts/progression/20_ratlantis_logistics.js"
+        "better-content-modpack/kubejs/data/kubejs/forge/biome_modifier/rat_cave_spawns.json",
+        "better-content-modpack/kubejs/data/kubejs/forge/biome_modifier/rat_coastal_spawns.json"
       ],
       "surfaces": [
         "menu"

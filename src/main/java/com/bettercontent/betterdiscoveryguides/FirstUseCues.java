@@ -15,6 +15,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -212,7 +213,16 @@ public final class FirstUseCues {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         LAST_PROXIMITY_CHECK.remove(player.getUUID());
         inspectProximity(player, true);
-        if (event.getTo().location().toString().equals("rats:ratlantis"))
-            once(player, "ratlantis_below_islands", "ratlantis_arrival", "first");
+    }
+
+    @SubscribeEvent public static void encounteredRat(AttackEntityEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player) ||
+            !player.level().dimension().location().toString().equals("minecraft:overworld")) return;
+        ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(event.getTarget().getType());
+        if (id != null && id.getNamespace().equals("rats") &&
+            Set.of("pirat", "feral_ratlantean", "ratlantean_spirit", "ratlantean_ratbot",
+                "neo_ratlantean", "ratlantean_automaton", "ghost_pirat", "dutchrat", "rat_baron", "ratfish")
+                .contains(id.getPath()))
+            once(player, "overworld_rat_ecology", "overworld_rat_encounter", "first");
     }
 }

@@ -41,7 +41,8 @@ public final class DeathHintClient {
         Map.entry("survival.injury_medicine_ready", "survival_injury_treatment_prepare"),
         Map.entry("survival.trauma_penalties", "survival_injury_treatment_prepare"),
         Map.entry("works.better_rail_beetle", "works_rail_beetle"),
-        Map.entry("works.better_ratlantis_logistics", "works_ratlantis_logistics"),
+        Map.entry("works.meteor_logistics", "works_machines_can_remember"),
+        Map.entry("world.overworld_rat_ecology", "world_stone_makes_promises"),
         Map.entry("world.better_bumblezone_crops", "world_bumblezone_cultivars")
     );
     private static final Random RANDOM = new Random();

@@ -755,27 +755,27 @@
       "short_title": "Anchored Work"
     },
     {
-      "id": "ratlantis_starts_logistics",
-      "concept_id": "industry.ratlantis_starts_logistics",
+      "id": "meteor_starts_logistics",
+      "concept_id": "industry.meteor_starts_logistics",
       "owner": "better-discovery-guides",
-      "title": "Ratlantis Starts Logistics",
+      "title": "Meteor Quartz Starts Logistics",
       "topic": "industry",
       "order": 38,
-      "art": "better_discovery_guides:textures/gui/threads/ratlantis_starts_logistics.png",
-      "event": "You inspected the Courier Lattice or a scalable pipe route.",
-      "cause": "Ratlantis is where the logistics equipment comes from once automation outgrows hand delivery.",
-      "action": "Plan a Ratlantis trip around what the route requires.",
+      "art": "better_discovery_guides:textures/gui/threads/meteor_starts_logistics.png",
+      "event": "You inspected the certus-powered pipe recipe.",
+      "cause": "Meteor Certus Quartz makes scalable pipes possible without an operating ME network.",
+      "action": "Find an AE2 meteor and use one certus crystal to craft the first eight pipes.",
       "discovery_routes": [
         {
-          "id": "ratlantis_starts_logistics",
+          "id": "meteor_starts_logistics",
           "type": "emi_recipe_closed",
-          "value": "better_ratlantis_logistics",
+          "value": "meteor_logistics",
           "producer": "better-discovery-guides"
         }
       ],
-      "short_title": "Ratlantis Logistics",
+      "short_title": "Meteor Logistics",
       "recipe_items": [
-        "better_ratlantis_logistics:courier_lattice"
+        "prettypipes:pipe"
       ]
     },
     {
@@ -968,25 +968,25 @@
       "short_title": "Vessel Travel"
     },
     {
-      "id": "ratlantis_below_islands",
-      "concept_id": "travel.ratlantis_below_islands",
+      "id": "overworld_rat_ecology",
+      "concept_id": "world.overworld_rat_ecology",
       "owner": "better-discovery-guides",
-      "title": "Ratlantis Continues Below the Islands",
+      "title": "Rats in the Overworld",
       "topic": "travel",
       "order": 49,
-      "art": "better_discovery_guides:textures/gui/threads/ratlantis_below_islands.png",
-      "event": "You arrived in Ratlantis.",
-      "cause": "The dry islands are only the landing. Most of the dimension lies below the water.",
-      "action": "Establish supplies on land, then prepare for a deep dive.",
+      "art": "better_discovery_guides:textures/gui/threads/overworld_rat_ecology.png",
+      "event": "You engaged a native Rats creature in its new Overworld habitat.",
+      "cause": "Rat materials and creatures occur on coasts, in warm oceans, and below ground without a Ratlantis expedition.",
+      "action": "Explore beaches and jungle fringes, or descend into lush and dripstone caves for rare ores.",
       "discovery_routes": [
         {
-          "id": "ratlantis_below_islands",
-          "type": "ratlantis_arrival",
+          "id": "overworld_rat_ecology",
+          "type": "overworld_rat_encounter",
           "value": "first",
           "producer": "better-discovery-guides"
         }
       ],
-      "short_title": "Below Ratlantis"
+      "short_title": "Overworld Rats"
     },
     {
       "id": "orbital_arrival",

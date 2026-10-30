@@ -70,8 +70,8 @@ public final class ThreadNetwork {
                 String token=player.getUUID()+":emi:"+player.server.getTickCount();
                 if(action.thread.equals("create:millstone")||action.thread.equals("create:mechanical_press"))
                     ThreadSignals.emit(player,"emi_recipe_closed","root_machine",token);
-                if(action.thread.equals("better_ratlantis_logistics:courier_lattice")||action.thread.equals("prettypipes:pipe"))
-                    ThreadSignals.emit(player,"emi_recipe_closed","better_ratlantis_logistics",token);
+                if(action.thread.equals("prettypipes:pipe"))
+                    ThreadSignals.emit(player,"emi_recipe_closed","meteor_logistics",token);
                 return;
             }
             if(!isReaderAction(action.action))return;
