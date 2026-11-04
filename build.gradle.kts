@@ -164,7 +164,7 @@ dependencies {
     compileOnly(fg.deobf("curse.maven:power-grid-1321420:7714613"))
     compileOnly(fg.deobf("com.simibubi.create:create-${property("minecraft_version")}:6.0.8-291:slim"))
     compileOnly(fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-1.20.1:1.4.10"))
-    compileOnly(fg.deobf("curse.maven:serene-seasons-291874:6398227"))
+    compileOnly(fg.deobf("curse.maven:serene-seasons-291874:8246702"))
     compileOnly(fg.deobf("curse.maven:polymorph-388800:6450982"))
     compileOnly(fg.deobf("curse.maven:architectury-api-419699:5137938"))
     compileOnly(fg.deobf("curse.maven:ftb-library-forge-404465:7296748"))
