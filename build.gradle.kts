@@ -126,8 +126,8 @@ val betterContentApiJars = files(
 
 dependencies {
     minecraft("net.minecraftforge:forge:${property("minecraft_version")}-${property("forge_version")}")
-    compileOnly(files(betterContentJar("better-gameplay-notices", "better-gameplay-notices-1.0.0.jar")))
-    runtimeOnly(files(betterContentJar("better-gameplay-notices", "better-gameplay-notices-1.0.0.jar")))
+    compileOnly(files(betterContentJar("better-gameplay-notices", "better-gameplay-notices-1.0.1.jar")))
+    runtimeOnly(files(betterContentJar("better-gameplay-notices", "better-gameplay-notices-1.0.1.jar")))
     add(learningVisual.compileOnlyConfigurationName, files(betterContentJar("better-deaths-door", "better-deaths-door-1.0.0.jar")))
     if (providers.gradleProperty("combinedDeathVisual").map(String::toBoolean).getOrElse(false)) {
         add(learningVisual.runtimeOnlyConfigurationName, fg.deobf("com.bettercontent:better-deaths-door:1.0.0"))
