@@ -296,6 +296,10 @@ val verifyRuntimeJar by tasks.registering {
     }
 }
 
+// Source-aware releases invoke stageRuntimeJar directly, without verifyFull.
+// Run its existing archive gate on every staged artifact, including incremental builds.
+stageRuntimeJar.configure { finalizedBy(verifyRuntimeJar) }
+
 tasks.processResources {
     val props = mapOf(
         "minecraft_version" to project.property("minecraft_version"),
