@@ -6,10 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.AbstractButton;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.StringWidget;
 import net.minecraft.client.gui.screens.DeathScreen;
-import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.Component;
@@ -17,11 +14,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
@@ -47,9 +42,6 @@ public final class DeathHintClient {
     );
     private static final Random RANDOM = new Random();
     private static HintLifecycle lifecycle;
-    private static Screen layoutScreen;
-    private static List<WidgetPosition> positions = List.of();
-    private record WidgetPosition(AbstractWidget widget, int y) {}
 
     private static HintLifecycle lifecycle() {
         if (lifecycle == null) lifecycle = new HintLifecycle(DeathHintStore.load("death"),DeathHintStore.load("pause"),DeathHintStore.load("menu"));
@@ -63,39 +55,24 @@ public final class DeathHintClient {
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event) {
         if (lifecycle != null) lifecycle.disconnect();
         ContextHintClient.clear();
-        layoutScreen = null;
-        positions = List.of();
     }
     @SubscribeEvent public static void clone(ClientPlayerNetworkEvent.Clone event) {
         if (lifecycle != null) lifecycle.respawn();
-    }
-    private static boolean normalPause(Screen screen) {
-        return screen instanceof PauseScreen && screen.children().stream().filter(c -> c instanceof Button).count() > 1;
-    }
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void init(ScreenEvent.Init.Post event) {
-        if (normalPause(event.getScreen())) { lifecycle().openPause(ContextHintClient.context()); rememberPauseLayout(event.getScreen()); }
     }
     @SubscribeEvent public static void beforeRender(ScreenEvent.Render.Pre event) {
         if(event.getScreen() instanceof DeathScreen screen && ModList.get().isLoaded("better_deaths_door")) {
             var selected=lifecycle().deathTip(DeathHints.INSTANCE.all(), id->ModList.get().isLoaded(id),RANDOM,Util.getMillis());
             if(selected!=null)InjuryLayout.reserve(screen,Minecraft.getInstance().font.split(text(selected.hint()),InjuryLayout.textWidth(screen)).size(),Minecraft.getInstance().font.lineHeight);
         }
-        if (normalPause(event.getScreen())) {
-            var selected = lifecycle().pauseTip(DeathHints.INSTANCE.all(), id -> ModList.get().isLoaded(id), RANDOM);
-            if (selected != null) layoutPause(event.getScreen(), selected.hint());
-        }
     }
 
-    @SubscribeEvent(priority = EventPriority.LOWEST) public static void render(ScreenEvent.Render.Post event) {
+    @SubscribeEvent public static void render(ScreenEvent.Render.Post event) {
         var screen = event.getScreen();
         boolean menu = screen instanceof TitleScreen;
-        boolean pause = normalPause(screen);
-        if (!pause && !menu && !(screen instanceof DeathScreen)) return;
-        String surface=menu?"menu":pause?"pause":"death";
+        if (!menu && !(screen instanceof DeathScreen)) return;
+        String surface = menu ? "menu" : "death";
         var before = lifecycle().state(surface);
-        var selected = menu ? lifecycle().menuTip(DeathHints.INSTANCE.all(), id -> ModList.get().isLoaded(id), RANDOM) : pause
-            ? lifecycle().pauseTip(DeathHints.INSTANCE.all(), id -> ModList.get().isLoaded(id), RANDOM)
+        var selected = menu ? lifecycle().menuTip(DeathHints.INSTANCE.all(), id -> ModList.get().isLoaded(id), RANDOM)
             : lifecycle().deathTip(DeathHints.INSTANCE.all(), id -> ModList.get().isLoaded(id), RANDOM, Util.getMillis());
         if (selected != null && renderHint(event.getGuiGraphics(), screen, selected.hint())) lifecycle().displayed(selected, surface);
         if (!before.equals(lifecycle().state(surface))) DeathHintStore.save(surface,lifecycle().state(surface));
@@ -118,29 +95,6 @@ public final class DeathHintClient {
             .replace("{use}", mc.options.keyUse.getTranslatedKeyMessage().getString())
             .replace("{threads}", ThreadClient.OPEN.getTranslatedKeyMessage().getString()));
     }
-    static void rememberPauseLayout(Screen screen) {
-        layoutScreen = screen;
-        positions = screen.children().stream().filter(c -> c instanceof AbstractWidget)
-            .map(c -> (AbstractWidget) c).map(w -> new WidgetPosition(w, w.getY())).toList();
-    }
-    static void layoutPause(Screen screen, DeathHint hint) {
-        if (layoutScreen != screen) rememberPauseLayout(screen);
-        var controls = positions.stream().filter(p -> p.widget() instanceof Button && p.y() >= 28).toList();
-        if (controls.isEmpty()) return;
-        int first = controls.stream().mapToInt(WidgetPosition::y).min().orElse(36);
-        int bottom = controls.stream().mapToInt(p -> p.y() + p.widget().getHeight()).max().orElse(36);
-        int lines = Minecraft.getInstance().font.split(text(hint), DeathHintLayout.textWidth(screen.width)).size();
-        var layout = PauseHintLayout.calculate(screen.height, first, bottom, lines, Minecraft.getInstance().font.lineHeight);
-        for (var p : positions) {
-            int y = p.y();
-            if (layout.fits()) {
-                if (p.widget() instanceof StringWidget && layout.titleY() >= 0) y = layout.titleY();
-                else if (p.widget() instanceof Button && p.y() >= 28) y -= layout.shift();
-            }
-            p.widget().setY(y);
-        }
-    }
-
     /** Layout measures native widgets and is shared by the isolated visual fixtures. */
     static boolean renderHint(GuiGraphics graphics, Screen screen, DeathHint hint) {
         if (screen instanceof TitleScreen) return renderMenuEntry(graphics, screen, hint);

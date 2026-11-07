@@ -214,6 +214,9 @@ tasks.withType<JavaCompile>().configureEach {
 }
 
 tasks.named<JavaCompile>("compileJava") {
+    // Incremental javac can compile only non-Mixin sources and omit the generated refmap.
+    // The staged JAR must always contain mappings for its accessor mixin.
+    options.isIncremental = false
     outputs.file(layout.buildDirectory.file("tmp/compileJava/compileJava-refmap.json"))
 }
 
