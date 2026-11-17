@@ -3,12 +3,9 @@ package com.bettercontent.betterdiscoveryguides;
 import java.util.Arrays;
 
 public enum ThreadAspect {
-    IMPACT("impact", 0xFF4055),
-    TEMPO("tempo", 0x00A985),
-    WORK("work", 0xF0E2C5),
-    MOBILITY("mobility", 0xE0B01F),
+    POWER("power", 0xFF4055),
+    MOTION("motion", 0xE0B01F),
     ENDURANCE("endurance", 0x52606A),
-    ROBUSTNESS("robustness", 0xAF6A2F),
     RENEWAL("renewal", 0x6CCAF0),
     CONTROL("control", 0x8E5BB7);
 

@@ -139,6 +139,7 @@
       "owner": "better-discovery-guides",
       "title": "You Approached Hazardous Exposed Hotstone",
       "topic": "world",
+      "aspect": "power",
       "order": 9,
       "art": "better_discovery_guides:textures/gui/threads/hotstone_dangerous_ground.png",
       "event": "You approached exposed Hotstone.",
@@ -200,12 +201,13 @@
       "id": "fruit_fuels_a_sprint",
       "concept_id": "body.fruit_fuels_a_sprint",
       "owner": "better-survival-physiology",
-      "title": "Fruit Fuels a Sprint",
+      "title": "Fruit Helps You Travel",
       "topic": "body",
+      "aspect": "motion",
       "order": 12,
       "art": "better_discovery_guides:textures/gui/threads/fruit_fuels_a_sprint.png",
       "event": "You ate your first fruit.",
-      "cause": "Fruit builds orchard nutrition: softened falls at 20%, better movement, and a sprinting jump burst at 80%.",
+      "cause": "Fruit builds orchard nutrition: softened falls, movement support, and a sprinting jump burst at 80%. It does not grant an extra sprint-speed bonus.",
       "action": "Pack fruit when a long journey is coming.",
       "discovery_routes": [
         {
@@ -215,7 +217,7 @@
           "producer": "better-survival-physiology"
         }
       ],
-      "short_title": "Fruit Sprint"
+      "short_title": "Fruit Travel"
     },
     {
       "id": "vegetables_buffer_exposure",
@@ -223,6 +225,7 @@
       "owner": "better-survival-physiology",
       "title": "Vegetables Buffer Exposure",
       "topic": "body",
+      "aspect": "endurance",
       "order": 13,
       "art": "better_discovery_guides:textures/gui/threads/vegetables_buffer_exposure.png",
       "event": "You ate your first vegetable.",
@@ -286,6 +289,7 @@
       "owner": "better-survival-physiology",
       "title": "Sweetness Drained Your Nutrition",
       "topic": "body",
+      "aspect": "motion",
       "order": 16,
       "art": "better_discovery_guides:textures/gui/threads/sugar_crash.png",
       "event": "Sweetness drained one of your food groups below 20%.",
@@ -311,6 +315,7 @@
       "owner": "better-survival-physiology",
       "title": "Nutrition Strengthened That Blow",
       "topic": "body",
+      "aspect": "power",
       "order": 17,
       "art": "better_discovery_guides:textures/gui/threads/heavy_blow.png",
       "event": "Your prepared attack triggered Heavy Blow.",
@@ -334,18 +339,19 @@
       "id": "work_rhythm",
       "concept_id": "body.work_rhythm",
       "owner": "better-survival-physiology",
-      "title": "Sustained Work Built a Stronger Rhythm",
+      "title": "Grain Nutrition Supports Tool Work",
       "topic": "body",
+      "aspect": "power",
       "order": 18,
       "art": "better_discovery_guides:textures/gui/threads/work_rhythm.png",
-      "event": "Your mining sequence reached full Work Rhythm.",
-      "cause": "Granary nutrition builds a mining rhythm out of successive correct-tool breaks. At 60% the rhythm survives a five-second pause.",
-      "action": "Take suitable tools and provisions when you plan a long mining session.",
+      "event": "You ate a grain food for the first time.",
+      "cause": "Grain nutrition supports correct-tool mining. The benefit depends on nutrition, not consecutive breaks or a timed grace window.",
+      "action": "Bring grain foods and suitable tools on a long mining trip.",
       "discovery_routes": [
         {
           "id": "work_rhythm",
-          "type": "work_rhythm",
-          "value": "maximum",
+          "type": "first_food_category",
+          "value": "grain",
           "producer": "better-survival-physiology"
         }
       ],
@@ -353,7 +359,7 @@
         "type": "diet",
         "target": "nutrition"
       },
-      "short_title": "Work Rhythm"
+      "short_title": "Grain Work"
     },
     {
       "id": "deep_reserve",
@@ -386,6 +392,7 @@
       "owner": "better-survival-physiology",
       "title": "Nutrition Cleansed an Effect",
       "topic": "body",
+      "aspect": "renewal",
       "order": 20,
       "art": "better_discovery_guides:textures/gui/threads/nutrition_cleanse.png",
       "event": "Your nutrition removed a harmful status effect.",
