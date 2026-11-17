@@ -48,6 +48,29 @@ public final class ThreadGameTests {
         });
     }
 
+    @GameTest(template = "empty") public static void offline_credit_isolated_between_player_ids(GameTestHelper h) {
+        h.assertTrue(ThreadDefinitions.INSTANCE.contains(CARD), "Packaged card catalogue must load");
+        var first = FakePlayerFactory.get(h.getLevel(), new GameProfile(UUID.randomUUID(), "thread-owner-a"));
+        var second = FakePlayerFactory.get(h.getLevel(), new GameProfile(UUID.randomUUID(), "thread-owner-b"));
+        try {
+            ThreadSignals.emit(first.server, first.getUUID(), "create_manual_complete", "hand_crank", EPISODE, "First player's work");
+            h.assertTrue(ThreadPlayerState.get(first).known.contains(CARD), "First owner must receive credit");
+            h.assertFalse(ThreadPlayerState.get(second).known.contains(CARD), "Other owner must not inherit discovery");
+            h.assertTrue(ThreadPlayerState.get(second).pendingNotices.isEmpty(), "Other owner must not inherit pending notice");
+            ThreadSignals.emit(second.server, second.getUUID(), "create_manual_complete", "hand_crank", EPISODE, "Second player's work");
+            ThreadPlayerState.forget(first);
+            ThreadPlayerState.forget(second);
+            h.assertTrue(ThreadPlayerState.get(first).generationCounts.getOrDefault(CARD, 0) == 1,
+                "First owner's durable history must remain independent");
+            h.assertTrue(ThreadPlayerState.get(second).generationCounts.getOrDefault(CARD, 0) == 1,
+                "Same correlation must not suppress another owner's durable credit");
+            h.succeed();
+        } finally {
+            ThreadPlayerState.forget(first);
+            ThreadPlayerState.forget(second);
+        }
+    }
+
     @GameTest(template = "empty") public static void offline_success_survives_reload(GameTestHelper h) {
         withPlayer(h, p -> {
             ThreadSignals.emit(p.server, p.getUUID(), "create_manual_complete", "hand_crank", EPISODE, "Hand crank work completed");

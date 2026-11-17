@@ -8,20 +8,14 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public final class MetabolicDiscoveryThreads {
     @SubscribeEvent public static void committed(MetabolicDiscoveryEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
-        String type = switch (event.kind()) {
-            case SUGAR_CRASH -> "sugar_crash";
-            case HEAVY_BLOW -> "heavy_blow";
-            case WORK_RHYTHM -> "work_rhythm";
-            case DEEP_RESERVE -> "deep_reserve";
-            case CLEANSE -> "nutrition_cleanse";
-        };
-        String value = switch (event.kind()) {
-            case SUGAR_CRASH -> "entered";
-            case HEAVY_BLOW -> "executed";
-            case WORK_RHYTHM -> "maximum";
-            case DEEP_RESERVE -> "activated";
-            case CLEANSE -> "removed";
-        };
-        ThreadSignals.emit(player, type, value, event.episode(), event.detail());
+        // The old producer keeps WORK_RHYTHM as an ABI enum value, but the mining
+        // sequence is retired. Never credit an impossible lesson from that signal.
+        switch (event.kind()) {
+            case SUGAR_CRASH -> ThreadSignals.emit(player, "sugar_crash", "entered", event.episode(), event.detail());
+            case HEAVY_BLOW -> ThreadSignals.emit(player, "heavy_blow", "executed", event.episode(), event.detail());
+            case WORK_RHYTHM -> { }
+            case DEEP_RESERVE -> ThreadSignals.emit(player, "deep_reserve", "activated", event.episode(), event.detail());
+            case CLEANSE -> ThreadSignals.emit(player, "nutrition_cleanse", "removed", event.episode(), event.detail());
+        }
     }
 }

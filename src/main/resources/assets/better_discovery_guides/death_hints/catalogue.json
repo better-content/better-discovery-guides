@@ -562,7 +562,7 @@
       "id": "sugar_cost",
       "concept_id": "survival.hunger_and_nutrition",
       "pool": "survival",
-      "text": "Sugar borrows from your other food groups. When the boost fades, eat real food instead of more sugar, or the crash just cycles.",
+      "text": "Carbs amplify nutrition benefits and Alcohol penalties, but increase hunger and nutrient drain. If a benefit fades, replenish the depleted food group.",
       "contexts": [
         "hunger",
         "combat"
@@ -2478,7 +2478,7 @@
       "id": "context_crash",
       "concept_id": "survival.context_crash",
       "pool": "survival",
-      "text": "Your sugar boost has turned into a crash. Recover somewhere safe and eat real food - more sugar just extends the cycle.",
+      "text": "Your Carb-driven drain pushed a food benefit below its unlock threshold. Recover somewhere safe and replenish the depleted food group.",
       "contexts": [
         "sugar_crash"
       ],

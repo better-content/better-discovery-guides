@@ -69,7 +69,9 @@ public final class HintContextEvents {
             var presentation=com.bettercontent.bettersurvivalphysiology.presentation.PresentationSnapshot.create(player,nutrition,state);
             if((presentation.flags()&com.bettercontent.bettersurvivalphysiology.presentation.PresentationFlags.TEMPO_CRASH)!=0)return "sugar_crash";
             if((presentation.flags()&com.bettercontent.bettersurvivalphysiology.presentation.PresentationFlags.CONTROL_IMPAIRED)!=0)return "alcohol";
-            for(var group:com.bettercontent.bettersurvivalphysiology.nutrition.NutritionSnapshot.Group.values())if(nutrition.actual(group)<presentation.ordinary())return "nutrition";
+            for(var group:com.bettercontent.bettersurvivalphysiology.nutrition.NutritionSnapshot.Group.values())
+                if(group!=com.bettercontent.bettersurvivalphysiology.nutrition.NutritionSnapshot.Group.ALCOHOL
+                    && nutrition.actual(group)<presentation.ordinary())return "nutrition";
             return "general";
         }
     }

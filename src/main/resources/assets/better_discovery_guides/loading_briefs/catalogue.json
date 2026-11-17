@@ -37,7 +37,7 @@
       "owner": "better-survival-physiology",
       "category": "Nutrition",
       "headline": "Balancing Nutrition",
-      "body": "Hunger and nutrition are separate. Six food groups unlock abilities at 20, 40, 60, and 80%. Meat, eggs, fruit, and dairy cover the early ground; imported seeds open grain and garden foods.",
+      "body": "Hunger and nutrition are separate. Diet has five native groups: Protein, Carbs, Spice, Vegetables, and optional Alcohol. Meat and eggs help Protein; grain, fruit and dairy help Carbs; eating varied foods unlocks benefits.",
       "action": "Open nutrition and look at your lowest group.",
       "art": "better_discovery_guides:textures/gui/loading_briefs/nutrition.png"
     },

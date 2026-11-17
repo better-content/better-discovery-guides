@@ -139,6 +139,7 @@
       "owner": "better-discovery-guides",
       "title": "You Approached Hazardous Exposed Hotstone",
       "topic": "world",
+      "aspect": "power",
       "order": 9,
       "art": "better_discovery_guides:textures/gui/threads/hotstone_dangerous_ground.png",
       "event": "You approached exposed Hotstone.",
@@ -200,12 +201,13 @@
       "id": "fruit_fuels_a_sprint",
       "concept_id": "body.fruit_fuels_a_sprint",
       "owner": "better-survival-physiology",
-      "title": "Fruit Fuels a Sprint",
+      "title": "Fruit Helps You Travel",
       "topic": "body",
+      "aspect": "motion",
       "order": 12,
       "art": "better_discovery_guides:textures/gui/threads/fruit_fuels_a_sprint.png",
       "event": "You ate your first fruit.",
-      "cause": "Fruit builds orchard nutrition: softened falls at 20%, better movement, and a sprinting jump burst at 80%.",
+      "cause": "Fruit adds to native Carbs, as do grain and sweet foods. Carbs soften falls, support movement, and unlock a sprinting leap at 80%; there is no extra sprint-speed stack.",
       "action": "Pack fruit when a long journey is coming.",
       "discovery_routes": [
         {
@@ -215,18 +217,19 @@
           "producer": "better-survival-physiology"
         }
       ],
-      "short_title": "Fruit Sprint"
+      "short_title": "Fruit Travel"
     },
     {
       "id": "vegetables_buffer_exposure",
       "concept_id": "body.vegetables_buffer_exposure",
       "owner": "better-survival-physiology",
-      "title": "Vegetables Buffer Exposure",
+      "title": "Vegetables Support Renewal",
       "topic": "body",
+      "aspect": "renewal",
       "order": 13,
       "art": "better_discovery_guides:textures/gui/threads/vegetables_buffer_exposure.png",
       "event": "You ate your first vegetable.",
-      "cause": "Vegetables build garden nutrition: protection from temperature drift at 20% and from knockback at 40%.",
+      "cause": "Vegetables build the native Renewal group: harmful effects fade faster, with meal recovery at 40% and a timed-effect cleanse at 80%.",
       "action": "Keep vegetables in your travel food mix.",
       "discovery_routes": [
         {
@@ -236,7 +239,7 @@
           "producer": "better-survival-physiology"
         }
       ],
-      "short_title": "Vegetable Buffer"
+      "short_title": "Vegetable Renewal"
     },
     {
       "id": "dry_food_for_journey",
@@ -284,13 +287,14 @@
       "id": "sugar_crash",
       "concept_id": "body.sugar_crash",
       "owner": "better-survival-physiology",
-      "title": "Sweetness Drained Your Nutrition",
+      "title": "Carbs Drained Your Nutrition",
       "topic": "body",
+      "aspect": "motion",
       "order": 16,
       "art": "better_discovery_guides:textures/gui/threads/sugar_crash.png",
-      "event": "Sweetness drained one of your food groups below 20%.",
-      "cause": "Sugar multiplies your unlocked food benefits while hunger and nutrition drain faster. Below 20% a group loses its first ability, and that is the crash.",
-      "action": "Eat food for the depleted group before you add more sweetness.",
+      "event": "Carb-driven drain pushed a food benefit below its unlock level.",
+      "cause": "Native Carbs amplifies unlocked nutrition benefits and Alcohol penalties, but increases hunger and nutrition drain. A group loses a perk when it falls below that perk's threshold.",
+      "action": "Eat food for the depleted group before Carbs-driven drain depletes it again.",
       "discovery_routes": [
         {
           "id": "sugar_crash",
@@ -311,10 +315,11 @@
       "owner": "better-survival-physiology",
       "title": "Nutrition Strengthened That Blow",
       "topic": "body",
+      "aspect": "power",
       "order": 17,
       "art": "better_discovery_guides:textures/gui/threads/heavy_blow.png",
       "event": "Your prepared attack triggered Heavy Blow.",
-      "cause": "Flesh nutrition unlocks the heavy charged strike at 40%. It needs four seconds since your last attack, then a 12-second recovery.",
+      "cause": "Native Protein unlocks the heavy charged strike at 40%. It needs four seconds since your last attack, then a 12-second recovery.",
       "action": "Keep protein nutrition up, and do not count on two heavy blows in a row.",
       "discovery_routes": [
         {
@@ -334,18 +339,19 @@
       "id": "work_rhythm",
       "concept_id": "body.work_rhythm",
       "owner": "better-survival-physiology",
-      "title": "Sustained Work Built a Stronger Rhythm",
+      "title": "Grain Feeds Carbs",
       "topic": "body",
+      "aspect": "motion",
       "order": 18,
       "art": "better_discovery_guides:textures/gui/threads/work_rhythm.png",
-      "event": "Your mining sequence reached full Work Rhythm.",
-      "cause": "Granary nutrition builds a mining rhythm out of successive correct-tool breaks. At 60% the rhythm survives a five-second pause.",
-      "action": "Take suitable tools and provisions when you plan a long mining session.",
+      "event": "You ate a grain food for the first time.",
+      "cause": "Grain contributes to Carbs along with fruit and sweets. Carbs support travel; Protein, not grain, supplies the correct-tool mining benefit.",
+      "action": "Bring both Carbs and Protein foods for a long mining trip.",
       "discovery_routes": [
         {
           "id": "work_rhythm",
-          "type": "work_rhythm",
-          "value": "maximum",
+          "type": "first_food_category",
+          "value": "grain",
           "producer": "better-survival-physiology"
         }
       ],
@@ -353,7 +359,7 @@
         "type": "diet",
         "target": "nutrition"
       },
-      "short_title": "Work Rhythm"
+      "short_title": "Grain Carbs"
     },
     {
       "id": "deep_reserve",
@@ -364,7 +370,7 @@
       "order": 19,
       "art": "better_discovery_guides:textures/gui/threads/deep_reserve.png",
       "event": "Your nutritional reserve activated during resource depletion.",
-      "cause": "High fat nutrition covers you briefly when hunger, thirst, or stamina hits bottom. It is a loan, not a fix.",
+      "cause": "High Spice nutrition can briefly buffer hunger, thirst, or stamina depletion. Paid Spice still costs health when eaten; the reserve is a loan, not a fix.",
       "action": "Restore what ran out and get somewhere safe to recover.",
       "discovery_routes": [
         {
@@ -386,10 +392,11 @@
       "owner": "better-survival-physiology",
       "title": "Nutrition Cleansed an Effect",
       "topic": "body",
+      "aspect": "renewal",
       "order": 20,
       "art": "better_discovery_guides:textures/gui/threads/nutrition_cleanse.png",
       "event": "Your nutrition removed a harmful status effect.",
-      "cause": "High dairy nutrition can cleanse a finite harmful effect. It does nothing for Death's Door injuries.",
+      "cause": "High Vegetable nutrition can cleanse a finite harmful effect. It does nothing for Death's Door injuries.",
       "action": "Check what is left on you, and use the Body screen for injuries that need medicine.",
       "discovery_routes": [
         {

@@ -209,8 +209,16 @@ tasks.named("assemble") {
     dependsOn(stageRuntimeJar)
 }
 
+// Source-only five-aspect compilation against current Physiology classes, not an
+// unapproved new runtime JAR. Normal release builds keep their existing dependencies.
+val physiologyCompileClasses = providers.gradleProperty("physiologyCompileClasses").orNull
 tasks.withType<JavaCompile>().configureEach {
     options.release.set(17)
+    if (physiologyCompileClasses != null) {
+        val classes = file(physiologyCompileClasses)
+        require(classes.isDirectory) { "Missing current physiologyCompileClasses directory: $classes" }
+        classpath = files(classes) + classpath
+    }
 }
 
 tasks.named<JavaCompile>("compileJava") {
