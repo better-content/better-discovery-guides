@@ -163,24 +163,6 @@
     },
     {
       "predicate": {
-        "better_discovery_guides:thread_index": 27
-      },
-      "model": "better_discovery_guides:item/thread_cards/gas_pollution"
-    },
-    {
-      "predicate": {
-        "better_discovery_guides:thread_index": 28
-      },
-      "model": "better_discovery_guides:item/thread_cards/radioactive_disturbance"
-    },
-    {
-      "predicate": {
-        "better_discovery_guides:thread_index": 29
-      },
-      "model": "better_discovery_guides:item/thread_cards/radiogenic_heat"
-    },
-    {
-      "predicate": {
         "better_discovery_guides:thread_index": 30
       },
       "model": "better_discovery_guides:item/thread_cards/machine_blocks_open_roots"

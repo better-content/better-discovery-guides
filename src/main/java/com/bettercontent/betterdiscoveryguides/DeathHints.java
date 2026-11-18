@@ -39,7 +39,7 @@ final class DeathHints {
             if (!ids.add(hint.id())) throw new IllegalArgumentException("Duplicate advice: " + hint.id());
             hints.add(hint);
         }
-        if (hints.size() != 135) throw new IllegalArgumentException("Expected 135 packaged tips");
+        if (hints.size() != 130) throw new IllegalArgumentException("Expected 130 packaged tips after retiring five chemical-hazard tips");
         return List.copyOf(hints);
     }
 }

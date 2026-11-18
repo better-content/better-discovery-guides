@@ -9,13 +9,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class ThreadContractsTest {
  private String id(){return ThreadArt.IDS.get(0);}
- @Test void catalogueDefines48CompleteExplanationsWithUniqueGlobalOrder(){
-  assertEquals(48,ThreadArt.IDS.size());var orders=new HashSet<Integer>();var topics=new HashSet<ThreadTopic>();
+ @Test void catalogueDefines45CompleteExplanationsWithUniqueGlobalOrder(){
+  assertEquals(45,ThreadArt.IDS.size());var orders=new HashSet<Integer>();var topics=new HashSet<ThreadTopic>();
   assertFalse(ThreadArt.BY_ID.containsKey("find_recipes_in_emi"));
   var axe=ThreadArt.BY_ID.get("first_hand_axe");assertEquals("onboarding_elapsed",axe.discoveryRoutes().get(0).type());assertEquals(6,axe.recipeItems().size());assertTrue(axe.recipeItems().stream().allMatch(ThreadRecipeReference::recipe));
   assertFalse(ThreadArt.BY_ID.get("make_backpack").cause().matches(".*\\b[0-9]+\\b.*"));
   for(var d:ThreadArt.BY_ID.values()){assertTrue(orders.add(d.order()));topics.add(d.topic());assertFalse(d.shortTitle().isBlank());assertTrue(d.shortTitle().length()<=24);assertFalse(d.event().isBlank());assertFalse(d.cause().isBlank());assertFalse(d.action().isBlank());assertFalse(d.discoveryRoutes().isEmpty());assertTrue(d.discoveryRoutes().stream().allMatch(r->!r.producer().isBlank()));}
-  var expected=java.util.stream.IntStream.rangeClosed(1,53).boxed().collect(java.util.stream.Collectors.toSet());expected.removeAll(Set.of(2,6,7,21,39));assertEquals(expected,orders);assertEquals(Set.of(ThreadTopic.values()),topics);
+  var expected=java.util.stream.IntStream.rangeClosed(1,53).boxed().collect(java.util.stream.Collectors.toSet());expected.removeAll(Set.of(2,6,7,21,27,28,29,39));assertEquals(expected,orders);assertEquals(Set.of(ThreadTopic.values()),topics);
+ }
+ @Test void retiredHazardsLessonsAndDependencyStayAbsent()throws Exception{
+  var root=JsonParser.parseString(Files.readString(Path.of("src/main/resources/data/better_discovery_guides/threads/catalogue.json"))).getAsJsonObject();
+  var source=Files.readString(Path.of("src/main/java/com/bettercontent/betterdiscoveryguides/ProviderHooks.java"));
+  var metadata=Files.readString(Path.of("src/main/resources/META-INF/mods.toml"));
+  var build=Files.readString(Path.of("build.gradle.kts"));
+  for(var id:List.of("gas_pollution","radioactive_disturbance","radiogenic_heat")){
+   assertFalse(ThreadArt.BY_ID.containsKey(id),id);
+   assertFalse(root.getAsJsonArray("threads").toString().contains("\""+id+"\""),id);
+   assertFalse(Files.exists(Path.of("src/main/resources/assets/better_discovery_guides/textures/item/thread_cards/"+id+".png")),id);
+  }
+  assertFalse(source.contains("ChemicalDiscoveryThreads.class"));
+  assertFalse(metadata.contains("better_chemlib_hazards"));
+  assertFalse(build.contains("better-chemlib-hazards"));
+  var codec=Files.readString(Path.of("src/main/java/com/bettercontent/betterdiscoveryguides/compat/bettercontent/ChemicalDiscoveryThreads.java"));
+  assertTrue(codec.contains("class Sources extends SavedData"));
+  assertFalse(codec.contains("ChemicalOutcomeEvent"));
+  assertFalse(codec.contains("@SubscribeEvent"));
  }
  @Test void retiredRatlantisThreadsAreReplacedByReachableEvents()throws Exception{
   assertFalse(ThreadArt.BY_ID.containsKey("ratlantis_starts_logistics"));

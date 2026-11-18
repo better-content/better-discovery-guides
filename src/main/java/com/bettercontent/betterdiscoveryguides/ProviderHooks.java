@@ -33,7 +33,6 @@ final class ProviderHooks {
     private ProviderHooks() {}
 
     static void register() {
-        if (ModList.get().isLoaded("better_chemlib_hazards")) MinecraftForge.EVENT_BUS.register(com.bettercontent.betterdiscoveryguides.compat.bettercontent.ChemicalDiscoveryThreads.class);
         if (ModList.get().isLoaded("better_cave_encounters")) MinecraftForge.EVENT_BUS.register(com.bettercontent.betterdiscoveryguides.compat.bettercontent.DepthDirectorThreads.class);
         if (ModList.get().isLoaded("better_bumblezone_crops")) MinecraftForge.EVENT_BUS.register(com.bettercontent.betterdiscoveryguides.compat.bettercontent.CultivarThreads.class);
         if (ModList.get().isLoaded("better_tinkers_loot_affixes")) MinecraftForge.EVENT_BUS.register(com.bettercontent.betterdiscoveryguides.compat.bettercontent.RuinousFluxThreads.class);

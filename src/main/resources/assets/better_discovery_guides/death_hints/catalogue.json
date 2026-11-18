@@ -983,86 +983,6 @@
       ]
     },
     {
-      "id": "gas_escape",
-      "concept_id": "world.chemical_exposure",
-      "pool": "survival",
-      "text": "ChemLib gases escape from stored items into the air. Released gas joins the pollution system. Contain stockpiles before they're a problem.",
-      "contexts": [],
-      "required_mods": [
-        "better_chemlib_hazards"
-      ],
-      "requirements": [],
-      "sources": [
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/sim/GasEscapeHandler.java",
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/api/LatentEmissionProfiles.java"
-      ],
-      "surfaces": [
-        "menu",
-        "pause",
-        "death"
-      ]
-    },
-    {
-      "id": "gas_inventory",
-      "concept_id": "world.chemical_exposure",
-      "pool": "survival",
-      "text": "A carried gas supply is inventory with consequences. Inspect the material before you treat it like ordinary cargo.",
-      "contexts": [],
-      "required_mods": [
-        "better_chemlib_hazards"
-      ],
-      "requirements": [],
-      "sources": [
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/sim/GasEscapeHandler.java",
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/api/LatentEmissionProfiles.java"
-      ],
-      "surfaces": [
-        "menu",
-        "pause",
-        "death"
-      ]
-    },
-    {
-      "id": "radioactive_mining",
-      "concept_id": "world.chemical_exposure",
-      "pool": "survival",
-      "text": "Hosted radioactive ore can sit inert until you mine it. Ore, concentrate, and finished forms don't behave alike. Check what you're holding.",
-      "contexts": [],
-      "required_mods": [
-        "better_chemlib_hazards"
-      ],
-      "requirements": [],
-      "sources": [
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/sim/GasEscapeHandler.java",
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/api/LatentEmissionProfiles.java"
-      ],
-      "surfaces": [
-        "menu",
-        "pause",
-        "death"
-      ]
-    },
-    {
-      "id": "radioactive_replacement",
-      "concept_id": "world.chemical_exposure",
-      "pool": "survival",
-      "text": "Putting mined radioactive material back down doesn't make it inert again. Handling requirements follow the material, not the block.",
-      "contexts": [],
-      "required_mods": [
-        "better_chemlib_hazards"
-      ],
-      "requirements": [],
-      "sources": [
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/sim/GasEscapeHandler.java",
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/api/LatentEmissionProfiles.java"
-      ],
-      "surfaces": [
-        "menu",
-        "pause",
-        "death"
-      ]
-    },
-    {
       "id": "lessons_available",
       "concept_id": "learning.threads",
       "pool": "discovery",
@@ -2286,24 +2206,6 @@
         "mod_source/better-rail-beetle/src/main/java/com/bettercontent/betterrailbeetle/entity/BeetlePower.java",
         "mod_source/better-rail-beetle/src/main/java/com/bettercontent/betterrailbeetle/navigation/TerrainRoutePlanner.java",
         "mod_source/better-rail-beetle/src/main/java/com/bettercontent/betterrailbeetle/upgrade/ModuleKind.java"
-      ],
-      "surfaces": [
-        "menu"
-      ]
-    },
-    {
-      "id": "chemical_world_effects",
-      "concept_id": "world.chemical_exposure",
-      "pool": "teaser",
-      "text": "Gases and radioactive forms give advanced storage its own engineering problems - some of them thermal as well as hazardous.",
-      "contexts": [],
-      "required_mods": [
-        "better_chemlib_hazards"
-      ],
-      "requirements": [],
-      "sources": [
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/sim/GasEscapeHandler.java",
-        "mod_source/better-chemlib-hazards/src/main/java/com/bettercontent/betterchemlibhazards/api/LatentEmissionProfiles.java"
       ],
       "surfaces": [
         "menu"

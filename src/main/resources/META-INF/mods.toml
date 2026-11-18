@@ -230,13 +230,6 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.better_discovery_guides]]
-modId="better_chemlib_hazards"
-mandatory=false
-versionRange="[0.2.0]"
-ordering="AFTER"
-side="BOTH"
-
-[[dependencies.better_discovery_guides]]
 modId="better_cave_encounters"
 mandatory=false
 versionRange="[0.2.1]"

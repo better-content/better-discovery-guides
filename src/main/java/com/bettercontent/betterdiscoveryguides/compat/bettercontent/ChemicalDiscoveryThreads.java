@@ -1,46 +1,19 @@
 package com.bettercontent.betterdiscoveryguides.compat.bettercontent;
 
-import com.bettercontent.betterchemlibhazards.api.event.ChemicalOutcomeEvent;
-import com.bettercontent.betterdiscoveryguides.OperationOwners;
-import com.bettercontent.betterdiscoveryguides.ThreadSignals;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-/** Causal chemical outcomes, with persistent ownership for placed radioactive material. */
+/** Historical ownership codec retained for existing persistence regression tests.
+ * No Hazards event hook is registered or delivered in the active pack. */
 public final class ChemicalDiscoveryThreads {
-    @SubscribeEvent public static void committed(ChemicalOutcomeEvent event) {
-        UUID actor = event.actor() != null ? event.actor() : OperationOwners.owner(event.device());
-        String type, value;
-        switch (event.kind()) {
-            case GAS_RELEASED -> { type = "gas_pollution"; value = "released"; }
-            case RADIOACTIVE_ACTIVATED -> {
-                type = "radioactive_ore"; value = "activated";
-                if (actor != null) Sources.get(event.level()).record(event.level(), event.pos(), actor);
-            }
-            case HEAT_ACCEPTED -> {
-                type = "radiogenic_heat"; value = "accepted";
-                actor = Sources.get(event.level()).owner(event.level(), event.pos());
-                if (actor == null) actor = OperationOwners.owner(event.level().getBlockEntity(event.pos()));
-            }
-            default -> throw new IllegalStateException();
-        }
-        if (actor != null) ThreadSignals.emit(event.level().getServer(), actor, type, value,
-            UUID.randomUUID().toString(), event.pos().toShortString());
-    }
-    @SubscribeEvent(priority = EventPriority.LOWEST) public static void broken(BlockEvent.BreakEvent event) {
-        if (!event.isCanceled() && event.getLevel() instanceof ServerLevel level) Sources.get(level).remove(event.getPos());
-    }
     public static final class Sources extends SavedData {
         private final Map<Long, Source> entries = new HashMap<>();
         static Sources get(ServerLevel level) {

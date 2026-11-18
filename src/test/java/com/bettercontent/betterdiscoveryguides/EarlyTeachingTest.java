@@ -50,7 +50,7 @@ final class EarlyTeachingTest {
             .getAsJsonObject().getAsJsonArray("cards");
         var ids = new java.util.HashSet<String>();
         authored.forEach(row -> ids.add(row.getAsJsonObject().get("id").getAsString()));
-        assertEquals(Set.copyOf(ThreadArt.IDS),ids); assertEquals(48,ids.size());
+        assertEquals(Set.copyOf(ThreadArt.IDS),ids); assertEquals(45,ids.size());
         assertTrue(java.util.Collections.disjoint(ids,Set.of("spirits_are_materials","underground_pressure_builds","returned_traces","deaths_door")));
         var types=ThreadArt.BY_ID.values().stream().flatMap(d->d.discoveryRoutes().stream()).map(ThreadDefinition.Route::type).collect(Collectors.toSet());
         assertTrue(java.util.Collections.disjoint(types,Set.of("spirit_acquired","depth_pressure","trace_return","deaths_door","straw_acquired")));
